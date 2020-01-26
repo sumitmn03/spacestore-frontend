@@ -1,0 +1,1884 @@
+body {
+  background-color: rgb(239, 241, 241);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* this is the main color rgb(30, 121, 116) */
+
+/*.... the whole page */
+
+.ms-main-body {
+  position: relative;
+  top: 100px;
+}
+
+/* Top Navbar style */
+
+.ms-top-navbar-container {
+  background-color: rgb(30, 121, 116);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* height is 46 * 2 for each top nav bar = 92px */
+
+.ms-top-navbar {
+  height: 50px;
+  margin: auto;
+}
+
+.ms-top-navbar.ms-second {
+  width: 100%;
+  /* background-color: black; */
+}
+
+.ms-top-navbar-name {
+  display: inline-block;
+  padding: 14px 25px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  margin-left: 15px;
+}
+
+.ms-top-navbar-username {
+  display: inline-block;
+  color: white;
+  margin: 0 170px 0 45px;
+  padding: 7px 15px;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3),
+    -2px -2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ms-top-navbar-children {
+  display: inline;
+}
+
+.ms-top-navbar-children li {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 7px 25px;
+  margin-top: 9px;
+  text-decoration: none;
+}
+
+.ms-top-navbar-children.first li {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 9px 15px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.ms-top-navbar-children li:hover {
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3),
+    -2px -2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* search bar  */
+.search-container {
+  display: inline-block;
+  width: 60%;
+  margin: 0 35px;
+}
+
+.search-container input {
+  padding: 10px 20px;
+  font-size: 14px;
+  width: 90%;
+  outline: none;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.search-container button {
+  padding: 10px 5px;
+  background: white;
+  font-size: 14px;
+  width: 50px;
+  border: none;
+  outline: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* style for home page  */
+
+.ms-home-page {
+  width: 99%;
+  margin: 30px auto 20px;
+}
+
+.ms-home-design,
+.ms-home-store {
+  height: 300px;
+  background-color: white;
+}
+
+.ms-home-design-sidebar,
+.ms-home-store-sidebar {
+  display: inline-block;
+  /* background-color: white; */
+  height: 100%;
+  width: 28%;
+}
+
+.ms-home-design-content-wrapper,
+.ms-home-store-content-wrapper,
+.ms-home-customizer-content-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  line-height: 140%;
+  /* background-color: rgb(22, 95, 129); */
+}
+
+.ms-home-design-content,
+.ms-home-store-content,
+.ms-home-customizer-content {
+  padding: 20px 40px 0;
+  font-weight: 700;
+  color: rgb(56, 55, 55);
+}
+
+.ms-home-design-content span,
+.ms-home-store-content span,
+.ms-home-customizer-content span {
+  display: block;
+  margin-top: 20px;
+  font-weight: normal;
+  line-height: 140%;
+  color: grey;
+}
+
+/* rgb(7, 127, 156); */
+
+.ms-home-design-content-quote,
+.ms-home-store-content-quote,
+.ms-home-customizer-content-quote {
+  margin-top: 30px;
+  color: rgb(30, 121, 116);
+  font-size: 22px;
+  line-height: 200%;
+}
+
+.ms-home-design-content button,
+.ms-home-store-content button,
+.ms-home-customizer-content button {
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background-color: rgb(30, 121, 116);
+  color: white;
+  font-size: 20px;
+}
+
+.ms-home-design-center,
+.ms-home-store-center {
+  /* background-color: white; */
+  display: inline-block;
+  height: 100%;
+  width: 40%;
+  margin: 0 2%;
+}
+
+.ms-home-design-pics-container,
+.ms-home-store-pics-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.ms-home-design-pic,
+.ms-store-design-pic {
+  width: 500px;
+  height: 280px;
+  margin: auto;
+  text-align: center;
+}
+
+.ms-home-design-image,
+.ms-home-store-image {
+  width: 280px;
+  height: 280px;
+  margin-top: 10px;
+}
+
+.ms-home-design-image.open,
+.ms-home-store-image.open {
+  animation-name: home-img-open;
+  animation-duration: 0.5s;
+}
+
+@keyframes home-img-open {
+  from {
+    opacity: 0;
+    margin-left: -250px;
+  }
+  to {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+.ms-home-design-image.close,
+.ms-home-store-image.close {
+  animation-name: home-img-close;
+  animation-duration: 0.5s;
+}
+
+@keyframes home-img-close {
+  from {
+    opacity: 1;
+    margin-left: 0;
+  }
+  to {
+    opacity: 0;
+    margin-left: 250px;
+  }
+}
+
+.ms-home-customize-container {
+  /* margin-top: 35px; */
+  margin-top: 30px;
+}
+
+.ms-home-customize-header {
+  text-align: center;
+  font-size: large;
+  background-color: rgb(30, 121, 116);
+  padding: 15px 0;
+  margin: 0 auto 15px;
+  /* border-radius: 5px; */
+}
+
+.ms-home-customize-header h3 {
+  margin: 0;
+  color: white;
+}
+
+.ms-home-customize-product-container {
+  margin-top: 5px;
+}
+
+.ms-home-customize-product {
+  display: inline-block;
+  width: 300px;
+  background-color: white;
+  height: 350px;
+  margin-left: 29px;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgb(30, 121, 116);
+}
+
+.ms-home-customize-product-image {
+  width: 100%;
+  background-color: white;
+  padding: 20px 0;
+}
+
+.ms-home-customize-product .ms-home-customize-product-image img {
+  height: 250px;
+  width: 250px;
+}
+
+.ms-home-customize-product-name {
+  font-size: large;
+  font-weight: bold;
+  margin-top: 17px;
+  color: white;
+}
+
+.ms-home-customize-product.last {
+  width: 500px;
+  background-color: white;
+}
+
+.ms-home-store {
+  margin-top: 25px;
+}
+
+.ms-home-store-category-container {
+  margin-top: 30px;
+}
+
+.ms-home-store-category-header {
+  padding: 20px 0 35px;
+  margin: 0 auto 1px;
+  /* text-align: center; */
+  background-color: white;
+}
+
+.ms-home-store-category-header h3 {
+  margin: 5px 40px 0;
+  font-size: 20px;
+  font-weight: normal;
+  display: inline-block;
+}
+
+.ms-home-store-category-header button {
+  background-color: rgb(30, 121, 116);
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  float: right;
+  margin-right: 25px;
+}
+
+.ms-home-store-category-product-container {
+  text-align: center;
+}
+
+.ms-home-store-category-product {
+  display: inline-block;
+  width: 370px;
+  height: 345px;
+  margin: 0 1px;
+  /* text-align: center; */
+  border: none;
+  padding: 35px 0 0;
+  background-color: white;
+}
+
+.ms-home-store-category-image-container {
+  height: 320px;
+  width: 320px;
+  margin: auto;
+}
+
+.ms-home-store-category-image {
+  height: 300px;
+  width: 300px;
+  margin: auto;
+}
+
+/* .ms-home-wrapper {
+  width: 90%;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  margin: 0 auto 20px;
+  background-color: transparent;
+}
+
+.ms-home-component {
+  margin: auto;
+  width: 80%;
+  height: 330px;
+  border: 1px solid rgb(224, 223, 223);
+  background-color: white;
+  margin-bottom: 60px;
+}
+
+.ms-home-header {
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+.ms-home-design-span-container {
+  width: 30%;
+  margin: auto;
+  margin-left: 30px;
+}
+
+.ms-home-design-span {
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 80px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.ms-home-btn {
+  float: right;
+  margin-top: 80px;
+  margin-right: 20px;
+  width: 300px;
+  padding: 20px 0;
+  border: 1px solid white;
+  color: white;
+  font-size: 15px;
+}
+
+.ms-home-btn:hover {
+  border-color: rgb(141, 140, 140);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-home-component-design {
+  border: 1px solid rgb(224, 223, 223);
+  background-color: white;
+}
+
+.ms-home-component-about {
+  background-color: rgb(50, 127, 175);
+} */
+
+/* ******************************* */
+
+/* design page */
+
+.ms-design-page {
+  margin-top: 30px;
+}
+
+.canvas-container {
+  margin: auto;
+  margin-top: 35px;
+}
+
+/* **************************** */
+
+/* main canvas*/
+
+.ms-image-and-img-side-changing-button-wrapper {
+  width: 875px;
+  height: 570px;
+  background-color: white;
+  text-align: center;
+  float: left;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin-left: 10px;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+/* ********************* */
+
+/* selct editing components like product, text, upload,  etc..... */
+
+.ms-select-editing-component-wrapper {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin-left: 0px;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  width: 17%;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-select-editing-component {
+  background-color: white;
+  border: 1px solid white;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  text-align: center;
+  width: 100%;
+  /* width: 230px; */
+  padding: 14px 0;
+  margin-bottom: 1px;
+  outline: none;
+}
+
+.ms-select-editing-component:hover {
+  background-color: #51b9ed;
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* its parts */
+
+.ms-select-editing-component-save {
+  margin-bottom: 0;
+}
+
+.ms-select-editing-component-save:hover {
+  background-color: #28a745;
+}
+
+/* ******************** */
+
+/* different viewing angle buttons */
+
+/* ********************* */
+
+.ms-product-view-wrapper {
+  display: inline-block;
+  float: left;
+  margin-left: 10px;
+  position: relative;
+}
+
+.ms-product-view {
+  outline: none;
+  display: block;
+  background-color: white;
+  text-align: center;
+  width: 80px;
+  padding: 17px 0;
+  border: 1px solid rgb(224, 223, 223);
+  margin-bottom: 15px;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.ms-product-view:hover {
+  background-color: rgb(143, 129, 129);
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* text editing components like font family, text color, etc..... */
+
+.ms-product-editing-components-wrapper,
+.ms-text-editing-components-wrapper,
+.ms-image-editing-components-wrapper {
+  position: relative;
+  display: inline-block;
+  float: left;
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin-left: 10px;
+  width: 17%;
+}
+
+.ms-product-editing-component,
+.ms-text-editing-component,
+.ms-image-editing-component {
+  background-color: white;
+  border: 1px solid white;
+  text-align: center;
+  width: 100%;
+  /* width: 230px; */
+  padding: 14px 0;
+  margin-bottom: 10px;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-text-editing-input {
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.ms-product-editing-component:hover,
+.ms-text-editing-component:hover,
+.ms-image-editing-component:hover {
+  background-color: #51b9ed;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-text-editing-input:hover {
+  border: 1px solid rgb(175, 174, 174);
+  background-color: whitesmoke;
+}
+
+.ms-text-editing-component-remove:hover,
+.ms-image-editing-component-remove:hover {
+  background-color: #e91227;
+}
+
+/* ******************** */
+
+/* bold, italic and underline button */
+.ms-font-align-btn {
+  background-color: white;
+  border: 1px solid rgb(224, 223, 223);
+  text-align: center;
+  width: 60px;
+  padding: 12px 0;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.ms-font-align-btn:hover {
+  background-color: #51b9ed;
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* *************************** */
+
+.ms-font-weightnstyle-btn {
+  background-color: white;
+  border: 1px solid rgb(224, 223, 223);
+  /* border: 1px solid rgb(144, 212, 42); */
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  text-align: center;
+  width: 80px;
+  padding: 12px 0;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.ms-font-weightnstyle-btn:hover {
+  background-color: #51b9ed;
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-font-bold-btn {
+  margin-right: 11px;
+}
+
+/* marketplace sidebar a.k.a filter which will be on the left side of the body */
+
+.ms-marketplace-filter-component {
+  position: relative;
+  float: left;
+  margin-left: 0px;
+  margin-right: 5px;
+  width: 17%;
+  cursor: context-menu;
+}
+
+.ms-marketplace-filter-header {
+  font-size: larger;
+  padding: 15px 30px;
+  margin: 0 0 3px;
+  font-weight: normal;
+  background-color: white;
+}
+
+.ms-marketplace-filter-name {
+  padding: 5px 0;
+  font-size: 17px;
+}
+
+.ms-marketplace-filter {
+  background-color: white;
+  color: rgb(92, 91, 91);
+  overflow: hidden;
+  padding: 21px 30px 16px;
+  border-bottom: 1px solid rgb(238, 235, 235);
+  /* margin-bottom: 1px; */
+}
+
+.ms-marketplace-filter-options-container {
+  margin-top: 10px;
+  display: none;
+}
+
+.ms-marketplace-filter-option {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.ms-marketplace-filter-option span {
+  width: 170px;
+  display: inline-block;
+  overflow: hidden;
+  word-wrap: none;
+  height: 20px;
+}
+
+.ms-marketplace-filter-option input {
+  float: right;
+  height: 14px;
+  width: 14px;
+}
+
+/* ******************************************** */
+
+/* main marketplace header */
+
+.ms-main-marketplace {
+  margin-top: 30px;
+}
+
+.ms-main-marketplace-header {
+  text-align: right;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* marketplace header sort by  */
+
+.ms-main-marketplace-sort-by-value {
+  margin-left: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  /* padding: 0 10px; */
+}
+
+/* main marketplace body part */
+
+.ms-main-marketplace-body-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  background-color: white;
+  width: 81%;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 60px;
+}
+
+.ms-main-marketplace-product {
+  /* background-color: rgb(194, 188, 188); */
+  height: 450px;
+  width: 295px;
+  /* border: 1px solid black; */
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  padding-top: 10px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+.ms-main-marketplace-product:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* ******************************************** */
+
+/* marketplace product name */
+
+.ms-main-marketplace-product-name {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+/* marketplace product rating */
+
+.ms-main-marketplace-product-rating {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 50px;
+  /* border: 1px solid yellow; */
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 5px;
+  text-align: center;
+}
+
+/* marketplace product price */
+
+.ms-main-marketplace-product-price-wrapper {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.ms-main-marketplace-product-current-price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ms-main-marketplace-product-original-price {
+  color: gray;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+/* marketplace product sizes */
+
+.ms-main-marketplace-product-sizes {
+  margin-left: 10px;
+}
+
+/* order page styles */
+
+.ms-list-of-orders-page-wrapper {
+  margin: auto;
+  margin-top: 30px;
+  width: 80%;
+}
+
+.ms-orders-page-header {
+  background-color: white;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: larger;
+  padding: 10px 0 10px 20px;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-single-order {
+  color: black;
+  background-color: white;
+  height: 170px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-single-order:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-single-order-image {
+  float: left;
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  margin-left: 40px;
+}
+
+.ms-single-order-description1 {
+  float: left;
+  margin: 30px;
+  margin-top: 30px;
+  line-height: 140%;
+  width: 300px;
+}
+
+.ms-single-order-description2 {
+  float: left;
+  margin-left: 30px;
+  margin-top: 30px;
+  line-height: 140%;
+  width: 300px;
+  display: inline-block;
+}
+
+.ms-single-order-name {
+  margin-bottom: 5px;
+}
+
+/* past order detail page style */
+
+/* past order detail page wrapper */
+
+.ms-past-order-detail-wrapper {
+  margin: auto;
+  margin-top: 30px;
+  width: 60%;
+  /* width: 80%; */
+}
+
+/* past order delivery detail */
+
+.ms-past-order-detail-firstblock {
+  background-color: white;
+  /* height: 250px; */
+  margin: 0 auto;
+  border: 1px solid rgb(224, 223, 223);
+  color: black;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  /* padding: 10px 0 10px 20px; */
+}
+
+.ms-past-order-address-header {
+  font-size: large;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.ms-past-order-detail-address {
+  line-height: 140%;
+  width: 300px;
+  display: inline-block;
+}
+
+/* past order payment detail */
+
+.ms-past-order-payment-details {
+  position: absolute;
+  line-height: 140%;
+  width: 200px;
+  display: inline-block;
+  margin-left: 375px;
+}
+
+.ms-past-order-payment-header {
+  font-size: large;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.ms-past-order-payment-amount {
+  float: right;
+}
+
+/* past order product detail */
+
+.ms-past-order-detail-header {
+  background-color: white;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: larger;
+  padding: 10px 0 10px 20px;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-past-order-detail-secondblock {
+  background-color: white;
+  height: 170px;
+  margin: 0 auto 20px auto;
+  border: 1px solid rgb(224, 223, 223);
+  color: black;
+}
+
+.ms-past-order-image {
+  float: left;
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+}
+
+.ms-past-order-description {
+  float: left;
+  margin: 10px;
+  line-height: 140%;
+}
+
+/* past order various option buttons */
+
+.ms-past-order-option-buttons-wrapper {
+  width: 200px;
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.ms-past-order-option-buttons {
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+  margin-bottom: 10px;
+  border: 1px solid rgb(196, 193, 193);
+  background-color: white;
+}
+
+.ms-past-order-option-buttons:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #51b9ed;
+  border-color: white;
+}
+
+/* shopping cart page styles */
+
+.ms-cart-page {
+  margin-top: 30px;
+}
+
+.ms-cart-container {
+  margin: 0 auto 0 auto;
+  width: 85%;
+  padding-bottom: 40px;
+}
+
+.ms-cart-product-container {
+  display: inline-block;
+  width: 65%;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-cart-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: 700;
+  font-size: larger;
+  padding: 15px 0 15px 20px;
+}
+
+.ms-cart-total-amt {
+  background-color: white;
+  font-weight: 700;
+  padding: 15px 0 15px 20px;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-cart-total-amt span {
+  margin-left: 84%;
+}
+
+.ms-cart-amount-container {
+  float: right;
+  margin-left: 20px;
+  width: calc(35% - 25px);
+  border: 1px solid rgb(224, 223, 223);
+  line-height: 140%;
+}
+
+.ms-cart-single-order {
+  padding: 10px 0;
+  background-color: white;
+  height: 170px;
+  margin-bottom: 1px;
+}
+
+.ms-cart-remove-btn-container {
+  margin-top: 30px;
+  display: block;
+}
+
+.ms-cart-remove-btn,
+.ms-cart-sfl-btn {
+  width: 130px;
+  padding: 6px 0;
+  border: 1px solid rgb(196, 193, 193);
+  background-color: white;
+}
+
+.ms-cart-sfl-btn {
+  margin-right: 20px;
+}
+
+.ms-cart-sfl-btn:hover {
+  background-color: #51b9ed;
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-cart-remove-btn:hover {
+  background-color: rgb(245, 26, 26);
+  border-color: rgb(199, 197, 197);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-cart-single-order {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ms-cart-single-order-price {
+  display: inline-block;
+  width: 50px;
+  margin-left: 40px;
+  font-weight: bold;
+}
+
+.ms-cart-order-payment {
+  padding: 20px;
+  display: block;
+  background-color: white;
+}
+
+.ms-cart-order-payment-amount {
+  float: right;
+  margin-right: 20px;
+}
+
+.ms-cart-order-total-amt-label {
+  padding: 20px;
+  display: block;
+  background-color: white;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.ms-cart-order-total-amt {
+  float: right;
+  margin-right: 10px;
+}
+
+.ms-cart-order-btn {
+  /* background-color: rgb(218, 133, 7); */
+  background-color: rgb(241, 160, 37);
+  padding: 15px;
+  width: 100%;
+  border: 1px solid rgb(196, 193, 193);
+  margin-top: 2px;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+}
+
+.ms-cart-order-btn:hover {
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* ************************************************* */
+/* ************************************************** */
+
+/* wishlist styles */
+
+.ms-wishlist-page {
+  display: block;
+  width: 60%;
+  margin: auto;
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.ms-wishlist-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: 700;
+  font-size: larger;
+  padding: 15px 0 15px 20px;
+}
+
+.ms-wishlist-single-order {
+  padding: 10px 0;
+  background-color: white;
+  height: 170px;
+  margin-bottom: 1px;
+}
+
+.ms-wishlist-single-order-image {
+  float: left;
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  margin-left: 40px;
+}
+
+.ms-wishlist-single-order-description {
+  float: left;
+  margin: 30px;
+  line-height: 140%;
+  width: 400px;
+  padding: 10px 0;
+  height: 130px;
+  margin-bottom: 1px;
+}
+
+.ms-wishlist-single-order-name {
+  margin-bottom: 5px;
+}
+
+.ms-wishlist-btn-container {
+  display: inline-block;
+  width: 130px;
+  margin-left: 30px;
+}
+
+.ms-wishlist-sfl-btn,
+.ms-wishlist-remove-btn {
+  width: 130px;
+  padding: 6px 0;
+  border: 1px solid rgb(196, 193, 193);
+  background-color: white;
+}
+
+.ms-wishlist-sfl-btn:hover {
+  background-color: #51b9ed;
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-wishlist-remove-btn:hover {
+  background-color: rgb(245, 26, 26);
+  border-color: rgb(199, 197, 197);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* ********************************************** */
+/* ********************************************** */
+/* ********************************************** */
+
+/* store  */
+
+.ms-store-wrapper {
+  width: 90%;
+  height: 100%;
+  padding-bottom: 40px;
+  margin: 0 auto 20px;
+  background-color: transparent;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.2) 25%,
+      rgba(0, 0, 0, 0.2) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.2) 75%,
+      rgba(0, 0, 0, 0.2) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.2) 25%,
+      rgba(0, 0, 0, 0.2) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.2) 75%,
+      rgba(0, 0, 0, 0.2) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 50px 50px;
+}
+
+.ms-store-category-container {
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-store-header {
+  text-align: center;
+  color: rgb(5, 207, 197);
+  margin: auto;
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.ms-store-home-img-container {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  margin-top: 55px;
+}
+
+.ms-store-home-img-label {
+  font-style: italic;
+  font-size: 30px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px 0;
+  width: 295px;
+  background-color: lightseagreen;
+  color: white;
+}
+
+/* Styling the about page */
+
+.ms-about-page {
+  width: 800px;
+  height: 300px;
+  margin: 120px auto 0;
+}
+
+.ms-about-page-header {
+  border: 1px solid rgb(181, 214, 213);
+  padding: 10px 0 10px 20px;
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-about-page-content {
+  line-height: 200%;
+  padding: 50px 40px 50px;
+  background-color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid rgb(181, 214, 213);
+}
+
+/* styles for customer service */
+
+.ms-main-cs {
+  width: 84%;
+  height: 630px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.ms-cs-main-queries {
+  display: inline-block;
+  width: 350px;
+  height: 100%;
+  overflow-y: scroll;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-cs-main-solution {
+  float: right;
+  width: 900px;
+}
+
+.ms-cs-main-solution-answer {
+  background-color: white;
+  padding: 20px 20px 0;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-cs-main-solution-contact {
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgb(224, 223, 223);
+}
+
+.ms-cs-main-solution-answer-question {
+  font-size: large;
+  font-weight: normal;
+}
+
+.ms-cs-main-solution-answer-answer {
+  line-height: 190%;
+  font-size: 17px;
+}
+
+.ms-cs-main-solution-contact-container {
+  font-size: 17px;
+  margin-top: 20px;
+}
+
+.ms-cs-main-solution-call {
+  display: inline-block;
+  width: 200px;
+  padding: 20px 0;
+  text-align: center;
+  border: 1px solid rgb(224, 223, 223);
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.ms-cs-main-solution-email {
+  display: inline-block;
+  width: 200px;
+  padding: 20px 0;
+  text-align: center;
+  border: 1px solid rgb(224, 223, 223);
+  border-radius: 15px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.ms-cs-main-solution-call:hover,
+.ms-cs-main-solution-email:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* login page styles */
+
+.ms-login-page {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ms-login-page-container {
+  margin: 10% auto;
+  width: 60%;
+  height: 460px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: login-open;
+  animation-duration: 1s;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.ms-login-page-close {
+  float: right;
+  width: 30px;
+  font-size: 40px;
+  margin-right: 5px;
+  color: rgb(56, 54, 54);
+}
+
+.ms-login-page-sidebar {
+  position: relative;
+  float: left;
+  background-color: #428bca;
+  width: 290px;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.ms-login-page-sidebar-content {
+  margin: 100px 20px;
+  line-height: 140%;
+  color: white;
+  font-size: 20px;
+  /* font-weight: 700; */
+}
+
+.ms-login-page-body {
+  padding: 10px 20px;
+  width: calc(100% - 330px);
+  float: right;
+  margin: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ms-login-page-body h2 {
+  margin: 0 auto 30px;
+  width: 340px;
+}
+
+.ms-login-page-close:hover,
+.ms-login-page-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes login-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ms-login-form {
+  margin: auto;
+  width: 340px;
+  margin-bottom: 20px;
+}
+
+.ms-login-inp {
+  display: block;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 5px;
+  padding: 0 20px;
+  background-color: rgb(239, 241, 241);
+  outline: none;
+}
+
+.ms-login-submit {
+  display: block;
+  width: 340px;
+  height: 40px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #428bca;
+  padding: 0 20px;
+  outline: none;
+}
+
+.ms-login-submit:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-login-to-register {
+  font-weight: 700;
+  width: 340px;
+  margin: 0 auto 20px;
+}
+
+.ms-login-to-register-link {
+  color: #428bca;
+}
+
+/* *************************************************** */
+/* *************************************************** */
+
+/* auth page styles */
+
+.ms-auth-page {
+  display: block;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ms-auth-page-container {
+  margin: 10% auto;
+  width: 60%;
+  height: 460px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: auth-open;
+  animation-duration: 1s;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.ms-auth-page-close {
+  float: right;
+  width: 30px;
+  font-size: 40px;
+  margin-right: 5px;
+  color: rgb(56, 54, 54);
+}
+
+.ms-auth-page-sidebar {
+  position: relative;
+  float: left;
+  background-color: #428bca;
+  width: 290px;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.ms-auth-page-sidebar-content {
+  margin: 100px 20px;
+  line-height: 140%;
+  color: white;
+  font-size: 20px;
+  /* font-weight: 700; */
+}
+
+.ms-auth-page-body {
+  padding: 10px 20px;
+  /* padding: 55px 20px; */
+  width: calc(100% - 330px);
+  float: right;
+  margin: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ms-auth-page-body h2 {
+  margin: 0 auto 30px;
+  width: 340px;
+}
+
+.ms-auth-page-close:hover,
+.ms-auth-page-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes auth-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ms-auth-form {
+  margin: auto;
+  width: 340px;
+  margin-bottom: 20px;
+}
+
+.ms-auth-inp {
+  display: block;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 5px;
+  padding: 0 20px;
+  background-color: rgb(239, 241, 241);
+  outline: none;
+}
+
+.ms-auth-submit {
+  display: block;
+  width: 340px;
+  height: 40px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #428bca;
+  padding: 0 20px;
+  outline: none;
+}
+
+.ms-auth-submit:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-alt-page {
+  font-weight: 700;
+  width: 340px;
+  margin: 0 auto 20px;
+}
+
+.ms-alt-page-link {
+  color: #428bca;
+}
+
+.ms-auth-otp-warning {
+  font-size: 14px;
+  color: red;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: -10px;
+}
+
+/* *************************************************** */
+/* *************************************************** */
+
+.ms-register-page {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ms-register-page-container {
+  margin: 10% auto;
+  width: 60%;
+  height: 460px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: register-open;
+  animation-duration: 1s;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.ms-register-page-close {
+  float: right;
+  width: 30px;
+  font-size: 40px;
+  margin-right: 5px;
+  color: rgb(56, 54, 54);
+}
+
+.ms-register-page-sidebar {
+  position: relative;
+  float: left;
+  background-color: #428bca;
+  width: 290px;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.ms-register-page-sidebar-content {
+  margin: 100px 20px;
+  line-height: 140%;
+  color: white;
+  font-size: 20px;
+}
+
+.ms-register-page-body {
+  padding: 35px 20px;
+  width: calc(100% - 330px);
+  float: right;
+  margin: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ms-register-page-body h2 {
+  margin: 20px auto 30px;
+  width: 340px;
+}
+
+.ms-register-page-close:hover,
+.ms-register-page-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes register-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ms-register-form {
+  margin: auto;
+  width: 340px;
+  margin-bottom: 20px;
+}
+
+.ms-register-inp {
+  display: block;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 5px;
+  padding: 0 20px;
+  background-color: rgb(239, 241, 241);
+  outline: none;
+}
+
+.ms-register-submit {
+  display: block;
+  width: 340px;
+  height: 40px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #428bca;
+  padding: 0 20px;
+  outline: none;
+}
+
+.ms-register-submit:hover {
+  border-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-register-to-login {
+  font-weight: 700;
+  width: 340px;
+  margin: 0 auto 20px;
+}
+
+.ms-register-to-login-link {
+  color: #428bca;
+}
+
+.ms-register-otp-warning {
+  font-size: 14px;
+  color: red;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: -10px;
+}
+
+/* *********************************************************** */
+
+/* profile page styles */
+
+.ms-profile-page {
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.ms-profile-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: 700;
+  font-size: larger;
+  padding: 15px 0 15px 30px;
+}
+
+.ms-profile-body {
+  background-color: white;
+  padding: 15px 0 15px 30px;
+}
+
+.ms-profile-name-container {
+  display: inline-block;
+}
+
+.ms-profile-form-name-label {
+  display: block;
+  font-size: 17px;
+  color: #428bca;
+}
+
+.ms-profile-form-name-inp {
+  margin-top: 20px;
+  display: block;
+  padding: 15px 30px;
+  width: 250px;
+  outline: none;
+  border: none;
+  background-color: rgb(245, 242, 242);
+}
+.ms-profile-form-gender-btn {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  margin-right: 25px;
+  border-radius: 5px;
+}
+
+.ms-profile-form button {
+  background-color: rgb(30, 121, 116);
+  outline: none;
+  border: none;
+  width: 300px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ms-user-update-otp-warning {
+  font-size: 14px;
+  color: red;
+}
+
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+
+.ms-fl {
+  float: left;
+}
+
+.ms-fr {
+  float: right;
+}
+
+.ms-lh-140 {
+  line-height: 140%;
+}
+
+.ms-block {
+  display: block;
+}
+
+.ms-mt-10 {
+  margin-top: 10px;
+}
+
+.ms-mt-20 {
+  margin-top: 20px;
+}
+
+.ms-mt-30 {
+  margin-top: 30px;
+}
+
+.ms-mt-40 {
+  margin-top: 40px;
+}
+
+.ms-ml-5 {
+  margin-left: 5px;
+}
+
+.ms-ml-40 {
+  margin-left: 40px;
+}
+
+.ms-ml-50 {
+  margin-left: 50px;
+}
+
+.ms-mb-10 {
+  margin-bottom: 10px;
+}
+
+.ms-mb-30 {
+  margin-bottom: 30px;
+}
+
+.ms-light-green-bag-col {
+  background-color: rgb(76, 148, 76);
+}
+
+.ms-lightseagreen-bag-col {
+  background-color: lightseagreen;
+}
+
+.ms-wd-450 {
+  width: 450px;
+}
