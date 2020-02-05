@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 
 export class SingleWishlistProduct extends Component {
   render() {
@@ -6,21 +7,28 @@ export class SingleWishlistProduct extends Component {
 
     return (
       <div className="ms-wishlist-single-order">
-        <div className="ms-wishlist-single-order-image">
-          <img
-            width="150px"
-            height="150px"
-            src={"http://localhost:8000" + product.image}
-            alt="product"
-          />
-        </div>
+        <Link to={`/product/${product.id}`}>
+          <div className="ms-wishlist-single-order-image">
+            <img
+              width="150px"
+              height="150px"
+              src={"http://localhost:8000" + product.image}
+              alt="product"
+            />
+          </div>
+        </Link>
         <div className="ms-wishlist-single-order-description ms-mt-10">
-          <div className="ms-mb-10">{product.name}</div>
-          {product.modified_rating === null ? (
+          <Link to={`/product/${product.id}`} className="ms-single-order-link">
+            <div className="ms-mb-10">{product.name}</div>
+          </Link>
+          {product.rating === null ? (
             <Fragment />
           ) : (
-            <div className="ms-main-marketplace-product-rating ms-ml-5">
-              {product.modified_rating} / 5
+            <div
+              style={{ padding: "2px 5px" }}
+              className="ms-main-marketplace-product-rating ms-ml-5"
+            >
+              {product.rating}
             </div>
           )}
           <div className="ms-ml-5 ms-mb-10">XXS, XXS, XS, S, M, L, XL, XXL</div>

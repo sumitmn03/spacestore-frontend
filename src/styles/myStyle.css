@@ -3,6 +3,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Chrome, Safari, Edge, Opera  hiding the arrows in input type number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* this is the main color rgb(30, 121, 116) */
 
 /*.... the whole page */
@@ -49,10 +60,19 @@ body {
 .ms-top-navbar-username {
   display: inline-block;
   color: white;
-  margin: 0 170px 0 45px;
+  margin: 0 300px 0 45px;
   padding: 7px 15px;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3),
     -2px -2px 4px 0 rgba(0, 0, 0, 0.3);
+  width: 100px;
+  text-align: center;
+}
+
+.ms-top-navbar-username-proxy {
+  display: inline-block;
+  margin: 0 300px 0 45px;
+  padding: 7px 15px;
+  width: 100px;
 }
 
 .ms-top-navbar-children {
@@ -114,7 +134,8 @@ body {
 
 .ms-home-page {
   width: 99%;
-  margin: 30px auto 20px;
+  margin: 15px auto 20px;
+  padding-bottom: 10px;
 }
 
 .ms-home-design,
@@ -150,6 +171,10 @@ body {
   color: rgb(56, 55, 55);
 }
 
+.ms-home-store-content.quote {
+  padding-left: 10px;
+}
+
 .ms-home-design-content span,
 .ms-home-store-content span,
 .ms-home-customizer-content span {
@@ -169,6 +194,12 @@ body {
   color: rgb(30, 121, 116);
   font-size: 22px;
   line-height: 200%;
+}
+
+.ms-home-store-content-services {
+  display: block;
+  float: left;
+  margin-left: 10px;
 }
 
 .ms-home-design-content button,
@@ -252,7 +283,7 @@ body {
 
 .ms-home-customize-container {
   /* margin-top: 35px; */
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .ms-home-customize-header {
@@ -281,7 +312,7 @@ body {
   margin-left: 29px;
   overflow: hidden;
   text-align: center;
-  background-color: rgb(30, 121, 116);
+  background-color: rgb(239, 241, 241);
 }
 
 .ms-home-customize-product-image {
@@ -296,10 +327,10 @@ body {
 }
 
 .ms-home-customize-product-name {
-  font-size: large;
-  font-weight: bold;
-  margin-top: 17px;
-  color: white;
+  color: rgb(58, 55, 55);
+  background-color: white;
+  padding: 15px 0;
+  margin-top: 1px;
 }
 
 .ms-home-customize-product.last {
@@ -308,11 +339,21 @@ body {
 }
 
 .ms-home-store {
-  margin-top: 25px;
+  margin-top: 15px;
+}
+
+.ms-home-predesigned-header {
+  margin-top: 10px;
+  margin-bottom: 0;
+  background-color: white;
+  padding: 20px 45px;
+  font-size: 20px;
+  font-weight: normal;
+  color: rgb(58, 55, 55);
 }
 
 .ms-home-store-category-container {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .ms-home-store-category-header {
@@ -349,7 +390,6 @@ body {
   display: inline-block;
   width: 370px;
   height: 345px;
-  margin: 0 1px;
   /* text-align: center; */
   border: none;
   padding: 35px 0 0;
@@ -366,6 +406,88 @@ body {
   height: 300px;
   width: 300px;
   margin: auto;
+}
+
+/* category */
+
+/* main marketplace body part */
+
+.ms-home-category-body {
+  margin-top: 10px;
+}
+
+.ms-home-category-header {
+  background-color: white;
+  margin-top: 0;
+  margin-bottom: 1px;
+  font-weight: normal;
+  font-size: larger;
+  padding: 15px 0 15px 20px;
+}
+
+.ms-home-category-product-container {
+  background-color: white;
+  padding: 0 0 10px 4px;
+}
+
+.ms-home-category-product {
+  display: inline-block;
+  height: 395px;
+  width: 286px;
+  margin: 0 5px 5px;
+  padding-top: 10px;
+}
+
+.ms-home-category-product:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* it is shown when there is no products found MainMarketplace component */
+.ms-home-category-noproducts {
+  padding: 50px 0 50px 50px;
+  font-size: 20px;
+}
+
+/* ******************************************** */
+
+/* marketplace product name */
+
+.ms-home-category-product-name {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+/* marketplace product rating */
+
+.ms-home-category-product-rating {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 30px;
+  /* border: 1px solid yellow; */
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 5px;
+  text-align: center;
+}
+
+/* marketplace product price */
+
+.ms-home-category-product-price-wrapper {
+  margin-left: 20px;
+}
+
+.ms-home-category-product-current-price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ms-home-category-product-original-price {
+  color: gray;
+  text-decoration: line-through;
+  margin-left: 10px;
 }
 
 /* .ms-home-wrapper {
@@ -439,7 +561,7 @@ body {
 /* design page */
 
 .ms-design-page {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .canvas-container {
@@ -631,10 +753,8 @@ body {
 /* marketplace sidebar a.k.a filter which will be on the left side of the body */
 
 .ms-marketplace-filter-component {
-  position: relative;
+  margin: 0 5px 50px 0;
   float: left;
-  margin-left: 0px;
-  margin-right: 5px;
   width: 17%;
   cursor: context-menu;
 }
@@ -654,7 +774,7 @@ body {
 
 .ms-marketplace-filter {
   background-color: white;
-  color: rgb(92, 91, 91);
+  color: rgb(36, 35, 35);
   overflow: hidden;
   padding: 21px 30px 16px;
   border-bottom: 1px solid rgb(238, 235, 235);
@@ -681,8 +801,8 @@ body {
 
 .ms-marketplace-filter-option input {
   float: right;
-  height: 14px;
-  width: 14px;
+  height: 15px;
+  width: 15px;
 }
 
 /* ******************************************** */
@@ -690,7 +810,7 @@ body {
 /* main marketplace header */
 
 .ms-main-marketplace {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .ms-main-marketplace-header {
@@ -703,39 +823,49 @@ body {
 
 .ms-main-marketplace-sort-by-value {
   margin-left: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 3px;
   outline: none;
-  /* padding: 0 10px; */
+  border: none;
+  padding: 5px 0px 5px 10px;
+  background-color: rgb(30, 121, 116);
+  color: white;
+}
+
+.ms-main-marketplace-sort-by-value option {
 }
 
 /* main marketplace body part */
 
-.ms-main-marketplace-body-wrapper {
+.ms-main-marketplace-body {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
+  float: right;
   margin-left: 5px;
   background-color: white;
   width: 81%;
   padding-top: 10px;
   padding-left: 10px;
-  padding-bottom: 5px;
-  margin-bottom: 60px;
+  padding-bottom: 15px;
+  margin-bottom: 150px;
 }
 
 .ms-main-marketplace-product {
-  /* background-color: rgb(194, 188, 188); */
   height: 450px;
   width: 295px;
-  /* border: 1px solid black; */
   float: left;
   margin-right: 8px;
   margin-bottom: 5px;
   padding-top: 10px;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
+
 .ms-main-marketplace-product:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* it is shown when there is no products found MainMarketplace component */
+.ms-main-marketplace-noproducts {
+  padding: 50px 0 50px 50px;
+  font-size: 20px;
 }
 
 /* ******************************************** */
@@ -754,7 +884,7 @@ body {
 .ms-main-marketplace-product-rating {
   margin-left: 10px;
   margin-bottom: 10px;
-  width: 50px;
+  width: 30px;
   /* border: 1px solid yellow; */
   background-color: green;
   color: white;
@@ -785,35 +915,40 @@ body {
 
 .ms-main-marketplace-product-sizes {
   margin-left: 10px;
+  color: gray;
+}
+
+.ms-main-marketplace-product-sizes-header {
+  color: #000;
+  margin-right: 10px;
+}
+
+.ms-main-marketplace-product-sizes-children {
+  color: grey;
+  margin-right: 10px;
 }
 
 /* order page styles */
 
 .ms-list-of-orders-page-wrapper {
-  margin: auto;
-  margin-top: 30px;
+  margin: 30px auto;
   width: 80%;
 }
 
 .ms-orders-page-header {
   background-color: white;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
   font-weight: 700;
-  font-size: larger;
-  padding: 10px 0 10px 20px;
-  border: 1px solid rgb(224, 223, 223);
+  font-size: large;
+  padding: 15px 0 15px 20px;
 }
 
 .ms-single-order {
   color: black;
   background-color: white;
   height: 170px;
-  margin-bottom: 20px;
-  border: 1px solid rgb(224, 223, 223);
-}
-
-.ms-single-order:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 1px;
+  /* border: 1px solid rgb(224, 223, 223); */
 }
 
 .ms-single-order-image {
@@ -891,7 +1026,7 @@ body {
   line-height: 140%;
   width: 200px;
   display: inline-block;
-  margin-left: 375px;
+  margin-left: 365px;
 }
 
 .ms-past-order-payment-header {
@@ -935,6 +1070,10 @@ body {
   float: left;
   margin: 10px;
   line-height: 140%;
+}
+
+.ms-past-order-description div {
+  margin-top: 10px;
 }
 
 /* past order various option buttons */
@@ -983,7 +1122,7 @@ body {
   background-color: white;
   margin-bottom: 1px;
   font-weight: 700;
-  font-size: larger;
+  font-size: large;
   padding: 15px 0 15px 20px;
 }
 
@@ -1089,10 +1228,10 @@ body {
   font-weight: bold;
   font-size: large;
   color: white;
+  outline: none;
 }
 
 .ms-cart-order-btn:hover {
-  border-color: white;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -1105,7 +1244,7 @@ body {
   display: block;
   width: 60%;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 25px;
   padding-bottom: 40px;
 }
 
@@ -1113,7 +1252,7 @@ body {
   background-color: white;
   margin-bottom: 1px;
   font-weight: 700;
-  font-size: larger;
+  font-size: large;
   padding: 15px 0 15px 20px;
 }
 
@@ -1145,6 +1284,16 @@ body {
 
 .ms-wishlist-single-order-name {
   margin-bottom: 5px;
+}
+
+.ms-single-order-link {
+  text-decoration: none;
+  color: black;
+  cursor: context-menu;
+}
+
+.ms-single-order-link:hover {
+  color: #047feb;
 }
 
 .ms-wishlist-btn-container {
@@ -1277,7 +1426,7 @@ body {
   width: 84%;
   height: 630px;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .ms-cs-main-queries {
@@ -1599,6 +1748,7 @@ body {
 
 .ms-alt-page-link {
   color: #428bca;
+  cursor: context-menu;
 }
 
 .ms-auth-otp-warning {
@@ -1783,9 +1933,10 @@ body {
   padding: 15px 30px;
   width: 250px;
   outline: none;
-  border: none;
-  background-color: rgb(245, 242, 242);
+  border: 1px solid rgb(199, 196, 196);
+  background-color: white;
 }
+
 .ms-profile-form-gender-btn {
   outline: none;
   border: none;
@@ -1799,18 +1950,993 @@ body {
   background-color: rgb(30, 121, 116);
   outline: none;
   border: none;
-  width: 300px;
-  height: 50px;
+  width: 220px;
+  height: 45px;
   color: white;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .ms-user-update-otp-warning {
   font-size: 14px;
   color: red;
 }
+
+/* my account and more style */
+
+.ms-myaccount-page,
+.ms-more-page,
+.ms-upload-page {
+  width: 40%;
+  margin: 30px auto 30px;
+}
+
+.ms-myaccount-header,
+.ms-more-header,
+.ms-upload-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: bold;
+  font-size: larger;
+  padding: 15px 0 15px 20px;
+}
+
+.ms-myaccount-body,
+.ms-more-body,
+.ms-upload-body {
+  background-color: white;
+  padding: 15px 0 15px 20px;
+}
+
+.ms-myaccount-body-option,
+.ms-more-body-option {
+  display: inline-block;
+  padding: 15px;
+  width: 230px;
+  font-size: 17px;
+  text-align: center;
+  margin: 0 15px 20px;
+  color: rgb(53, 51, 51);
+  border-radius: 3px;
+  color: white;
+  background-color: #428bca;
+}
+
+.ms-myaccount-body-option:hover,
+.ms-more-body-option:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* product page */
+.ms-product-page {
+  width: 1300px;
+  margin: 15px auto 20px;
+}
+
+.ms-product-page-main-contents {
+  background-color: white;
+  padding-top: 10px;
+  margin-bottom: 50px;
+}
+
+.ms-product-page-main-first {
+  float: left;
+  width: 550px;
+  height: 650px;
+  position: sticky;
+  top: 115px;
+  /* background-color: grey; */
+}
+
+.ms-product-page-images-container {
+  height: 490px;
+}
+
+.ms-product-page-main-image-nav-container {
+  float: left;
+  width: 90px;
+  height: 480px;
+  overflow: hidden;
+}
+
+.ms-product-page-main-image-nav {
+  width: 68px;
+  height: 68px;
+  margin: 10px auto 0;
+  border: 1px solid rgb(178, 189, 196);
+}
+
+.ms-product-page-main-image-container {
+  float: left;
+  width: calc(100% - 90px);
+  height: 490px;
+  text-align: center;
+}
+
+.ms-product-page-main-image-container img {
+}
+
+.ms-product-page-main-button {
+  margin-top: 20px;
+}
+
+.ms-product-page-main-button-quantity,
+.ms-product-page-main-button-size {
+  display: inline-block;
+  margin-top: 5px;
+  width: 188px;
+  display: inline-block;
+  margin-left: calc(100% - (420px + 20px));
+  color: black;
+  border: 1px solid rgb(223, 217, 217);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-main-button-size {
+  margin-left: 30px;
+  text-align: center;
+  position: relative;
+}
+
+/* product size .dropdown */
+
+.ms-product-page-main-button-size button {
+  padding: 10px 0;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 14px;
+}
+
+.ms-product-page-main-button-size-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  bottom: 35px;
+}
+
+.ms-product-page-main-button-size-content li {
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.ms-product-page-main-button-size:hover
+  .ms-product-page-main-button-size-content {
+  display: block;
+}
+
+/* *************************** */
+
+.ms-product-page-main-button-quantity span {
+  display: inline-block;
+  padding: 10px 0;
+  width: calc(100% - 40px);
+  text-align: center;
+  font-size: 14px;
+}
+
+.ms-product-page-main-button-quantity input {
+  display: inline-block;
+  width: 20px;
+  border: 1px solid rgb(202, 200, 200);
+  outline: none;
+  background-color: rgb(250, 249, 249);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.ms-product-page-main-button-atc,
+.ms-product-page-main-button-bn {
+  display: inline-block;
+  width: 190px;
+  padding: 8px 0;
+  margin-left: calc(100% - (420px + 20px));
+  border: 1px solid rgb(170, 132, 5);
+  outline: none;
+  background-color: rgb(231, 180, 11);
+  /* color: white; */
+  /* font-weight: bold; */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.ms-product-page-main-button-atc:hover,
+.ms-product-page-main-button-bn:hover {
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2),
+    -2px -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-main-button-bn {
+  margin-left: 30px;
+  background-color: rgb(245, 140, 4);
+}
+
+.ms-product-page-main-second {
+  margin-left: 600px;
+  width: calc(100% - 600px);
+  min-height: 700px;
+  padding: 0 0 40px;
+}
+
+.ms-product-page-main-second-name {
+  margin: 15px 0 10px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.ms-product-page-rating {
+  margin-bottom: 10px;
+  width: 30px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 5px;
+  text-align: center;
+}
+
+.ms-product-page-price-wrapper {
+  margin-bottom: 10px;
+}
+
+.ms-product-page-current-price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ms-product-page-original-price {
+  color: gray;
+  text-decoration: line-through;
+}
+.ms-product-page-sizes {
+  color: gray;
+}
+
+.ms-product-page-sizes-header {
+  color: #000;
+  margin-right: 10px;
+}
+
+.ms-product-page-sizes-children {
+  color: grey;
+  margin-right: 10px;
+}
+
+.ms-product-page-wishlist-btn {
+  margin-top: 40px;
+  padding: 8px 0;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: white;
+  width: 188px;
+  border-radius: 3px;
+  border: 1px solid rgb(223, 217, 217);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-services {
+  margin-top: 40px;
+}
+
+.ms-product-page-services li {
+  margin-top: 10px;
+}
+
+.ms-product-page-header {
+  margin: 0 0 20px;
+  font-weight: normal;
+}
+
+.ms-product-page-detail-container {
+  margin-top: 40px;
+}
+
+.ms-product-page-detail {
+  margin-top: 10px;
+}
+
+.ms-product-page-detail-header {
+  display: inline-block;
+  color: gray;
+  width: 150px;
+  height: 18px;
+}
+
+.ms-product-page-detail-value {
+  float: right;
+  word-wrap: none;
+  overflow: hidden;
+  width: 500px;
+  height: 18px;
+}
+
+.ms-product-page-description {
+  margin-top: 40px;
+  width: 650px;
+  line-height: 170%;
+}
+
+.ms-product-page-description div {
+}
+
+.ms-product-page-review-container {
+  margin-top: 40px;
+}
+
+.ms-product-page-review {
+  margin-top: 40px;
+}
+
+.ms-product-page-review-username {
+  font-size: large;
+}
+
+.ms-product-page-review-rating {
+  margin-left: 10px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 5px;
+  text-align: center;
+  font-size: small;
+}
+
+.ms-product-page-review-review {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 170%;
+  width: 650px;
+}
+
+.ms-product-page-noreviews {
+  margin-top: 40px;
+}
+
+.ms-product-page-qna {
+  margin-top: 40px;
+}
+
+.ms-product-page-qna-q {
+  margin-top: 40px;
+}
+
+.ms-product-page-qna-q-f,
+.ms-product-page-qna-a-f {
+  float: left;
+  width: 80px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ms-product-page-qna-q-s {
+  font-weight: bold;
+  font-size: 14px;
+
+  /* width: 100px;
+  background-color: grey; */
+}
+
+.ms-product-page-qna-a {
+  margin-top: 10px;
+}
+
+.ms-product-page-qna-a-s {
+  display: inline-block;
+  width: 550px;
+}
+
+.ms-product-page-footer {
+  margin-top: 40px;
+}
+
+.ms-product-page-footer span {
+  display: inline-block;
+  width: 300px;
+}
+
+.ms-product-page-footer-link {
+  text-decoration: none;
+  color: #047feb;
+  font-weight: bold;
+  cursor: context-menu;
+}
+
+/* it is not used yet */
+/* .ms-product-page-extra-contents {
+  background-color: rgb(117, 116, 116);
+  height: 1500px;
+} */
+
+/* review page styles */
+.ms-review-page {
+  width: 1050px;
+  margin: 25px auto 20px;
+  min-height: 1000px;
+}
+
+.ms-review-sidebar {
+  float: left;
+  width: 350px;
+}
+
+.ms-review-sidebar-product-container {
+  background-color: white;
+  height: 470px;
+}
+
+.ms-review-sidebar-product-name {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.ms-review-sidebar-product-rating {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  width: 30px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+.ms-review-sidebar-product-price-wrapper {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+.ms-review-sidebar-product-current-price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ms-review-sidebar-product-original-price {
+  color: gray;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+/* **************  Review sidebar form ************* */
+.ms-review-sidebar-form-container {
+  background-color: white;
+  margin-top: 15px;
+  padding: 10px 0 20px;
+}
+
+.ms-review-sidebar-form-component {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.ms-review-sidebar-form-component label {
+  display: block;
+  font-size: small;
+  color: #428bca;
+  font-weight: bold;
+}
+
+.ms-review-sidebar-form-component input,
+.ms-review-sidebar-form-component textarea {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 258px;
+  outline: none;
+  border: none;
+  background-color: rgb(245, 242, 242);
+  font-size: normal;
+}
+
+.ms-review-sidebar-form-component textarea {
+  resize: none;
+}
+
+.ms-review-sidebar-form-rating-container {
+  margin-top: 20px;
+}
+
+.ms-review-sidebar-form-rating-container span {
+  display: inline-block;
+  margin-right: 20px;
+  width: 25px;
+  /* background-color: green; */
+  background-color: grey;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+  font-size: small;
+  cursor: context-menu;
+}
+
+.ms-review-sidebar-form-status {
+  font-weight: bold;
+  font-size: small;
+  margin: 0 0 0 30px;
+}
+
+.ms-review-sidebar-form-status.success {
+  color: green;
+}
+
+.ms-review-sidebar-form-status.exists {
+  color: red;
+}
+
+.ms-review-sidebar-form-submit {
+  margin-top: 30px;
+  display: block;
+  margin-left: 30px;
+  outline: none;
+  border: none;
+  padding: 10px 124px;
+  color: white;
+  background-color: rgb(30, 121, 116);
+}
+
+/* main review component */
+
+.ms-review-main {
+  top: 0;
+  margin-left: 15px;
+  display: inline-block;
+  width: 685px;
+  padding-bottom: 40px;
+}
+
+.ms-review-main-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: 700;
+  font-size: larger;
+  padding: 15px 20px;
+}
+
+.ms-review-main-review {
+  padding: 30px 20px;
+  background-color: white;
+  /* height: 170px; */
+  margin-bottom: 1px;
+}
+
+.ms-review-main-review-username {
+  font-size: large;
+}
+
+.ms-review-main-review-rating {
+  margin-left: 10px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 5px;
+  text-align: center;
+  font-size: small;
+}
+
+.ms-review-main-review-review {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 170%;
+  width: 650px;
+}
+
+/* ************************************************** */
+/* ******************************************************* */
+
+/* Q n A page styles */
+.ms-qna-page {
+  width: 1050px;
+  margin: 25px auto 20px;
+  min-height: 1000px;
+}
+
+.ms-qna-sidebar {
+  float: left;
+  width: 350px;
+}
+
+.ms-qna-sidebar-product-link,
+.ms-review-sidebar-product-link {
+  text-decoration: none;
+  color: black;
+}
+
+.ms-qna-sidebar-product-container {
+  background-color: white;
+  height: 470px;
+}
+
+.ms-qna-sidebar-product-name {
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.ms-qna-sidebar-product-rating {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  width: 30px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+.ms-qna-sidebar-product-price-wrapper {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+.ms-qna-sidebar-product-current-price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ms-qna-sidebar-product-original-price {
+  color: gray;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+/* **************  Review sidebar form ************* */
+.ms-qna-sidebar-form-container {
+  background-color: white;
+  margin-top: 15px;
+  padding: 10px 0 20px;
+}
+
+.ms-qna-sidebar-form-component {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.ms-qna-sidebar-form-component label {
+  display: block;
+  font-size: small;
+  color: #428bca;
+  font-weight: bold;
+}
+
+.ms-qna-sidebar-form-component input,
+.ms-qna-sidebar-form-component textarea {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 258px;
+  outline: none;
+  border: none;
+  background-color: rgb(245, 242, 242);
+  font-size: normal;
+}
+
+.ms-qna-sidebar-form-component textarea {
+  resize: none;
+}
+
+.ms-qna-sidebar-form-rating-container {
+  margin-top: 20px;
+}
+
+.ms-qna-sidebar-form-rating-container span {
+  display: inline-block;
+  margin-right: 20px;
+  width: 25px;
+  /* background-color: green; */
+  background-color: grey;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+  font-size: small;
+  cursor: context-menu;
+}
+
+.ms-qna-sidebar-form-status {
+  font-weight: bold;
+  font-size: small;
+  margin: 0 0 0 30px;
+}
+
+.ms-qna-sidebar-form-status.success {
+  color: green;
+}
+
+.ms-qna-sidebar-form-status.exists {
+  color: red;
+}
+
+.ms-qna-sidebar-form-submit {
+  margin-top: 30px;
+  display: block;
+  margin-left: 30px;
+  outline: none;
+  border: none;
+  padding: 10px 124px;
+  color: white;
+  background-color: rgb(30, 121, 116);
+}
+
+/* main qna component */
+
+.ms-qna-main {
+  top: 0;
+  margin-left: 15px;
+  display: inline-block;
+  width: 685px;
+  padding-bottom: 40px;
+}
+
+.ms-qna-main-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: 700;
+  font-size: larger;
+  padding: 15px 20px;
+}
+
+/* ********************************** */
+
+.ms-qna-main-qna-container {
+  background-color: white;
+  padding: 30px 20px;
+  margin-bottom: 1px;
+}
+
+.ms-qna-page-qna-q-f,
+.ms-qna-page-qna-a-f {
+  float: left;
+  width: 80px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ms-qna-page-qna-q-s {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ms-qna-page-qna-a {
+  margin-top: 10px;
+}
+
+.ms-qna-page-qna-a-s {
+  display: inline-block;
+  width: 550px;
+}
+
+/* *********************************************************** */
+/* *********************************************************** */
+
+/* addresss page styles */
+
+.ms-address-page {
+  width: 790px;
+  margin: auto;
+  margin-top: 20px;
+  padding-bottom: 40px;
+}
+
+.ms-address-header {
+  background-color: white;
+  margin-bottom: 1px;
+  padding: 15px 20px;
+}
+
+.ms-address-header-main {
+  font-weight: 700;
+  font-size: larger;
+}
+
+.ms-address-body {
+  padding-bottom: 20px;
+  padding-top: 1px;
+  background-color: white;
+}
+
+.ms-address-add-button {
+  padding: 15px 0;
+  color: #047feb;
+  border: 1px solid rgb(223, 217, 217);
+  width: 750px;
+  margin: 20px auto 0;
+}
+
+.ms-address-add-button span {
+  display: inline-block;
+  margin-left: 20px;
+  cursor: context-menu;
+}
+
+.ms-address-add-link:hover {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-address-single-address-container {
+  border: 1px solid rgb(223, 217, 217);
+  width: 750px;
+  margin: 20px auto 0;
+}
+
+.ms-address-single-address-container.checkout-page:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* address body */
+.ms-address-single-address {
+  display: inline-block;
+  line-height: 170%;
+  /* border: 1px solid grey; */
+  padding: 20px;
+  width: 500px;
+}
+
+.ms-address-single-address-btn-container {
+  position: absolute;
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 25px;
+}
+
+.ms-address-single-address-btn {
+  display: block;
+  width: 130px;
+  padding: 6px 0;
+  border: 1px solid rgb(223, 217, 217);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  margin-bottom: 20px;
+  font-size: small;
+}
+
+.ms-address-single-address-btn.edit {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.ms-address-single-address-btn.edit:hover {
+  background-color: #51b9ed;
+  color: white;
+}
+
+.ms-address-single-address-btn.delete:hover {
+  background-color: rgb(245, 26, 26);
+  color: white;
+}
+
+/* add new address page */
+
+.ms-add-address-page {
+  width: 750px;
+  margin: 25px auto 50px;
+  border: 1px solid rgb(223, 217, 217);
+}
+
+.ms-add-address-header {
+  padding: 15px 25px;
+  color: #047feb;
+  border-bottom: 1px solid rgb(223, 217, 217);
+}
+
+.ms-add-address-body {
+  background-color: white;
+  /* padding: 1px 0 15px 25px; */
+}
+
+.ms-add-address-form {
+  width: 675px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.ms-add-address-form-input,
+.ms-add-address-form-textarea {
+  margin-top: 30px;
+  padding: 15px 30px;
+  width: 260px;
+  border: 1px solid rgb(199, 196, 196);
+  background-color: white;
+  resize: none;
+}
+
+.ms-add-address-form-input.first {
+  margin-right: 30px;
+}
+
+.ms-add-address-form-textarea {
+  width: 610px;
+}
+
+.ms-add-address-form-submit {
+  margin-top: 30px;
+  padding: 10px 0;
+  width: 322px;
+  font-weight: bold;
+  border: none;
+  background-color: rgb(30, 121, 116);
+  color: white;
+  margin-right: 40px;
+}
+
+.ms-add-address-form-cancel {
+  display: inline-block;
+  background-color: white;
+  color: #047feb;
+  cursor: context-menu;
+  font-size: 14px;
+}
+
+/* checkout page */
+
+.ms-checkout-page {
+  width: 1070px;
+  margin: 20px auto 0;
+}
+
+.ms-checkout-sidebar {
+  width: 260px;
+  float: left;
+}
+
+.ms-checkout-sidebar-component {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 20px 30px;
+  border-radius: 3px;
+}
+
+.ms-checkout-sidebar-component:hover {
+  /* background-color: #51b9ed; */
+  /* color: white; */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.ms-checkout-main {
+  display: inline-block;
+  width: 790px;
+  margin-left: 20px;
+}
+
+/* checkout address styles */
+
+.ms-checkout-address-page {
+}
+
+.ms-checkout-address-container,
+.ms-checkout-selected-address-container {
+  margin-bottom: 20px;
+}
+
+.ms-checkout-address-header,
+.ms-checkout-selected-address-header {
+  font-weight: 700;
+  font-size: large;
+  background-color: white;
+  margin-bottom: 1px;
+  padding: 15px 25px;
+}
+
+.ms-checkout-address-body,
+.ms-checkout-selected-address-body {
+  padding: 5px 25px 20px;
+  background-color: white;
+}
+
+/* *********************************************************** */
+/* *********************************************************** */
 
 /* *********************************************************** */
 /* *********************************************************** */

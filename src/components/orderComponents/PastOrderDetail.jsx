@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { getOrderDetail } from "../../actions/orders";
 
 export class PastOrderDetail extends Component {
@@ -18,8 +19,8 @@ export class PastOrderDetail extends Component {
 
   render() {
     const { order, order_loading } = this.props;
-    let product = order.order_product,
-      address = order.order_address;
+    let product = order.product,
+      address = order.address;
     if (order_loading) {
       return <div>Loaning...</div>;
     } else if (product) {
@@ -80,16 +81,23 @@ export class PastOrderDetail extends Component {
           </div>
 
           <div className="ms-past-order-detail-secondblock">
-            <div className="ms-past-order-image">
-              <img
-                width="150px"
-                height="150px"
-                src={"http://localhost:8000" + product.image}
-                alt="product"
-              />
-            </div>
+            <Link to={`/product/${product.id}`}>
+              <div className="ms-past-order-image">
+                <img
+                  width="150px"
+                  height="150px"
+                  src={product.image}
+                  alt="product"
+                />
+              </div>
+            </Link>
             <div className="ms-past-order-description">
-              <div>{product.name}</div>{" "}
+              <Link
+                to={`/product/${product.id}`}
+                className="ms-single-order-link"
+              >
+                <div>{product.name}</div>
+              </Link>
               <div>₹{product.original_price - product.seller_discount}</div>
               <div>Size: XS</div>
               <div>Quantity: 3</div>

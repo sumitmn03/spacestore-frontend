@@ -1,5 +1,6 @@
 import axios from "axios";
 import { tokenConfig } from "./auth";
+
 import { GET_CART, ADD_TO_CART, DELETE_FROM_CART } from "./types";
 
 export const getCart = () => (dispatch, getState) => {
@@ -17,7 +18,7 @@ export const getCart = () => (dispatch, getState) => {
 export const addToCart = product => (dispatch, getState) => {
   axios
     .post(
-      `http://localhost:8000/api/cart/`,
+      "http://localhost:8000/api/cart/",
       JSON.stringify({ product }),
       tokenConfig(getState)
     )

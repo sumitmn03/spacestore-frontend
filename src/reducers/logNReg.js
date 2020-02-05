@@ -10,6 +10,8 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
 
+  // Logout
+
   // Helper
   AUTH_LOADING,
   OTP_SENT_SUCCESS,
@@ -26,7 +28,9 @@ import {
 const initialState = {
   registration_status: 1,
   login_status: 1,
-  wrong_otp_count: 0
+  wrong_otp_count: 0,
+  // it is used to run the authsetting funtion
+  logged_out_just_now: true
 };
 
 export default function(state = initialState, action) {

@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { createMessage } from "./messages";
 import {
   USER_LOADED,
   USER_LOADING,
@@ -84,9 +84,11 @@ export const updateUserProfile = data => (dispatch, getState) => {
     )
     .then(res => {
       console.log(res);
+      dispatch(createMessage({ success: "Profile updated successfully" }));
     })
     .catch(err => {
       console.log(err.message);
+      dispatch(createMessage({ error: "Profile updated failed" }));
     });
 };
 
@@ -101,10 +103,12 @@ export const updateUser = data => (dispatch, getState) => {
     )
     .then(res => {
       if (res.data.user) {
+        dispatch({ success: "Info updated successfully" });
         dispatch({
           type: USER_UPDATE_SUCCESS
         });
       } else {
+        dispatch({ error: "Info update failed" });
         dispatch({
           type: USER_UPDATE_FAIL
         });
@@ -130,14 +134,15 @@ export const login = (email, password) => (dispatch, getState) => {
   axios
     .post("http://localhost:8000/api/auth/pwlogin", body, tokenConfig(getState))
     .then(res => {
+      dispatch(createMessage({ success: "Welcome" }));
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data
       });
     })
     .catch(err => {
+      dispatch(createMessage({ error: "Incorrect credential" }));
       dispatch({ type: INCORRECT_PASSWORD });
-      console.log("there is an error while loading the user");
     });
 };
 
@@ -154,6 +159,7 @@ export const otpLogin = (email, otp) => (dispatch, getState) => {
     )
     .then(res => {
       if (res.data.error) {
+        dispatch(createMessage({ error: "Wrong OTP" }));
         dispatch({ type: LOGIN_FAIL });
       } else {
         dispatch({
@@ -163,6 +169,7 @@ export const otpLogin = (email, otp) => (dispatch, getState) => {
       }
     })
     .catch(err => {
+      dispatch(createMessage({ error: "Login failed" }));
       dispatch({ type: LOGIN_FAIL });
       console.log("there is an error while loading the user");
     });

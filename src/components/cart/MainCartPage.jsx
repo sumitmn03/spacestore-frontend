@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { createMessage } from "../../actions/messages";
 import { getCart, addToCart, deleteFromCart } from "../../actions/cart";
 import {
   getSavedForLater,
@@ -12,6 +13,7 @@ import SingleSavedForLaterProduct from "../savedForLater/SingleSavedForLaterProd
 
 export class MainCartPage extends Component {
   static propTypes = {
+    createMessage: PropTypes.func.isRequired,
     getCart: PropTypes.func.isRequired,
     addToCart: PropTypes.func.isRequired,
     deleteFromCart: PropTypes.func.isRequired,
@@ -25,10 +27,12 @@ export class MainCartPage extends Component {
   componentDidMount() {
     this.props.getCart();
     this.props.getSavedForLater();
+    window.scrollTo(0, 0);
   }
 
   render() {
     const {
+      createMessage,
       cart,
       saved_for_later,
       addToCart,
@@ -51,10 +55,12 @@ export class MainCartPage extends Component {
               return (
                 <SingleCartProductDetails
                   key={index}
+                  createMessage={createMessage}
                   product={product}
                   deleteFromCart={deleteFromCart}
                   addToSfl={addToSfl}
                   cart_id={cart_item.id}
+                  saved_for_later={saved_for_later}
                 />
               );
             })}
@@ -96,10 +102,12 @@ export class MainCartPage extends Component {
             {saved_for_later.map((sfl_item, index) => (
               <SingleSavedForLaterProduct
                 key={index}
+                createMessage={createMessage}
                 product={sfl_item.sfl_product}
                 deleteFromSfl={deleteFromSfl}
                 addToCart={addToCart}
                 sfl_id={sfl_item.id}
+                cart={cart}
               />
             ))}
           </div>
@@ -116,6 +124,7 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   getCart,
+  createMessage,
   addToCart,
   deleteFromCart,
   getSavedForLater,

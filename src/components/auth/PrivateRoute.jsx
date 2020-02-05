@@ -12,6 +12,15 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
         if (document.getElementsByClassName("ms-auth-page")[0])
           document.getElementsByClassName("ms-auth-page")[0].style.display =
             "block";
+
+        // return (
+        //   <Redirect
+        //     to={{
+        //       pathname: "/",
+        //       state: { target_component: props.location.pathname }
+        //     }}
+        //   />
+        // );
       } else {
         return <Component {...props} />;
       }

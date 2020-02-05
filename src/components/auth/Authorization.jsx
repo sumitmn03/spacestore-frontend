@@ -1,9 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { send_register_otp, register_new_user } from "../../actions/auth";
-import { login, otpLogin } from "../../actions/auth";
-import { send_otp } from "../../actions/auth";
+import {
+  send_register_otp,
+  register_new_user,
+  login,
+  otpLogin,
+  send_otp
+} from "../../actions/auth";
 
 export class Authorization extends Component {
   state = {
@@ -69,42 +73,34 @@ export class Authorization extends Component {
   };
 
   componentDidMount = () => {
+    this.authSettings();
+  };
+
+  authSettings = () => {
     if (!this.props.isAuthenticated) {
       let auth_page = document.getElementsByClassName("ms-auth-page")[0];
       if (auth_page) {
         let open_auth_btn = document.getElementsByClassName(
-            "ms-auth-open-btn"
-          )[0],
-          close_auth_btn = document.getElementsByClassName(
-            "ms-auth-page-close"
-          )[0];
-
-        let alt_page_link = document.getElementsByClassName(
-          "ms-alt-page-link"
+          "ms-auth-open-btn"
         )[0];
 
-        open_auth_btn.addEventListener(
-          "click",
-          () => (auth_page.style.display = "block")
-        );
+        // let alt_page_link = document.getElementsByClassName(
+        //   "ms-alt-page-link"
+        // )[0];
 
-        close_auth_btn.addEventListener(
-          "click",
-          () => (auth_page.style.display = "none")
-        );
+        if (open_auth_btn) {
+          open_auth_btn.addEventListener(
+            "click",
+            () => (auth_page.style.display = "block")
+          );
 
-        alt_page_link.addEventListener("click", () => {
-          this.setState({
-            submit_btn_value: this.state.login_page ? "Continue" : "Log in",
-            login_page: this.state.login_page ? false : true
+          window.addEventListener("click", e => {
+            if (e.target === auth_page) {
+              auth_page.style.display = "none";
+            }
           });
-        });
-
-        window.addEventListener("click", e => {
-          if (e.target === auth_page) {
-            auth_page.style.display = "none";
-          }
-        });
+          // this.props.setLoggedOutJustNow(false);
+        }
       }
     }
   };
@@ -375,11 +371,8 @@ export class Authorization extends Component {
   render() {
     let { login_page, first_page } = this.state;
 
-    // if (this.props.isAuthenticated) {
-    //   return <Redirect to="/" />;
-    // }
-
     if (!this.props.isAuthenticated) {
+      this.authSettings();
       return (
         <div
           style={{ display: this.props.isAuthenticated ? "none" : "block" }}
@@ -392,7 +385,16 @@ export class Authorization extends Component {
                 from the auth page
               </div>
             </div>
-            <span className="ms-auth-page-close">&times;</span>
+            <span
+              className="ms-auth-page-close"
+              onClick={() =>
+                (document.getElementsByClassName(
+                  "ms-auth-page"
+                )[0].style.display = "none")
+              }
+            >
+              &times;
+            </span>
             <div className="ms-auth-page-body">
               <h2>
                 {login_page
@@ -427,14 +429,36 @@ export class Authorization extends Component {
                   {login_page ? (
                     <Fragment>
                       New to SpaceStore ?{" "}
-                      <span className="ms-alt-page-link">
+                      <span
+                        className="ms-alt-page-link"
+                        onClick={() => {
+                          this.setState({
+                            submit_btn_value: this.state.login_page
+                              ? "Continue"
+                              : "Log in",
+                            login_page: this.state.login_page ? false : true
+                          });
+                        }}
+                      >
                         Create an account now
                       </span>
                     </Fragment>
                   ) : (
                     <Fragment>
                       Existing user ?{" "}
-                      <span className="ms-alt-page-link">Log in now</span>
+                      <span
+                        className="ms-alt-page-link"
+                        onClick={() => {
+                          this.setState({
+                            submit_btn_value: this.state.login_page
+                              ? "Continue"
+                              : "Log in",
+                            login_page: this.state.login_page ? false : true
+                          });
+                        }}
+                      >
+                        Log in now
+                      </span>
                     </Fragment>
                   )}
                 </p>

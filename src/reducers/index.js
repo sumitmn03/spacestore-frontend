@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import messages from "./messages";
 import products from "./products";
 import auth from "./auth";
 import logNReg from "./logNReg";
@@ -7,8 +8,14 @@ import cart from "./cart";
 import saved_for_later from "./saved_for_later";
 import wishlist from "./wishlist";
 import updateUser from "./updateUser";
+import home from "./home";
+import product from "./product";
+import review from "./review";
+import qna from "./qna";
+import address from "./address";
 
 export default combineReducers({
+  messages,
   products,
   auth,
   logNReg,
@@ -16,7 +23,12 @@ export default combineReducers({
   cart,
   saved_for_later,
   wishlist,
-  updateUser
+  updateUser,
+  home,
+  product,
+  review,
+  qna,
+  address
 });
 
 // proptypes

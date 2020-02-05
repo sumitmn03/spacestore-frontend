@@ -1,5 +1,71 @@
 import { fabric } from "fabric";
 
+let myFirstIndex = 0,
+  mySecondIndex = 0;
+
+export const run_carousel = (
+  carousel_no,
+  carousel_products,
+  images,
+  main_images,
+  main_images_class
+) => {
+  if (carousel_products.length > 0 && images[0] && main_images[0]) {
+    let index = myFirstIndex;
+    if (carousel_no === "second") index = mySecondIndex;
+
+    if (images[index]) images[index].style.display = "block";
+
+    setTimeout(() => {
+      if (main_images[index])
+        main_images[index].classList = `${main_images_class} close`;
+
+      setTimeout(() => {
+        if (images[index]) images[index].style.display = "none";
+        if (main_images[index])
+          main_images[index].classList = `${main_images_class} open`;
+
+        index++;
+        if (index >= carousel_products.length - 1) index = 0;
+
+        if (carousel_no === "second") {
+          mySecondIndex = index;
+        } else {
+          myFirstIndex = index;
+        }
+
+        run_carousel(
+          carousel_no,
+          carousel_products,
+          images,
+          main_images,
+          main_images_class
+        );
+      }, 500);
+    }, 5000);
+  } else if (carousel_products.length === 0) {
+    setTimeout(() => {
+      run_carousel(
+        carousel_no,
+        carousel_products,
+        images,
+        main_images,
+        main_images_class
+      );
+    }, 1000);
+  } else {
+    setTimeout(() => {
+      run_carousel(
+        carousel_no,
+        carousel_products,
+        images,
+        main_images,
+        main_images_class
+      );
+    }, 5000);
+  }
+};
+
 export const resize_current_image = (canvas, width, height) => {
   let active_object = canvas.getActiveObject();
   if (active_object) {

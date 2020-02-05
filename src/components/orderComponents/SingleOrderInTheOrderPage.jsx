@@ -8,7 +8,7 @@ export class SingleOrderInTheOrderPage extends Component {
 
   render() {
     const { order } = this.props;
-    const product = order.order_product;
+    const product = order.product;
 
     return (
       <Link to={`/orders/${order.id}`} style={{ textDecoration: "none" }}>
@@ -17,7 +17,7 @@ export class SingleOrderInTheOrderPage extends Component {
             <img
               width="150px"
               height="150px"
-              src={"http://localhost:8000" + product.image}
+              src={product.image}
               alt="product"
             />
           </div>

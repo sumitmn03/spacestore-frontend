@@ -1,124 +1,70 @@
-import React, { Component, Fragment } from "react";
-// import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getHomeEditableProducts } from "../../actions/products";
+import { run_carousel } from "../../myjs/myJs";
+import { activate_carousel, getHomeProducts } from "../../actions/home";
+import SingleProductInHome from "./singleProductInHome/SingleProductInHome";
+import InfiniteScroll from "react-infinite-scroller";
 
 export class Homepage extends Component {
-  state = {
-    run_functions: true
-  };
-
   static propTypes = {
-    getHomeEditableProducts: PropTypes.func.isRequired,
-    home_editable_products: PropTypes.array.isRequired
+    carousel_is_active: PropTypes.bool.isRequired,
+    activate_carousel: PropTypes.func.isRequired,
+    home_products: PropTypes.array.isRequired,
+    carousel_products: PropTypes.array.isRequired,
+    getHomeProducts: PropTypes.func.isRequired,
+    next: PropTypes.string
   };
 
-  myFirstIndex = 0;
-  first_fir_timeout;
-  first_sec_timeout;
-  first_third_timeout;
+  componentDidUpdate(prevProps) {
+    const { carousel_products } = this.props;
 
-  mySecondIndex = 0;
-  second_fir_timeout;
-  second_sec_timeout;
-  second_third_timeout;
+    if (
+      prevProps !== this.props &&
+      !this.props.carousel_is_active &&
+      carousel_products.length > 0
+    ) {
+      const design_images = document.getElementsByClassName(
+        "ms-home-design-pic"
+      );
+      const design_main_images = document.getElementsByClassName(
+        "ms-home-design-image"
+      );
 
-  componentDidMount() {
-    this.setState({ run_functions: true });
-    this.props.getHomeEditableProducts();
-    this.first_carousel();
-    this.second_carousel();
-  }
-
-  componentWillUnmount() {
-    this.setState({ run_functions: false });
-    if (this.first_fir_timeout) clearTimeout(this.first_fir_timeout);
-    if (this.first_sec_timeout) clearTimeout(this.first_sec_timeout);
-    if (this.first_third_timeout) clearTimeout(this.first_third_timeout);
-
-    if (this.second_fir_timeout) clearTimeout(this.second_fir_timeout);
-    if (this.second_sec_timeout) clearTimeout(this.second_sec_timeout);
-    if (this.second_third_timeout) clearTimeout(this.second_third_timeout);
-  }
-
-  first_carousel = (myFirstIndex = this.myFirstIndex) => {
-    if (!this.state.run_functions) return <Fragment />;
-    const { home_editable_products } = this.props;
-    let images = document.getElementsByClassName("ms-home-design-pic");
-    let main_images = document.getElementsByClassName("ms-home-design-image");
-
-    if (home_editable_products.length > 0) {
-      if (images[myFirstIndex]) images[myFirstIndex].style.display = "block";
-
-      this.first_fir_timeout = setTimeout(() => {
-        if (main_images[myFirstIndex])
-          main_images[myFirstIndex].classList = "ms-home-design-image close";
-
-        this.first_sec_timeout = setTimeout(() => {
-          if (images[myFirstIndex]) images[myFirstIndex].style.display = "none";
-          if (main_images[myFirstIndex])
-            main_images[myFirstIndex].classList = "ms-home-design-image open";
-
-          this.myFirstIndex++;
-          if (myFirstIndex >= home_editable_products.length - 1)
-            this.myFirstIndex = 0;
-          this.first_carousel();
-        }, 500);
-      }, 5000);
-    } else {
-      if (!images[myFirstIndex]) {
-        this.first_third_timeout = setTimeout(this.first_carousel, 1000);
+      if (design_images[0] && design_main_images[0]) {
+        run_carousel(
+          "first",
+          carousel_products,
+          design_images,
+          design_main_images,
+          "ms-home-design-image"
+        );
+        this.props.activate_carousel();
       }
     }
-  };
+  }
 
-  second_carousel = (mySecondIndex = this.mySecondIndex) => {
-    if (!this.state.run_functions) return <Fragment />;
-    const { home_editable_products } = this.props;
-    let images = document.getElementsByClassName("ms-home-store-pic");
-    let main_images = document.getElementsByClassName("ms-home-store-image");
-
-    if (home_editable_products.length > 0) {
-      if (images[mySecondIndex]) images[mySecondIndex].style.display = "block";
-
-      this.first_fir_timeout = setTimeout(() => {
-        if (main_images[mySecondIndex])
-          main_images[mySecondIndex].classList = "ms-home-store-image close";
-
-        this.first_sec_timeout = setTimeout(() => {
-          if (images[mySecondIndex])
-            images[mySecondIndex].style.display = "none";
-          if (main_images[mySecondIndex])
-            main_images[mySecondIndex].classList = "ms-home-store-image open";
-
-          this.mySecondIndex++;
-          if (mySecondIndex >= home_editable_products.length - 1)
-            this.mySecondIndex = 0;
-          this.second_carousel();
-        }, 500);
-      }, 5000);
-    } else {
-      if (!images[mySecondIndex]) {
-        this.first_third_timeout = setTimeout(this.second_carousel, 1000);
-      }
-    }
+  loadMoreProducts = () => {
+    const { next, getHomeProducts } = this.props;
+    if (next !== "") getHomeProducts(next);
   };
 
   render() {
-    let product_categories = [
-      { header: "Coder, Programmer & Nerd" },
-      { header: "Motivational / Inspirational" },
-      { header: "Sales" },
-      { header: "Students" },
-      { header: "Nerds" },
-      { header: "Vloggers" },
-      { header: "Fun" },
-      { header: "Couples" }
-    ];
+    // let product_categories = [
+    //   { header: "Coder, Programmer & Nerd" },
+    //   { header: "Motivational / Inspirational" },
+    //   { header: "Sales" },
+    //   { header: "Students" },
+    //   { header: "Nerds" },
+    //   { header: "Vloggers" },
+    //   { header: "Fun" },
+    //   { header: "Couples" },
+    //   { header: "Gamers" }
+    // ];
 
-    const { home_editable_products } = this.props;
-    return home_editable_products.length > 0 ? (
+    const { next, carousel_products, home_products } = this.props;
+    return (
       <div className="ms-home-page">
         <div className="ms-home-design">
           <div className="ms-home-design-sidebar">
@@ -129,8 +75,7 @@ export class Homepage extends Component {
                   Tired of looking for clothes of your type ? <br />
                   <span>
                     {" "}
-                    No worries, use our easy to use tools to create your own
-                    design
+                    Use our easy tools to create your own design
                   </span>{" "}
                 </div>{" "}
               </div>
@@ -138,7 +83,7 @@ export class Homepage extends Component {
           </div>
           <div className="ms-home-design-center">
             <div className="ms-home-design-pics-container">
-              {home_editable_products.map((product, index) => (
+              {carousel_products.map((product, index) => (
                 <div
                   className="ms-home-design-pic"
                   style={{ display: "none" }}
@@ -146,7 +91,7 @@ export class Homepage extends Component {
                 >
                   <img
                     className="ms-home-design-image open"
-                    src={product.image}
+                    src={product.product.image}
                     alt="product"
                   />
                 </div>
@@ -162,152 +107,48 @@ export class Homepage extends Component {
                 </div>{" "}
               </div>
               <div className="ms-home-design-content">
-                <button>Start designing</button>
+                <Link to="/design">
+                  <button>Start designing</button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-        <div className="ms-home-customize-container">
-          {/* <div className="ms-home-customize-header">
-            <h3> Select product to customize</h3>
-          </div> */}
-          <div className="ms-home-customize-product-container">
-            <div
-              className="ms-home-customize-product last"
-              style={{ marginLeft: 0 }}
-            >
-              <div className="ms-home-customizer-content-wrapper">
-                <div className="ms-home-customizer-content">
-                  {" "}
-                  <div className="ms-home-customizer-content-quote">
-                    New to Spacestore ?
-                    <span>
-                      {" "}
-                      Check out the tutorial on how to use <br /> the editing
-                      tools
-                    </span>{" "}
-                  </div>{" "}
-                </div>
-                <div className="ms-home-customizer-content">
-                  <button>Tutorial</button>
-                </div>
+        <h3 className="ms-home-predesigned-header">
+          Cash on delivery & 10 days return policy on predesigned products
+        </h3>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={this.loadMoreProducts}
+          hasMore={next !== null}
+          loader={<div key={0}>Loading ...</div>}
+        >
+          {home_products.map((category, index) => (
+            <div key={index} className="ms-home-category-body">
+              <h3 className="ms-home-category-header">
+                {category[0].category}
+              </h3>
+              <div className="ms-home-category-product-container">
+                {category.map((product, index) => (
+                  <SingleProductInHome key={index} product={product.product} />
+                ))}
               </div>
             </div>
-            <div className="ms-home-customize-product">
-              <div className="ms-home-customize-product-image">
-                {" "}
-                <img src={home_editable_products[0].image} alt="product" />
-              </div>
-              <div className="ms-home-customize-product-name">T - Shirt</div>
-            </div>
-            <div className="ms-home-customize-product">
-              <div className="ms-home-customize-product-image">
-                {" "}
-                <img src={home_editable_products[1].image} alt="product" />
-              </div>{" "}
-              <div className="ms-home-customize-product-name">Hoodie</div>
-            </div>
-            <div className="ms-home-customize-product">
-              <div className="ms-home-customize-product-image">
-                {" "}
-                <img src={home_editable_products[2].image} alt="product" />
-              </div>{" "}
-              <div className="ms-home-customize-product-name">Sweatshirt</div>
-            </div>
-          </div>
-        </div>
-        <div className="ms-home-store">
-          <div className="ms-home-store-sidebar">
-            <div className="ms-home-store-content-wrapper">
-              <div className="ms-home-store-content">
-                {" "}
-                <div className="ms-home-store-content-quote">
-                  Looking for pre designed <br /> clothes ?
-                  <span> Check out our store</span>{" "}
-                </div>{" "}
-              </div>
-            </div>
-          </div>
-          <div className="ms-home-store-center">
-            <div className="ms-home-store-pics-container">
-              {home_editable_products.map((product, index) => (
-                <div
-                  className="ms-home-store-pic"
-                  style={{ display: "none" }}
-                  key={index}
-                >
-                  <img
-                    className="ms-home-store-image open"
-                    src={product.image}
-                    alt="product"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="ms-home-store-sidebar">
-            <div className="ms-home-store-content-wrapper">
-              <div className="ms-home-store-content">
-                {" "}
-                <div className="ms-home-store-content-quote">
-                  Your passion is your <br /> fashion
-                </div>{" "}
-              </div>
-              <div className="ms-home-store-content">
-                <button>Start shopping</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        {product_categories.map((category, index) => (
-          <div key={index} className="ms-home-store-category-container">
-            {/* make sure to load only 4 images from database */}
-            <div className="ms-home-store-category-header">
-              <h3> {category.header}</h3> <button>View more</button>
-            </div>
-            <div className="ms-home-store-category-product-container">
-              {home_editable_products.map((product, index) => (
-                <div key={index} className="ms-home-store-category-product">
-                  <div className="ms-home-store-category-image-container">
-                    <img
-                      className="ms-home-store-category-image"
-                      src={product.image}
-                      alt="product"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-
-        {/* <div className="ms-home-store-category-container">
-          <div className="ms-home-store-category-header">
-            <h3> Motivational / Inspirational</h3> <button>View more</button>
-          </div>
-          <div className="ms-home-store-category-product-container">
-            {home_editable_products.map((product, index) => (
-              <div key={index} className="ms-home-store-category-product">
-                <div className="ms-home-store-category-image-container">
-                  <img
-                    className="ms-home-store-category-image"
-                    src={product.image}
-                    alt="product"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div> */}
+          ))}
+        </InfiniteScroll>
       </div>
-    ) : (
-      <Fragment />
     );
   }
 }
 
 const mapStateToProps = state => ({
-  home_editable_products: state.products.home_editable_products
+  carousel_is_active: state.home.carousel_is_active,
+  home_products: state.home.products,
+  carousel_products: state.home.carousel_products,
+  next: state.home.next
 });
 
-export default connect(mapStateToProps, { getHomeEditableProducts })(Homepage);
+export default connect(mapStateToProps, {
+  activate_carousel,
+  getHomeProducts
+})(Homepage);

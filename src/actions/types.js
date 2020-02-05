@@ -1,7 +1,16 @@
+// errors
+export const CREATE_MESSAGE = "CREATE_MESSAGE";
+
 // main marketplace products
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_EDITABLE_PRODUCTS = "GET_EDITABLE_PRODUCTS";
-export const GET_HOME_EDITABLE_PRODUCTS = "GET_HOME_EDITABLE_PRODUCTS";
+export const SET_QUERIES = "SET_QUERIES";
+export const SET_ORDER_BY = "SET_ORDER_BY";
+export const SET_NEXT_LINK = "SET_NEXT_LINK";
+export const GET_PRODUCTS_SCROLLER = "GET_PRODUCTS_SCROLLER";
+
+// single product
+export const GET_SINGLE_PRODUCT = "GET_SINGLE_PRODUCT";
 
 // orders
 export const GET_ORDERS = "GET_ORDERS";
@@ -20,6 +29,7 @@ export const DELETE_FROM_SFL = "DELETE_FROM_SFL";
 
 // wishlist
 export const GET_WISHLIST = "GET_WISHLIST";
+export const ADD_TO_WISHLIST = "ADD_TO_WISHLIST";
 export const DELETE_FROM_WL = "DELETE_FROM_WL";
 
 // registration
@@ -51,3 +61,25 @@ export const AUTH_LOADING = "AUTH_LOADING";
 
 export const USER_UPDATE_SUCCESS = "USER_UPDATE_SUCCESS";
 export const USER_UPDATE_FAIL = "USER_UPDATE_FAIL";
+
+// carousel_active
+export const CAROUSEL_ACTIVE = "CAROUSEL_ACTIVE";
+
+// reviews
+export const GET_PRODUCT_REVIEWS = "GET_PRODUCT_REVIEWS";
+export const ADD_PRODUCT_REVIEW = "ADD_PRODUCT_REVIEW";
+
+// reviews
+export const GET_PRODUCT_QNAS = "GET_PRODUCT_QNAS";
+export const ADD_PRODUCT_QNA = "ADD_PRODUCT_QNA";
+
+// home
+export const GET_HOME_PRODUCTS = "GET_HOME_PRODUCTS";
+
+// address
+export const ADD_ADDRESS_STATUS = "ADD_ADDRESS_STATUS";
+export const GET_ADDRESSES = "GET_ADDRESSES";
+export const DELETE_ADDRESS = "DELETE_ADDRESS";
+export const NEW_ADDRESS_ADDED = "NEW_ADDRESS_ADDED";
+export const UPDATE_ADDRESS = "UPDATE_ADDRESS";
+export const SELECTED_ADDRESS = "SELECTED_ADDRESS";

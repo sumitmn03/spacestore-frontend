@@ -2,22 +2,16 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { logout } from "../../actions/auth";
+import SearchInput from "../searchComponents/searchInput/SearchInput";
 
 export class Navbar extends Component {
   static propTypes = {
-    auth: PropTypes.object.isRequired,
-    logout: PropTypes.func.isRequired
+    auth: PropTypes.object.isRequired
   };
 
   render() {
     const { auth } = this.props;
     const user = auth.user;
-    const authLinks = (
-      <span onClick={this.props.logout} className="ms-top-navbar-children">
-        <li>Logout</li>
-      </span>
-    );
 
     const log_n_reg = (
       <span className="ms-top-navbar-children ms-auth-open-btn">
@@ -29,31 +23,17 @@ export class Navbar extends Component {
       <div className="ms-top-navbar-container">
         <div className="ms-top-navbar ms-first">
           <div className="ms-top-navbar-name">SpaceStore</div>
-          <div className="search-container">
-            <form
-              onSubmit={e => {
-                e.preventDefault();
-              }}
-            >
-              <input type="text" placeholder="Search..." name="search" />
-              <button type="submit">
-                <i className="fa fa-search"></i>
-              </button>
-            </form>
-          </div>{" "}
-          <Link to="/myprofile" className="ms-top-navbar-children first">
+          <SearchInput />
+          <Link to="/myaccount" className="ms-top-navbar-children first">
             <li>Account</li>
-          </Link>{" "}
+          </Link>
           <Link to="/design" className="ms-top-navbar-children first">
             <li>Design</li>
           </Link>
-          {/* <Link to="/store" className="ms-top-navbar-children first">
-            <li>Store</li>
-          </Link> */}
           <Link to="/cart" className="ms-top-navbar-children first">
             <li>Cart</li>
           </Link>
-          <Link to="/cart" className="ms-top-navbar-children first">
+          <Link to="/more" className="ms-top-navbar-children first">
             <li>More</li>
           </Link>
         </div>
@@ -61,15 +41,15 @@ export class Navbar extends Component {
           {user ? (
             user.profile && user.profile.first_name ? (
               <span className="ms-top-navbar-username">
-                {user.profile.first_name.slice(0, 12)}
+                {user.profile.first_name.slice(0, 10)}
               </span>
             ) : (
               <span className="ms-top-navbar-username">
-                {user.email.slice(0, 12)}
+                {user.email.slice(0, 10)}
               </span>
             )
           ) : (
-            <Fragment />
+            <span className="ms-top-navbar-username-proxy"></span>
           )}
           <Link to="/" className="ms-top-navbar-children">
             <li>Home</li>
@@ -80,19 +60,10 @@ export class Navbar extends Component {
           <Link to="/wishlist" className="ms-top-navbar-children">
             <li>Wishlist</li>
           </Link>
-          {/* <Link to="/store" className="ms-top-navbar-children">
-            <li>Sell</li>
-          </Link> */}
-          <Link to="/search" className="ms-top-navbar-children">
-            <li>Search</li>
-          </Link>
-          <Link to="/about" className="ms-top-navbar-children">
-            <li>About</li>
-          </Link>
           <Link to="/help" className="ms-top-navbar-children">
             <li>Customer service</li>
           </Link>
-          {auth.isAuthenticated ? authLinks : log_n_reg}
+          {auth.isAuthenticated ? <Fragment /> : log_n_reg}
         </div>
       </div>
     );
@@ -103,4 +74,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps)(Navbar);

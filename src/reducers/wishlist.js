@@ -1,4 +1,8 @@
-import { GET_WISHLIST, DELETE_FROM_WL } from "../actions/types";
+import {
+  GET_WISHLIST,
+  DELETE_FROM_WL,
+  ADD_TO_WISHLIST
+} from "../actions/types";
 
 const initialState = {
   wishlist: []
@@ -18,6 +22,12 @@ export default function(state = initialState, action) {
         wishlist: state.wishlist.filter(
           wl_item => wl_item.id !== action.payload
         )
+      };
+
+    case ADD_TO_WISHLIST:
+      return {
+        ...state,
+        wishlist: [action.payload, ...state.wishlist]
       };
 
     default:
