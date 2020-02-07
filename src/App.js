@@ -32,6 +32,7 @@ import QnaPage from "./components/qna/QnaPage";
 import AddressPage from "./components/address/AddressPage";
 import AddNewAddress from "./components/address/AddNewAddress";
 import CheckoutPage from "./components/checkoutPage/CheckoutPage";
+import CheckoutSuccess from "./components/checkoutPage/checkoutSuccess/CheckoutSuccess";
 
 // Alert Options
 const alertOptions = {
@@ -95,6 +96,10 @@ export class App extends Component {
                   <PrivateRoute path="/address" exact component={AddressPage} />
                   <PrivateRoute path="/address/add" component={AddNewAddress} />
                   <PrivateRoute path="/checkout" component={CheckoutPage} />
+                  <PrivateRoute
+                    path="/checkout_success"
+                    component={CheckoutSuccess}
+                  />
                 </Switch>
               </div>
             </div>

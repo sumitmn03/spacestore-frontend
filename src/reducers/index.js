@@ -13,6 +13,7 @@ import product from "./product";
 import review from "./review";
 import qna from "./qna";
 import address from "./address";
+import checkout from "./checkout";
 
 export default combineReducers({
   messages,
@@ -28,7 +29,8 @@ export default combineReducers({
   product,
   review,
   qna,
-  address
+  address,
+  checkout
 });
 
 // proptypes

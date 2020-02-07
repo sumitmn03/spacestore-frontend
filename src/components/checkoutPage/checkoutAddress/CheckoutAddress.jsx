@@ -1,15 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import {
-  getAddresses,
-  deleteAddress,
-  addNewAddress,
-  setAddAddressStatus,
-  updateAddress,
-  setSelectedAddress
-} from "../../../actions/address";
-import { createMessage } from "../../../actions/messages";
 import AddNewAddress from "../../address/AddNewAddress";
 import UpdateOldAddress from "../../address/UpdateOldAddress";
 import SelectedAddress from "./SelectedAddress";
@@ -20,21 +9,9 @@ export class CheckoutAddress extends Component {
     edit_address: ""
   };
 
-  static propTypes = {
-    getAddresses: PropTypes.func.isRequired,
-    deleteAddress: PropTypes.func.isRequired,
-    createMessage: PropTypes.func.isRequired,
-    addresses: PropTypes.array.isRequired,
-    addNewAddress: PropTypes.func.isRequired,
-    setAddAddressStatus: PropTypes.func.isRequired,
-    updateAddress: PropTypes.func.isRequired,
-    address_status: PropTypes.string.isRequired,
-    selected_address: PropTypes.object.isRequired,
-    setSelectedAddress: PropTypes.func.isRequired
-  };
-
   componentDidMount() {
     this.props.getAddresses();
+    window.scrollTo(0, 0);
   }
 
   toggleAddAddress = show_add_address_comp =>
@@ -45,6 +22,7 @@ export class CheckoutAddress extends Component {
 
   render() {
     const {
+      checkout,
       addresses,
       // createMessage,
       deleteAddress,
@@ -52,15 +30,19 @@ export class CheckoutAddress extends Component {
       setAddAddressStatus,
       address_status,
       updateAddress,
-      selected_address,
-      setSelectedAddress
+      updateCheckout,
+      user,
+      handlePrevNextBtn
     } = this.props;
 
     const { show_add_address_comp, edit_address } = this.state;
 
     return (
-      <div className="ms-checkout-address-page">
-        <SelectedAddress selected_address={selected_address} />
+      <div>
+        <SelectedAddress
+          current_address={checkout.address_data}
+          handlePrevNextBtn={handlePrevNextBtn}
+        />
         <div className="ms-address-page">
           <div className="ms-address-header">
             <span className="ms-address-header-main">My addresses</span>
@@ -97,7 +79,10 @@ export class CheckoutAddress extends Component {
                   key={address.id}
                   className="ms-address-single-address-container checkout-page"
                   onClick={() => {
-                    setSelectedAddress(address);
+                    updateCheckout(user.checkout_id, {
+                      user: user.id,
+                      address: address.id
+                    });
                     window.scrollTo(0, 0);
                   }}
                 >
@@ -116,7 +101,10 @@ export class CheckoutAddress extends Component {
                     <button
                       className="ms-address-single-address-btn edit"
                       onClick={() => {
-                        setSelectedAddress(address);
+                        updateCheckout(user.checkout_id, {
+                          user: user.id,
+                          address: address.id
+                        });
                         window.scrollTo(0, 0);
                       }}
                     >
@@ -124,13 +112,19 @@ export class CheckoutAddress extends Component {
                     </button>
                     <button
                       className="ms-address-single-address-btn edit"
-                      onClick={() => this.handleCompToEdit(index)}
+                      onClick={e => {
+                        e.stopPropagation();
+                        this.handleCompToEdit(index);
+                      }}
                     >
                       Edit
                     </button>
                     <button
                       className="ms-address-single-address-btn delete"
-                      onClick={() => deleteAddress(address.id)}
+                      onClick={e => {
+                        e.stopPropagation();
+                        deleteAddress(address.id);
+                      }}
                     >
                       Delete
                     </button>
@@ -145,18 +139,4 @@ export class CheckoutAddress extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  addresses: state.address.addresses,
-  address_status: state.address.address_status,
-  selected_address: state.address.selected_address
-});
-
-export default connect(mapStateToProps, {
-  getAddresses,
-  deleteAddress,
-  createMessage,
-  addNewAddress,
-  setAddAddressStatus,
-  updateAddress,
-  setSelectedAddress
-})(CheckoutAddress);
+export default CheckoutAddress;

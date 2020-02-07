@@ -24,20 +24,25 @@ export class SingleOrderInTheOrderPage extends Component {
           <div className="ms-single-order-description1">
             <div className="ms-single-order-name">{product.name}</div>{" "}
             <div className="ms-single-order-name">
-              ₹{product.original_price - product.seller_discount}
+              ₹
+              {order.original_price -
+                order.seller_discount +
+                order.shipping_charges}
             </div>
-            <div className="ms-single-order-name">Size: XS</div>
-            <div className="ms-single-order-name">Quantity: 3</div>
+            <div className="ms-single-order-name">Size: {order.size}</div>
+            <div className="ms-single-order-name">
+              Quantity: {order.quantity}
+            </div>
           </div>
           <div className="ms-single-order-description2">
             <div className="ms-single-order-name">
-              Order date: {order.order_date}
+              <span> Order date:</span> {order.order_date}
             </div>
             <div className="ms-single-order-name">
-              Delivery status: {order.delivery_status}
+              <span>Delivery status: </span> {order.delivery_status}
             </div>
             <div className="ms-single-order-name">
-              Delivery date: {order.delivery_date}
+              <span> Delivery date:</span> {order.delivery_date}
             </div>
           </div>
           <div className="ms-past-order-option-buttons-wrapper ms-fl ms-mt-30 ms-ml-40">

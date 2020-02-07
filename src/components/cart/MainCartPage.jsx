@@ -8,6 +8,7 @@ import {
   addToSfl,
   deleteFromSfl
 } from "../../actions/saved_for_later";
+import { updateCheckout } from "../../actions/checkout";
 import SingleCartProductDetails from "./SingleCartProductDetails";
 import SingleSavedForLaterProduct from "../savedForLater/SingleSavedForLaterProduct";
 
@@ -21,7 +22,9 @@ export class MainCartPage extends Component {
     getSavedForLater: PropTypes.func.isRequired,
     addToSfl: PropTypes.func.isRequired,
     deleteFromSfl: PropTypes.func.isRequired,
-    saved_for_later: PropTypes.array.isRequired
+    saved_for_later: PropTypes.array.isRequired,
+    updateCheckout: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired
   };
 
   componentDidMount() {
@@ -38,7 +41,9 @@ export class MainCartPage extends Component {
       addToCart,
       deleteFromCart,
       addToSfl,
-      deleteFromSfl
+      deleteFromSfl,
+      updateCheckout,
+      user
     } = this.props;
     let cart_total_amt = 0;
     let shipping_charges = 50;
@@ -93,7 +98,22 @@ export class MainCartPage extends Component {
                 ₹{cart_total_amt + shipping_charges}/-
               </span>
             </div>
-            <button className="ms-cart-order-btn">Place Order</button>
+            <button
+              className="ms-cart-order-btn"
+              onClick={e => {
+                if (cart.length < 1) {
+                  createMessage({ error: "your cart is empty" });
+                } else {
+                  updateCheckout(user.checkout_id, {
+                    user: user.id,
+                    cart_or_single: "cart"
+                  });
+                  this.props.history.push("/checkout");
+                }
+              }}
+            >
+              Place Order
+            </button>
           </div>
         </div>
         <div className="ms-cart-container">
@@ -119,7 +139,8 @@ export class MainCartPage extends Component {
 
 const mapStateToProps = state => ({
   cart: state.cart.cart,
-  saved_for_later: state.saved_for_later.saved_for_later
+  saved_for_later: state.saved_for_later.saved_for_later,
+  user: state.auth.user
 });
 
 export default connect(mapStateToProps, {
@@ -129,5 +150,6 @@ export default connect(mapStateToProps, {
   deleteFromCart,
   getSavedForLater,
   addToSfl,
-  deleteFromSfl
+  deleteFromSfl,
+  updateCheckout
 })(MainCartPage);

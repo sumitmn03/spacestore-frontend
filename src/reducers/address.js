@@ -3,14 +3,12 @@ import {
   GET_ADDRESSES,
   DELETE_ADDRESS,
   NEW_ADDRESS_ADDED,
-  UPDATE_ADDRESS,
-  SELECTED_ADDRESS
+  UPDATE_ADDRESS
 } from "../actions/types";
 
 const initialState = {
   addresses: [],
-  address_status: "",
-  selected_address: {}
+  address_status: ""
 };
 
 export default function(state = initialState, action) {
@@ -47,12 +45,6 @@ export default function(state = initialState, action) {
         addresses: state.addresses.filter(
           address => address.id !== action.payload
         )
-      };
-
-    case SELECTED_ADDRESS:
-      return {
-        ...state,
-        selected_address: action.payload
       };
 
     default:

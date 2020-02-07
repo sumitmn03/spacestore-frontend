@@ -32,6 +32,7 @@ export class MainContents extends Component {
 
   handleImageToDisplay = e => {
     this.setState({ image_to_display: e.target.src });
+    console.log("hello");
   };
 
   render() {
@@ -60,7 +61,9 @@ export class MainContents extends Component {
       addToCart,
       addToWishlist,
       deleteFromWl,
-      isAuthenticated
+      isAuthenticated,
+      updateCheckout,
+      user
     } = this.props;
 
     let sizes = ["XXXL", "XXL", "XL", "L", "M", "S", "XS", "XXS", "XXXS"],
@@ -105,7 +108,7 @@ export class MainContents extends Component {
                 className="ms-product-page-main-image-nav"
                 style={{
                   borderColor:
-                    image_to_display === image
+                    image_to_display === `http://localhost:8000${image}`
                       ? "rgb(3, 154, 255)"
                       : "rgb(178, 189, 196)"
                 }}
@@ -115,7 +118,7 @@ export class MainContents extends Component {
                   height="68px"
                   src={`http://localhost:8000${image}`}
                   alt="product_img"
-                  onClick={this.handleImageToDisplay}
+                  onMouseOver={this.handleImageToDisplay}
                 />
               </div>
               {/* these are the extra images like back, left, right etc */}
@@ -137,7 +140,7 @@ export class MainContents extends Component {
                       height="68px"
                       src={img}
                       alt="product_img"
-                      onClick={this.handleImageToDisplay}
+                      onMouseOver={this.handleImageToDisplay}
                     />
                   </div>
                 );
@@ -210,7 +213,16 @@ export class MainContents extends Component {
               </button>
             </Link>
             <Link to="/checkout">
-              <button className="ms-product-page-main-button-bn">
+              <button
+                className="ms-product-page-main-button-bn"
+                onClick={() =>
+                  updateCheckout(user.checkout_id, {
+                    user: user.id,
+                    cart_or_single: "single",
+                    product: product.id
+                  })
+                }
+              >
                 Buy now
               </button>
             </Link>

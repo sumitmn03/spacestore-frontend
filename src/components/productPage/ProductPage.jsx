@@ -5,6 +5,7 @@ import { createMessage } from "../../actions/messages";
 import { getSingleProduct } from "../../actions/product";
 import { addToCart } from "../../actions/cart";
 import { addToWishlist, deleteFromWl } from "../../actions/wishlist";
+import { updateCheckout } from "../../actions/checkout";
 import MainContents from "./mainContents/MainContents";
 // import ExtraContents from "./extraContents/ExtraContents";
 
@@ -16,7 +17,9 @@ export class ProductPage extends Component {
     addToCart: PropTypes.func.isRequired,
     addToWishlist: PropTypes.func.isRequired,
     deleteFromWl: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool.isRequired
+    isAuthenticated: PropTypes.bool.isRequired,
+    user: PropTypes.object,
+    updateCheckout: PropTypes.func.isRequired
   };
 
   render() {
@@ -28,8 +31,13 @@ export class ProductPage extends Component {
       addToCart,
       addToWishlist,
       deleteFromWl,
-      isAuthenticated
+      isAuthenticated,
+      updateCheckout
     } = this.props;
+
+    let user = this.props.user;
+
+    user = user ? user : {};
 
     return (
       <div className="ms-product-page">
@@ -42,6 +50,8 @@ export class ProductPage extends Component {
           addToWishlist={addToWishlist}
           deleteFromWl={deleteFromWl}
           isAuthenticated={isAuthenticated}
+          updateCheckout={updateCheckout}
+          user={user}
         />
         {/* <ExtraContents /> */}
       </div>
@@ -51,7 +61,8 @@ export class ProductPage extends Component {
 
 const mapStateToProps = state => ({
   product: state.product.product,
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user
 });
 
 export default connect(mapStateToProps, {
@@ -59,5 +70,6 @@ export default connect(mapStateToProps, {
   getSingleProduct,
   addToCart,
   addToWishlist,
-  deleteFromWl
+  deleteFromWl,
+  updateCheckout
 })(ProductPage);

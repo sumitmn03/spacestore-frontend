@@ -962,7 +962,6 @@ input[type="number"] {
 
 .ms-single-order-description1 {
   float: left;
-  margin: 30px;
   margin-top: 30px;
   line-height: 140%;
   width: 300px;
@@ -970,15 +969,19 @@ input[type="number"] {
 
 .ms-single-order-description2 {
   float: left;
-  margin-left: 30px;
+  margin-left: 10px;
   margin-top: 30px;
   line-height: 140%;
-  width: 300px;
-  display: inline-block;
+  width: 350px;
 }
 
 .ms-single-order-name {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.ms-single-order-name span {
+  width: 130px;
+  display: inline-block;
 }
 
 /* past order detail page style */
@@ -1001,7 +1004,7 @@ input[type="number"] {
   border: 1px solid rgb(224, 223, 223);
   color: black;
   margin-bottom: 20px;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
   /* padding: 10px 0 10px 20px; */
@@ -1033,6 +1036,10 @@ input[type="number"] {
   font-size: large;
   margin-bottom: 10px;
   font-weight: bold;
+}
+
+.ms-past-order-payment-amount-container {
+  margin-bottom: 10px;
 }
 
 .ms-past-order-payment-amount {
@@ -2801,11 +2808,11 @@ input[type="number"] {
   font-size: small;
 }
 
-.ms-address-single-address-btn.edit {
+/* .ms-address-single-address-btn.edit {
   text-decoration: none;
   color: black;
   text-align: center;
-}
+} */
 
 .ms-address-single-address-btn.edit:hover {
   background-color: #51b9ed;
@@ -2883,7 +2890,7 @@ input[type="number"] {
 
 .ms-checkout-page {
   width: 1070px;
-  margin: 20px auto 0;
+  margin: 20px auto 60px;
 }
 
 .ms-checkout-sidebar {
@@ -2893,15 +2900,17 @@ input[type="number"] {
 
 .ms-checkout-sidebar-component {
   background-color: white;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
   padding: 20px 30px;
   border-radius: 3px;
+  cursor: context-menu;
+  font-size: 14px;
 }
 
 .ms-checkout-sidebar-component:hover {
   /* background-color: #51b9ed; */
-  /* color: white; */
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  color: #51b9ed;
+  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); */
 }
 
 .ms-checkout-main {
@@ -2911,9 +2920,6 @@ input[type="number"] {
 }
 
 /* checkout address styles */
-
-.ms-checkout-address-page {
-}
 
 .ms-checkout-address-container,
 .ms-checkout-selected-address-container {
@@ -2931,8 +2937,209 @@ input[type="number"] {
 
 .ms-checkout-address-body,
 .ms-checkout-selected-address-body {
-  padding: 5px 25px 20px;
+  padding: 5px 17px 20px;
   background-color: white;
+}
+
+.ms-checkout-footer-nav-btn-container {
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.ms-checkout-footer-nav-btn {
+  display: inline-block;
+  width: 130px;
+  padding: 6px 0;
+  border: 1px solid rgb(223, 217, 217);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  font-size: small;
+}
+
+.ms-checkout-footer-nav-btn.first {
+  margin-right: 20px;
+}
+
+.ms-checkout-footer-nav-btn:hover {
+  border-color: #51b9ed;
+  background-color: #51b9ed;
+  color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* checkout order summary */
+
+.ms-checkout-order-sum-main {
+  width: 500px;
+  display: inline-block;
+}
+
+.ms-checkout-order-sum-main-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: 700;
+  font-size: large;
+  padding: 15px 0 15px 20px;
+}
+
+.ms-checkout-order-sum-single-product {
+  padding: 10px 0;
+  background-color: white;
+  height: 170px;
+  margin-bottom: 1px;
+}
+
+.ms-checkout-order-sum-single-product-image {
+  float: left;
+  background-color: grey;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+}
+
+.ms-checkout-order-sum-single-product-desc-container {
+  display: inline-block;
+  line-height: 140%;
+  width: 320px;
+  padding: 10px 0;
+}
+
+.ms-checkout-order-sum-single-product-desc {
+  margin-bottom: 5px;
+}
+
+.ms-checkout-order-sum-single-product-cprice {
+  font-weight: bold;
+}
+
+.ms-checkout-order-sum-single-product-desc-oprice {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.ms-checkout-order-sum-single-product-desc-quantity {
+  width: 40px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid rgb(172, 170, 170);
+}
+
+.ms-checkout-order-sum-single-product-remove-btn {
+  margin-top: 5px;
+  display: inline-block;
+  width: 110px;
+  padding: 6px 0;
+  border: 1px solid rgb(223, 217, 217);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  font-size: small;
+  border-radius: 7px;
+}
+
+.ms-checkout-order-sum-single-product-remove-btn:hover {
+  border-color: rgb(245, 26, 26);
+  background-color: rgb(245, 26, 26);
+  color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-checkout-order-sum-btn-container {
+  background-color: white;
+  margin-bottom: 1px;
+  padding: 20px;
+}
+
+.ms-checkout-order-sum-sidebar {
+  width: 270px;
+  float: right;
+  background-color: white;
+  margin-left: 20px;
+}
+
+/* checkout order summary */
+
+.ms-checkout-order-summary-sidebar {
+  float: right;
+  margin-left: 20px;
+  width: 268px;
+  border: 1px solid rgb(224, 223, 223);
+  line-height: 140%;
+}
+
+.ms-checkout-order-summary-sidebar-payment {
+  padding: 15px;
+  display: block;
+  background-color: white;
+}
+
+.ms-checkout-order-summary-sidebar-payment-amount {
+  float: right;
+  margin-right: 20px;
+}
+
+/* 123456 */
+
+.ms-checkout-order-summary-sidebar-total-amt-label {
+  padding: 20px;
+  display: block;
+  background-color: white;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.ms-checkout-order-summary-sidebar-total-amt {
+  float: right;
+  margin-right: 10px;
+}
+
+.ms-checkout-order-summary-sidebar-btn {
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid rgb(223, 217, 217);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  font-size: small;
+  outline: none;
+}
+
+.ms-checkout-order-summary-sidebar-btn:hover {
+  background-color: #51b9ed;
+  color: white;
+  border-color: #51b9ed;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* checkout payment option */
+
+.ms-checkout-payment-option-header {
+  background-color: white;
+  margin-bottom: 1px;
+  font-weight: 700;
+  font-size: large;
+  padding: 15px 0 15px 20px;
+}
+
+.ms-checkout-payment-option-body {
+  background-color: white;
+}
+
+.ms-checkout-payment-option-single-option {
+  padding: 20px;
+}
+
+.ms-checkout-payment-option-single-option-radio {
+  margin-right: 20px;
+}
+
+.ms-checkout-payment-option-single-option-confirm {
+  display: none;
+  background-color: rgb(245, 148, 4);
+  padding: 8px 14px;
+  border: none;
+  color: white;
+  outline: none;
+  margin-left: 20px;
+  box-shadow: inset 0 0 5px rgb(184, 114, 10);
 }
 
 /* *********************************************************** */

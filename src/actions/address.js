@@ -5,8 +5,7 @@ import {
   ADD_ADDRESS_STATUS,
   DELETE_ADDRESS,
   NEW_ADDRESS_ADDED,
-  UPDATE_ADDRESS,
-  SELECTED_ADDRESS
+  UPDATE_ADDRESS
 } from "./types";
 import { createMessage } from "./messages";
 import { tokenConfig } from "./auth";
@@ -64,6 +63,8 @@ export const deleteAddress = id => (dispatch, getState) => {
       });
     })
     .catch(err => {
+      console.log(err);
+
       dispatch(createMessage({ error: "Deletion failed" }));
       dispatch(createMessage({ error: "please try again afer sometime" }));
     });
@@ -88,11 +89,4 @@ export const updateAddress = (id, data) => (dispatch, getState) => {
       dispatch(createMessage({ error: "Failed to add the address" }));
       dispatch(setAddAddressStatus("fail"));
     });
-};
-
-export const setSelectedAddress = address => (dispatch, getState) => {
-  dispatch({
-    type: SELECTED_ADDRESS,
-    payload: address
-  });
 };

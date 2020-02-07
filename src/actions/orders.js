@@ -17,10 +17,7 @@ export const getOrders = () => (dispatch, getState) => {
 export const getOrderDetail = order_id => (dispatch, getState) => {
   dispatch({ type: ORDER_LOADING });
   axios
-    .get(
-      `http://localhost:8000/api/orderdetail/${order_id}`,
-      tokenConfig(getState)
-    )
+    .get(`http://localhost:8000/api/orders/${order_id}`, tokenConfig(getState))
     .then(res => {
       dispatch({
         type: GET_ORDER_DETAIL,

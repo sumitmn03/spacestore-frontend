@@ -21,8 +21,9 @@ export class PastOrderDetail extends Component {
     const { order, order_loading } = this.props;
     let product = order.product,
       address = order.address;
+
     if (order_loading) {
-      return <div>Loaning...</div>;
+      return <div>Loading...</div>;
     } else if (product) {
       return (
         <div className="ms-past-order-detail-wrapper">
@@ -49,32 +50,32 @@ export class PastOrderDetail extends Component {
               <div className="ms-past-order-payment-header">
                 Payment Details
               </div>
-              <div>
+              <div className="ms-past-order-payment-amount-container">
                 Products Price :
                 <span className="ms-past-order-payment-amount">
-                  ₹{product.original_price - product.seller_discount}
+                  ₹{order.original_price}
                 </span>
               </div>
-              <div>
+              <div className="ms-past-order-payment-amount-container">
+                Offer Applied :
+                <span className="ms-past-order-payment-amount">
+                  - ₹{order.seller_discount}
+                </span>
+              </div>
+              <div className="ms-past-order-payment-amount-container">
                 Shipping charges :
                 <span className="ms-past-order-payment-amount">
                   ₹{order.shipping_charges}
                   {/* add shipping charges to the database as well... in order table */}
                 </span>
               </div>
-              <div>
-                Offer Applied :
-                <span className="ms-past-order-payment-amount">
-                  - ₹{order.offer_applied}
-                </span>
-              </div>
-              <div>
+              <div className="ms-past-order-payment-amount-container">
                 Total :
                 <span className="ms-past-order-payment-amount">
-                  {product.original_price -
-                    product.seller_discount +
-                    order.shipping_charges -
-                    order.offer_applied}
+                  ₹
+                  {order.original_price -
+                    order.seller_discount +
+                    order.shipping_charges}
                 </span>
               </div>
             </div>
@@ -98,9 +99,14 @@ export class PastOrderDetail extends Component {
               >
                 <div>{product.name}</div>
               </Link>
-              <div>₹{product.original_price - product.seller_discount}</div>
-              <div>Size: XS</div>
-              <div>Quantity: 3</div>
+              <div>
+                ₹
+                {order.original_price -
+                  order.seller_discount +
+                  order.shipping_charges}
+              </div>
+              <div>Size: {order.size}</div>
+              <div>Quantity: {order.quantity}</div>
             </div>
             <div className="ms-past-order-option-buttons-wrapper">
               <button className="ms-past-order-option-buttons">Invoice</button>
