@@ -49,18 +49,7 @@ export class PaymentOption extends Component {
                   display:
                     payment_mode === payment_option ? "inline-block" : "none"
                 }}
-                onClick={() =>
-                  placeOrder(
-                    checkout,
-                    checkout.checkout_datas[0].cart_product.id,
-                    "M",
-                    2,
-                    checkout.address_data.id,
-                    checkout.checkout_datas[0].cart_product.original_price,
-                    checkout.checkout_datas[0].cart_product.seller_discount,
-                    checkout.checkout_datas[0].cart_product.shipping_charges
-                  )
-                }
+                onClick={() => placeOrder(checkout)}
               >
                 Place order
               </button>

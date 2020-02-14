@@ -43,6 +43,7 @@ export const updateCheckout = (checkout_id, data) => (dispatch, getState) => {
     });
 };
 
+// called in case of cart
 export const removeItemFromCheckout = cart_id => (dispatch, getState) => {
   dispatch(deleteFromCart(cart_id));
   dispatch({
@@ -51,6 +52,7 @@ export const removeItemFromCheckout = cart_id => (dispatch, getState) => {
   });
 };
 
+// called in case of single item
 export const removeSingleCheckoutItem = (checkout_id, data) => (
   dispatch,
   getState
@@ -72,41 +74,72 @@ export const removeSingleCheckoutItem = (checkout_id, data) => (
     });
 };
 
-export const placeOrder = (
-  checkout,
-  product_id,
-  size,
-  quantity,
-  address_id,
-  original_price,
-  seller_discount,
-  shipping_charges
-) => (dispatch, getState) => {
-  let body = JSON.stringify({
-    product: product_id,
-    size,
-    quantity,
-    address: address_id,
-    original_price,
-    seller_discount,
-    shipping_charges
-  });
-  axios
-    .post(`http://localhost:8000/api/post_order/`, body, tokenConfig(getState))
-    .then(res => {
-      dispatch({
-        type: PLACE_ORDER
-      });
+export const placeOrder = checkout => (dispatch, getState) => {
+  let body = [];
+  checkout.checkout_datas.map(
+    single_data =>
+      (body = [
+        ...body,
+        {
+          current_user: checkout.user,
+          product: single_data.cart_product.id,
+          size:
+            checkout.cart_or_single === "single"
+              ? checkout.size
+              : single_data.size,
+          quantity:
+            checkout.cart_or_single === "single"
+              ? checkout.quantity
+              : single_data.quantity,
+          address: checkout.address,
+          original_price: single_data.cart_product.original_price,
+          seller_discount: single_data.cart_product.seller_discount,
+          shipping_charges: 40
+        }
+      ])
+  );
 
+  // console.log();
+
+  axios
+    .post(
+      `http://localhost:8000/api/post_order/`,
+      JSON.stringify(body),
+      tokenConfig(getState)
+    )
+    .then(res => {
+      // deleting all the current checkout data like cart_or_single and product as the order is success and the datas are of no use but the address_data is kept for future use by the user
       dispatch(
         updateCheckout(checkout.id, {
           user: checkout.user,
           cart_or_single: null,
           product: null,
-          payment_mode: null
+          payment_mode: null,
+          size: null,
+          quantity: null
         })
       );
+
+      // deleting from cart in case the order is made from cart
+      if (checkout.cart_or_single === "cart") {
+        dispatch(deleteAllCartItems(checkout.user));
+      }
+
+      // this will be used to redirect user to the success page
+      dispatch({
+        type: PLACE_ORDER
+      });
     })
+    .catch(err => console.log(err));
+};
+
+// called when the order is made from cart and the order is success
+export const deleteAllCartItems = user_id => (dispatch, getState) => {
+  axios
+    .delete(
+      `http://localhost:8000/api/delete_cart/${user_id}/`,
+      tokenConfig(getState)
+    )
     .catch(err => {
       dispatch(createMessage({ error: "Server error" }));
       dispatch(createMessage({ error: "please try again" }));

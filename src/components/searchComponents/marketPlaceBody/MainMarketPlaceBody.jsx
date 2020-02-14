@@ -151,7 +151,7 @@ export class MainMarketPlaceBody extends Component {
     return (
       <div>
         <div className="ms-main-marketplace-body">
-          <div className="ms-main-marketplace-header">
+          <div className="ms-main-marketplace-header ms-not-small">
             Sort By{" "}
             <span>
               <select

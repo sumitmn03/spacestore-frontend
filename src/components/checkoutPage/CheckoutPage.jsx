@@ -21,7 +21,6 @@ import { createMessage } from "../../actions/messages";
 import CheckoutAddress from "./checkoutAddress/CheckoutAddress";
 import OrderSummary from "./orderSummary/OrderSummary";
 import PaymentOption from "./paymentOption/PaymentOption";
-import CheckoutSuccess from "./checkoutSuccess/CheckoutSuccess";
 
 export class CheckoutPage extends Component {
   state = {

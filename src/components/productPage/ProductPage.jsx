@@ -32,7 +32,8 @@ export class ProductPage extends Component {
       addToWishlist,
       deleteFromWl,
       isAuthenticated,
-      updateCheckout
+      updateCheckout,
+      history
     } = this.props;
 
     let user = this.props.user;
@@ -52,6 +53,7 @@ export class ProductPage extends Component {
           isAuthenticated={isAuthenticated}
           updateCheckout={updateCheckout}
           user={user}
+          history={history}
         />
         {/* <ExtraContents /> */}
       </div>

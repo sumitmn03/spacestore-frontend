@@ -12,23 +12,31 @@ export class SingleProductView extends Component {
     let { product } = this.props;
     let {
       image,
-      name
+      // name,
       // rating,
-      // original_price,
-      // seller_discount,
+      original_price,
+      seller_discount
       // size_n_quantity
     } = product;
 
     return (
       <div className="ms-home-category-product" onClick={this.handleOnClick}>
         <div>
-          <img width="280px" height="280px" src={image} alt="product" />
+          <img
+            src={image}
+            alt="product"
+            className="ms-home-category-product-img"
+          />
         </div>
-        <div className="ms-home-category-product-name">{name}</div>
-        <div className="ms-home-category-product-rating">5.8</div>
+        {/* <div className="ms-home-category-product-name">{name}</div>
+        <div className="ms-home-category-product-rating">5.8</div> */}
         <div className="ms-home-category-product-price-wrapper">
-          <span className="ms-home-category-product-current-price">₹300</span>{" "}
-          <span className="ms-home-category-product-original-price">₹450</span>
+          <span className="ms-home-category-product-current-price">
+            ₹{original_price - seller_discount}
+          </span>{" "}
+          <span className="ms-home-category-product-original-price">
+            ₹{original_price}
+          </span>
         </div>
       </div>
     );

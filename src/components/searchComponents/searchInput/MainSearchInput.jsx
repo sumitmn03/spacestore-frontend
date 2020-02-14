@@ -51,7 +51,7 @@ export class MainInput extends Component {
             onChange={this.handleOnChange}
             className="ms-mainsearch-search-input"
           />
-          <button type="submit">
+          <button type="submit" className="ms-not-small">
             <i className="fa fa-search"></i>
           </button>
         </form>

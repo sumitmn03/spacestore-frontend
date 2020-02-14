@@ -1,9 +1,15 @@
-import { GET_ORDERS, GET_ORDER_DETAIL, ORDER_LOADING } from "../actions/types";
+import {
+  GET_ORDERS,
+  GET_ORDER_DETAIL,
+  ORDER_LOADING,
+  GET_PARENT_ORDER
+} from "../actions/types";
 
 const initialState = {
   orders: [],
-  order: {},
-  order_loading: true
+  selected_order: {},
+  order_loading: true,
+  parent_order: {}
 };
 
 export default function(state = initialState, action) {
@@ -22,7 +28,23 @@ export default function(state = initialState, action) {
     case GET_ORDER_DETAIL:
       return {
         ...state,
-        order: action.payload,
+        selected_order: action.payload,
+        order_loading: false
+      };
+
+    case GET_PARENT_ORDER:
+      let temp_order = {};
+
+      action.payload.api_res.children_orders.map(single_children_order =>
+        single_children_order.order_id === action.payload.child_order_id
+          ? (temp_order = single_children_order)
+          : ""
+      );
+
+      return {
+        ...state,
+        selected_order: temp_order,
+        parent_order: action.payload.api_res,
         order_loading: false
       };
 

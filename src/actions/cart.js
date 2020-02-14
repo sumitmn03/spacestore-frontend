@@ -15,11 +15,14 @@ export const getCart = () => (dispatch, getState) => {
     .catch(err => console.log("error", err.message));
 };
 
-export const addToCart = product => (dispatch, getState) => {
+export const addToCart = (product, current_user, size, quantity) => (
+  dispatch,
+  getState
+) => {
   axios
     .post(
       "http://localhost:8000/api/cart/",
-      JSON.stringify({ product }),
+      JSON.stringify({ product, current_user, size, quantity }),
       tokenConfig(getState)
     )
     .then(res => {

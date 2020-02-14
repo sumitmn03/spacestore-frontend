@@ -14,11 +14,11 @@ export const getSavedForLater = () => (dispatch, getState) => {
     .catch(err => console.log("error", err.message));
 };
 
-export const addToSfl = product => (dispatch, getState) => {
+export const addToSfl = (product, size, quantity) => (dispatch, getState) => {
   axios
     .post(
       `http://localhost:8000/api/savedforlater/`,
-      JSON.stringify({ product }),
+      JSON.stringify({ product, size , quantity}),
       tokenConfig(getState)
     )
     .then(res => {

@@ -48,14 +48,16 @@ export class SingleProductView extends Component {
     return (
       <div className="ms-main-marketplace-product" onClick={this.handleOnClick}>
         <div>
-          <img width="295px" height="300px" src={image} alt="product" />
+          {/* it will not be used for small devices <img width="295px" height="300px" src={image} alt="product" /> */}
+          <img
+            className="ms-main-marketplace-product-img"
+            src={image}
+            alt="product"
+          />
         </div>
-        <div className="ms-main-marketplace-product-name">{name}</div>
-        {rating ? (
-          <div className="ms-main-marketplace-product-rating">{rating}</div>
-        ) : (
-          <Fragment />
-        )}
+        <div className="ms-main-marketplace-product-name">
+          {name.slice(0, 17)} {name.length >= 17 ? ".." : ""}
+        </div>
         <div className="ms-main-marketplace-product-price-wrapper">
           <span className="ms-main-marketplace-product-current-price">
             ₹{original_price - seller_discount}
@@ -64,12 +66,17 @@ export class SingleProductView extends Component {
             ₹{original_price}
           </span>
         </div>
-        <div className="ms-main-marketplace-product-sizes">
+        {/* {rating ? (
+          <div className="ms-main-marketplace-product-rating">{rating}</div>
+        ) : (
+          <Fragment />
+        )} */}
+        {/* <div className="ms-main-marketplace-product-sizes">
           <span className="ms-main-marketplace-product-sizes-header">
             Sizes:
           </span>
           {temp_sizes}
-        </div>
+        </div> */}
       </div>
     );
   }

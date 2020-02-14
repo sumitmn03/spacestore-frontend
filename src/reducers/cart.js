@@ -21,7 +21,15 @@ export default function(state = initialState, action) {
     case ADD_TO_CART:
       return {
         ...state,
-        cart: [action.payload, ...state.cart]
+        cart: [
+          action.payload,
+          ...state.cart.filter(single_product =>
+            action.payload.cart_product.id === single_product.cart_product.id &&
+            action.payload.size === single_product.size
+              ? false
+              : true
+          )
+        ]
       };
 
     default:

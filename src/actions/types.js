@@ -16,6 +16,7 @@ export const GET_SINGLE_PRODUCT = "GET_SINGLE_PRODUCT";
 export const GET_ORDERS = "GET_ORDERS";
 export const GET_ORDER_DETAIL = "GET_ORDER_DETAIL";
 export const ORDER_LOADING = "ORDER_LOADING";
+export const GET_PARENT_ORDER = "GET_PARENT_ORDER";
 
 // cart
 export const GET_CART = "GET_CART";

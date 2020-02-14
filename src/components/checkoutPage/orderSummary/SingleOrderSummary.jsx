@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 export class SingleOrderSummary extends Component {
-  state = {
-    quantity: "1"
-  };
-
   handleOnChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
@@ -16,8 +12,6 @@ export class SingleOrderSummary extends Component {
       user
     } = this.props;
     const product_data = single_cart_data.cart_product;
-
-    const { quantity } = this.state;
 
     return (
       <div className="ms-checkout-order-sum-single-product">
@@ -37,7 +31,10 @@ export class SingleOrderSummary extends Component {
             className="ms-checkout-order-sum-single-product-desc"
             style={{ color: "grey" }}
           >
-            Size: XS
+            Size:{" "}
+            {checkout.cart_or_single === "single"
+              ? checkout.size
+              : single_cart_data.size}
           </div>
           <div className="ms-checkout-order-sum-single-product-desc">
             <span className="ms-checkout-order-sum-single-product-cprice">
@@ -49,16 +46,12 @@ export class SingleOrderSummary extends Component {
           </div>
           <div className="ms-checkout-order-sum-single-product-desc">
             Quantity:{" "}
-            <input
-              className="ms-checkout-order-sum-single-product-desc-quantity"
-              type="number"
-              name="quantity"
-              value={quantity}
-              onChange={this.handleOnChange}
-            />
+            {checkout.cart_or_single === "single"
+              ? checkout.quantity
+              : single_cart_data.quantity}
           </div>
           <div className="ms-checkout-order-sum-single-product-desc">
-            <button
+            <div
               className="ms-checkout-order-sum-single-product-remove-btn"
               onClick={() => {
                 if (checkout.cart_or_single === "single") {
@@ -71,8 +64,8 @@ export class SingleOrderSummary extends Component {
                 }
               }}
             >
-              Remove
-            </button>
+              Remove this item
+            </div>
           </div>
         </div>
       </div>

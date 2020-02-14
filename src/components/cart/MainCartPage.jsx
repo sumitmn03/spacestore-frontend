@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { createMessage } from "../../actions/messages";
@@ -53,6 +53,13 @@ export class MainCartPage extends Component {
         <div className="ms-cart-container">
           <div className="ms-cart-product-container">
             <div className="ms-cart-header">My Shopping Bag</div>
+            {cart.length < 1 ? (
+              <div className="ms-cart-no-product">
+                Your shopping bag is empty !
+              </div>
+            ) : (
+              <Fragment />
+            )}
             {cart.map((cart_item, index) => {
               let product = cart_item.cart_product;
               cart_total_amt +=
@@ -60,12 +67,12 @@ export class MainCartPage extends Component {
               return (
                 <SingleCartProductDetails
                   key={index}
-                  createMessage={createMessage}
                   product={product}
                   deleteFromCart={deleteFromCart}
                   addToSfl={addToSfl}
                   cart_id={cart_item.id}
-                  saved_for_later={saved_for_later}
+                  cart_size={cart_item.size}
+                  cart_quantity={cart_item.quantity}
                 />
               );
             })}
@@ -119,15 +126,22 @@ export class MainCartPage extends Component {
         <div className="ms-cart-container">
           <div className="ms-cart-product-container">
             <div className="ms-cart-header">Saved For Later</div>
+            {saved_for_later.length < 1 ? (
+              <div className="ms-cart-no-product">
+                Your Saved for later list is empty !
+              </div>
+            ) : (
+              <Fragment />
+            )}
             {saved_for_later.map((sfl_item, index) => (
               <SingleSavedForLaterProduct
                 key={index}
-                createMessage={createMessage}
                 product={sfl_item.sfl_product}
                 deleteFromSfl={deleteFromSfl}
                 addToCart={addToCart}
                 sfl_id={sfl_item.id}
-                cart={cart}
+                sfl_size={sfl_item.size}
+                sfl_quantity={sfl_item.quantity}
               />
             ))}
           </div>

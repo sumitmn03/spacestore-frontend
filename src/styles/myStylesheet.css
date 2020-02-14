@@ -1,0 +1,1106 @@
+/* @media only screen and (max-width: 768px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+} */
+
+body {
+  background-color: rgb(239, 241, 241);
+  /* background-color: grey; */
+  width: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Chrome, Safari, Edge, Opera  hiding the arrows in input type number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* this is the main color rgb(30, 121, 116) */
+
+/*.... the whole page */
+
+.ms-main-body {
+  position: relative;
+  top: 97px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* hiding all the elements that are not for the small devices */
+.ms-not-small {
+  display: none;
+}
+
+/* Top Navbar style */
+
+.ms-top-navbar-container {
+  background-color: rgb(30, 121, 116);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90px;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  transition: top 0.3s;
+}
+
+.ms-top-navbar {
+  height: 50px;
+}
+
+.ms-top-navbar.first {
+  margin: auto;
+}
+
+.ms-top-navbar-menu-logo-container {
+  color: white;
+  float: left;
+  margin-top: 15px;
+  margin-left: 13px;
+}
+
+.first .ms-top-navbar-name {
+  float: left;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
+.ms-top-navbar-cart-logo-container {
+  float: right;
+  margin-top: 15px;
+  margin-right: 13px;
+}
+
+/* search bar  */
+.search-container {
+  width: 100%;
+}
+
+.search-container input {
+  position: relative;
+  padding: 9px 15px;
+  font-size: 14px;
+  width: 89%;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  margin: auto;
+  display: block;
+}
+
+/* sidebar */
+
+.ms-sidebar-page {
+  top: 0;
+  left: -100%;
+  position: absolute;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: scroll;
+  box-shadow: 0 10px 0 0;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  transition: left 0.3s;
+}
+
+.ms-sidebar-container {
+  display: inline-block;
+  width: 80%;
+  background-color: white;
+  /* box-shadow: 0 0px 30px 30px rgba(0, 0, 0, 0.6); */
+}
+
+.ms-sidebar-page-greetings {
+  background-color: rgb(30, 121, 116);
+  color: white;
+  font-size: 23px;
+  font-style: italic;
+  padding: 20px 30px;
+  position: sticky;
+  top: 0;
+}
+
+.ms-sidebar-close {
+  float: right;
+  font-style: normal;
+  font-size: 23px;
+  margin-top: -5px;
+  color: rgb(223, 214, 214);
+  padding: 3px 9px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-sidebar-page-option {
+  padding: 20px 0 20px 40px;
+  font-size: 23px;
+}
+
+.ms-sidebar-page-option:hover {
+  background-color: rgb(235, 229, 229);
+}
+
+.ms-sidebar-page-option-link {
+  text-decoration: none;
+  color: black;
+}
+
+.ms-sidebar-dummy {
+  position: fixed;
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+/* home page carousel */
+
+.ms-home-design {
+  width: 100%;
+}
+
+.ms-home-design-pics-container {
+  background-color: white;
+  text-align: center;
+  word-wrap: none;
+  overflow: hidden;
+  height: 200px;
+}
+
+.ms-home-design-image {
+  width: 200px;
+  height: 200px;
+  margin-top: 5px;
+}
+
+.ms-home-design-image.open {
+  animation-name: home-img-open;
+  animation-duration: 0.5s;
+}
+
+@keyframes home-img-open {
+  from {
+    opacity: 0.3;
+    margin-left: -250px;
+  }
+  to {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+.ms-home-design-image.close {
+  animation-name: home-img-close;
+  animation-duration: 0.5s;
+}
+
+@keyframes home-img-close {
+  from {
+    opacity: 1;
+    margin-left: 0;
+  }
+  to {
+    opacity: 0;
+    margin-left: 250px;
+    /* margin-left: 130px; */
+  }
+}
+
+.ms-home-start-desig-btn-cont {
+  background-color: white;
+  text-align: center;
+  padding: 9px 0;
+  margin-top: 1px;
+}
+
+.ms-home-start-desig-btn-cont button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgb(30, 121, 116);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+
+/* home category */
+
+.ms-home-category-header {
+  margin-top: 6px;
+  background-color: white;
+  font-weight: normal;
+  font-size: 20px;
+  padding: 15px 20px;
+  margin-bottom: 1px;
+}
+
+.ms-home-category-more {
+  float: right;
+  padding: 3px 10px;
+  background-color: white;
+  border: 1px solid rgb(239, 241, 241);
+  outline: none;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.ms-home-category-product-container {
+  width: 100%;
+  background-color: white;
+}
+
+.ms-home-category-product {
+  display: inline-block;
+  width: 50%;
+  padding: 15px 0;
+}
+
+/* .ms-home-category-product:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+.ms-home-category-product-img {
+  width: 100%;
+  /* height: 100%; */
+}
+
+/* homepage product price */
+
+.ms-home-category-product-price-wrapper {
+  text-align: center;
+}
+
+.ms-home-category-product-current-price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.ms-home-category-product-original-price {
+  color: gray;
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+
+/* marketplace */
+
+.ms-main-marketplace-header-small {
+}
+
+.ms-main-marketplace-header-small-comp {
+  width: calc(50% - 1px);
+  background-color: white;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 0;
+  margin-right: 1px;
+}
+
+.ms-main-marketplace-filter-container {
+}
+
+.ms-main-marketplace-product {
+  width: calc(50% - 1px);
+  height: 100%;
+  display: inline-block;
+  margin-top: 1px;
+  margin-right: 1px;
+  padding: 15px 0;
+  background-color: white;
+  text-align: center;
+}
+
+.ms-main-marketplace-product-img {
+  width: 98%;
+}
+
+/* marketplace product name */
+
+.ms-main-marketplace-product-name {
+  margin: 5px 0 5px 10px;
+  font-size: 17px;
+  text-align: left;
+}
+
+/* marketplace product rating */
+
+/* .ms-main-marketplace-product-rating {
+  margin-left: 10px;
+  width: 30px;
+  background-color: green;
+  font-size: small;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+} */
+
+/* marketplace product price */
+
+.ms-main-marketplace-product-price-wrapper {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.ms-main-marketplace-product-current-price {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.ms-main-marketplace-product-original-price {
+  color: gray;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+/* marketplace product sizes */
+
+.ms-main-marketplace-product-sizes {
+  margin-left: 10px;
+  color: gray;
+}
+
+.ms-main-marketplace-product-sizes-header {
+  color: #000;
+  margin-right: 10px;
+}
+
+.ms-main-marketplace-product-sizes-children {
+  color: grey;
+  margin-right: 10px;
+}
+
+/* small order by in marketplace */
+
+.ms-main-marketplace-sortby-comp-page {
+  top: 0;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.ms-main-marketplace-sortby-comp-cont {
+  position: relative;
+  top: 160px;
+  left: 35%;
+  width: 60%;
+  box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.4);
+}
+
+.ms-main-marketplace-sortby-comp {
+  background-color: white;
+  padding: 20px 40px;
+  font-size: 18px;
+}
+
+/* marketplace sidebar a.k.a filter which will be on the left side of the body */
+
+.ms-main-marketplace-header-filter-back {
+  background-color: white;
+  padding: 20px 30px;
+  font-size: 18px;
+  color: #047feb;
+  margin-bottom: 2px;
+}
+
+.ms-marketplace-filter-component {
+  margin: 0 5px 50px 0;
+  float: left;
+  width: 100%;
+  cursor: context-menu;
+}
+
+.ms-marketplace-filter-header {
+  font-size: larger;
+  padding: 15px 30px;
+  margin: 0 0 3px;
+  font-weight: normal;
+  background-color: white;
+}
+
+.ms-marketplace-filter-name {
+  padding: 5px 0;
+  font-size: 17px;
+}
+
+.ms-marketplace-filter {
+  background-color: white;
+  color: rgb(36, 35, 35);
+  overflow: hidden;
+  padding: 21px 30px 16px;
+  border-bottom: 1px solid rgb(238, 235, 235);
+}
+
+.ms-marketplace-filter-options-container {
+  margin-top: 10px;
+  display: none;
+}
+
+.ms-marketplace-filter-option {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.ms-marketplace-filter-option span {
+  width: 170px;
+  display: inline-block;
+  overflow: hidden;
+  word-wrap: none;
+  height: 20px;
+}
+
+.ms-marketplace-filter-option input {
+  float: right;
+  height: 15px;
+  width: 15px;
+}
+
+/* ******************************************** */
+
+/* it is shown when there is no products found MainMarketplace component */
+.ms-main-marketplace-noproducts {
+  padding: 50px 0 50px 50px;
+  font-size: 20px;
+  background-color: white;
+}
+
+/* product page */
+.ms-product-page {
+  width: 100%;
+}
+
+.ms-product-page-main-contents {
+}
+
+.ms-product-page-main-first {
+  width: 100%;
+}
+
+.ms-product-page-images-container {
+  width: 100%;
+  min-height: 300px;
+  padding: 20px 0;
+  background-color: white;
+}
+
+.ms-product-page-main-image-nav-container {
+  float: left;
+  /* display: inline-block; */
+  width: 62px;
+  height: 290px;
+  overflow: scroll;
+  margin-left: 3px;
+  top: 0;
+}
+
+.ms-product-page-main-image-nav {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 10px;
+  border: 1px solid rgb(178, 189, 196);
+}
+
+.ms-product-page-main-image-container {
+  position: relative;
+  top: 0;
+  display: inline-block;
+  width: calc(100% - 65px);
+  text-align: center;
+}
+
+.ms-product-page-main-image-container img {
+  width: 100%;
+}
+
+/* product infos  */
+
+.ms-product-page-main-info {
+  background-color: white;
+  padding: 20px;
+  margin-top: 1px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-main-second-name {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.ms-product-page-rating {
+  margin-bottom: 10px;
+  width: 30px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 5px;
+  text-align: center;
+}
+
+.ms-product-page-price-wrapper {
+  margin-bottom: 10px;
+}
+
+.ms-product-page-current-price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.ms-product-page-original-price {
+  margin-left: 10px;
+  color: gray;
+  text-decoration: line-through;
+}
+.ms-product-page-sizes {
+  color: gray;
+}
+
+.ms-product-page-sizes-header {
+  color: #000;
+  margin-right: 10px;
+}
+
+.ms-product-page-sizes-children {
+  color: grey;
+  margin-right: 10px;
+}
+
+/* product page buttons */
+
+.ms-product-page-main-button-container {
+  background-color: white;
+  margin-top: 15px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-main-button {
+  margin: 0 auto;
+  width: 90%;
+  padding: 20px 0;
+}
+
+.ms-product-page-main-button-quantity,
+.ms-product-page-main-button-size {
+  display: inline-block;
+  width: 46%;
+  display: inline-block;
+  color: black;
+  border: 1px solid rgb(223, 217, 217);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-main-button-quantity span {
+  display: inline-block;
+  padding: 10px 0;
+  width: calc(100% - 40px);
+  text-align: center;
+  font-size: 14px;
+}
+
+.ms-product-page-main-button-quantity input {
+  display: inline-block;
+  width: 20px;
+  border: 1px solid rgb(202, 200, 200);
+  outline: none;
+  background-color: rgb(250, 249, 249);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.ms-product-page-main-button-size {
+  text-align: center;
+  float: right;
+  position: relative;
+}
+
+.ms-product-page-main-button-size button {
+  padding: 10px 0;
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 14px;
+}
+
+.ms-product-page-main-button-size-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  bottom: 35px;
+}
+
+.ms-product-page-main-button-size-content li {
+  padding: 10px 0;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.ms-product-page-main-button-size:hover
+  .ms-product-page-main-button-size-content {
+  display: block;
+}
+
+.ms-product-page-main-button-atc,
+.ms-product-page-main-button-bn {
+  display: inline-block;
+  width: 46%;
+  padding: 8px 0;
+  border: 1px solid rgb(170, 132, 5);
+  outline: none;
+  background-color: rgb(231, 180, 11);
+  margin-top: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+.ms-product-page-main-button-atc:hover,
+.ms-product-page-main-button-bn:hover {
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2),
+    -2px -2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-main-button-bn {
+  float: right;
+  background-color: rgb(245, 140, 4);
+}
+
+/* product services */
+
+.ms-product-page-services {
+  margin-top: 15px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-services-body {
+  background-color: white;
+  padding: 5px 0;
+}
+
+.ms-product-page-services li {
+  padding: 15px;
+}
+
+/* product page wishlist button */
+
+.ms-product-page-wishlist-btn {
+  margin-top: 15px;
+  padding: 15px 0;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: white;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-detail-header-main {
+  margin: 0;
+  margin-bottom: 1px;
+  background-color: white;
+  padding: 15px 20px;
+  font-weight: normal;
+  font-size: large;
+}
+
+.ms-product-page-detail-container {
+  margin-top: 15px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-detail-wrapper {
+  padding: 10px 0;
+  background-color: white;
+}
+
+/* product detail */
+
+.ms-product-page-detail {
+  padding: 10px 20px;
+}
+
+.ms-product-page-detail-header {
+  display: inline-block;
+  color: gray;
+  width: 35%;
+  height: 18px;
+  word-wrap: none;
+  overflow: hidden;
+}
+
+.ms-product-page-detail-value {
+  float: right;
+  word-wrap: none;
+  overflow: hidden;
+  width: 63%;
+  height: 18px;
+}
+
+/* product description */
+
+.ms-product-page-description {
+  margin-top: 15px;
+  line-height: 190%;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-description-body {
+  background-color: white;
+  padding: 20px;
+}
+
+/* product review */
+
+.ms-product-page-review-container {
+  margin-top: 15px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ms-product-page-review-body {
+  background-color: white;
+}
+
+.ms-product-page-review {
+  padding: 20px;
+}
+
+.ms-product-page-review-username {
+  font-size: large;
+}
+
+.ms-product-page-review-rating {
+  margin-left: 10px;
+  background-color: green;
+  color: white;
+  border-radius: 3px;
+  padding: 2px 5px;
+  text-align: center;
+  font-size: small;
+}
+
+.ms-product-page-review-review {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 170%;
+  width: 100%;
+}
+
+.ms-product-page-noreviews {
+  padding: 20px;
+}
+
+.ms-product-page-footer {
+  padding: 20px;
+  background-color: white;
+  margin-top: 1px;
+}
+
+.ms-product-page-footer span {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.ms-product-page-footer-link {
+  text-decoration: none;
+  color: #047feb;
+  font-weight: bold;
+  cursor: context-menu;
+}
+
+/* product qna */
+
+.ms-product-page-qna {
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+}
+
+.ms-product-page-qna-body {
+  background-color: white;
+}
+
+.ms-product-page-qna-container {
+  padding: 20px;
+  line-height: 160%;
+}
+
+.ms-product-page-qna-q-f,
+.ms-product-page-qna-a-f {
+  float: left;
+  width: 80px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ms-product-page-qna-q-s {
+  font-weight: bold;
+  display: inline-block;
+  font-size: 14px;
+  width: calc(100% - 80px);
+}
+
+.ms-product-page-qna-a {
+  margin-top: 10px;
+}
+
+.ms-product-page-qna-a-s {
+  display: inline-block;
+  width: calc(100% - 80px);
+}
+
+/* wishlist styles */
+
+.ms-wishlist-page {
+}
+
+.ms-wishlist-header {
+  margin: 0 0 1px 0;
+  background-color: white;
+  font-weight: bold;
+  font-size: medium;
+  padding: 15px 20px;
+}
+
+.ms-wishlist-single-order {
+  padding: 15px 20px;
+  background-color: white;
+  margin-bottom: 1px;
+  height: 150px;
+}
+
+.ms-wishlist-single-order-image {
+  float: left;
+  background-color: grey;
+  max-width: 150px;
+  height: 150px;
+}
+
+.ms-wishlist-single-order-description {
+  display: inline-block;
+  width: calc(100% - 150px);
+  margin-top: 10px;
+  /* margin-bottom: 1px; */
+  /* background-color: grey; */
+}
+
+.ms-wishlist-single-order-link {
+  text-decoration: none;
+  color: black;
+  cursor: context-menu;
+  margin-left: 15px;
+  width: calc(100% - 20px);
+  max-height: 36px;
+  word-wrap: none;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.ms-wishlist-single-order-link:hover {
+  color: #047feb;
+}
+
+.ms-wishlist-single-order-rating {
+  margin-left: 15px;
+  width: 36px;
+  background-color: green;
+  font-size: medium;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ms-wishlist-order-price-wrapper {
+  margin-left: 15px;
+  text-align: left;
+}
+
+.ms-wishlist-order-current-price {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.ms-wishlist-order-original-price {
+  color: gray;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+.ms-wishlist-btn-container {
+  display: inline-block;
+  max-width: 120px;
+  margin-left: 15px;
+  margin-top: 10px;
+  /* background-color: black; */
+}
+
+.ms-wishlist-remove-btn {
+  width: 100%;
+  padding: 6px 15px;
+  border: 1px solid rgb(196, 193, 193);
+  background-color: white;
+}
+
+.ms-wishlist-remove-btn:hover {
+  color: white;
+  background-color: rgb(245, 26, 26);
+  border-color: rgb(199, 197, 197);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* auth page styles */
+
+.ms-auth-page {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.ms-auth-page-container {
+  margin: 50px auto;
+  width: 290px;
+  height: 419px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: auth-open;
+  animation-duration: 1s;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.ms-auth-page-sidebar {
+  display: none;
+}
+
+.ms-auth-page-body {
+  padding: 10px 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.ms-auth-page-body h2 {
+  margin: 20px auto;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.ms-auth-page-close {
+  float: right;
+  width: 30px;
+  font-size: 40px;
+  margin-right: 5px;
+  color: rgb(56, 54, 54);
+}
+
+.ms-auth-page-close:hover,
+.ms-auth-page-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes auth-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ms-auth-form {
+  margin: auto;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.ms-auth-inp {
+  display: block;
+  width: calc(100% - 30px);
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 3px;
+  padding: 0 15px;
+  /* background-color: rgb(239, 241, 241); */
+  outline: none;
+}
+
+.ms-auth-submit {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  background-color: #428bca;
+  outline: none;
+}
+
+.ms-auth-submit:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-login-submit {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(141, 140, 140, 0.5);
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  background-color: #428bca;
+  outline: none;
+}
+
+.ms-login-submit:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ms-alt-page {
+  line-height: 160%;
+  font-weight: bold;
+  width: 100%;
+  margin: 0 auto 20px;
+}
+
+.ms-alt-page-link {
+  margin-left: 5px;
+  color: #428bca;
+  cursor: context-menu;
+}
+
+/* 
+
+
+
+
+.ms-auth-otp-warning {
+  font-size: 14px;
+  color: red;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: -10px;
+} */

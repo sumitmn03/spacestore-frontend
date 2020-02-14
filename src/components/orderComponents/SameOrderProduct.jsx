@@ -15,8 +15,8 @@ export class SingleOrderInTheOrderPage extends Component {
         to={`/orders/${order.parent_order}/${order.order_id}`}
         style={{ textDecoration: "none" }}
       >
-        <div className="ms-single-order">
-          <div className="ms-single-order-image">
+        <div className="ms-same-order">
+          <div className="ms-same-order-image">
             <img
               width="150px"
               height="150px"
@@ -24,36 +24,23 @@ export class SingleOrderInTheOrderPage extends Component {
               alt="product"
             />
           </div>
-          <div className="ms-single-order-description1">
-            <div className="ms-single-order-name">{product.name}</div>{" "}
-            <div className="ms-single-order-name">
+          <div className="ms-same-order-description1">
+            <div className="ms-same-order-name">{product.name}</div>{" "}
+            <div className="ms-same-order-name">
               ₹
               {order.original_price -
                 order.seller_discount +
                 order.shipping_charges}
             </div>
-            <div className="ms-single-order-name">Size: {order.size}</div>
-            <div className="ms-single-order-name">
-              Quantity: {order.quantity}
-            </div>
+            <div className="ms-same-order-name">Size: {order.size}</div>
+            <div className="ms-same-order-name">Quantity: {order.quantity}</div>
           </div>
-          <div className="ms-single-order-description2">
-            <div className="ms-single-order-name">
-              <span> Order date:</span> {order.order_date}
-            </div>
-            <div className="ms-single-order-name">
-              <span>Delivery status: </span> {order.delivery_status}
-            </div>
-            <div className="ms-single-order-name">
-              <span> Delivery date:</span> {order.delivery_date}
-            </div>
-          </div>
-          <div className="ms-past-order-option-buttons-wrapper ms-fl ms-mt-30 ms-ml-40">
+          <div className="ms-same-order-option-buttons-wrapper">
             <button
               onClick={e => {
                 e.preventDefault();
               }}
-              className="ms-past-order-option-buttons"
+              className="ms-same-order-option-buttons"
             >
               Track this order
             </button>
@@ -61,7 +48,7 @@ export class SingleOrderInTheOrderPage extends Component {
               onClick={e => {
                 e.preventDefault();
               }}
-              className="ms-past-order-option-buttons"
+              className="ms-same-order-option-buttons"
             >
               Return this item
             </button>
@@ -69,7 +56,7 @@ export class SingleOrderInTheOrderPage extends Component {
               onClick={e => {
                 e.preventDefault();
               }}
-              className="ms-past-order-option-buttons"
+              className="ms-same-order-option-buttons"
             >
               Rate & review product
             </button>

@@ -10,6 +10,7 @@ import AlertTemplate from "react-alert-template-basic";
 
 import PrivateRoute from "./components/auth/PrivateRoute";
 import TopNavbar from "./components/layout/TopNavbar";
+import Sidebar from "./components/layout/Sidebar";
 import Alerts from "./components/layout/Alerts";
 import Homepage from "./components/home/Homepage";
 import MainEditingComponent from "./components/editingComponents/MainEditingComponent";
@@ -53,6 +54,7 @@ export class App extends Component {
           <Router>
             <div id="app">
               <TopNavbar />
+              <Sidebar />
               <Alerts />
               {/* <MainRegister /> */}
               {/* <MainLogin /> */}
@@ -87,7 +89,7 @@ export class App extends Component {
                     component={ListOfOrdersPage}
                   />
                   <PrivateRoute
-                    path="/orders/:id"
+                    path="/orders/:order_id/:child_id"
                     component={PastOrderDetail}
                   />
                   <PrivateRoute path="/cart" component={MainCartPage} />

@@ -25,9 +25,19 @@ export default function(state = initialState, action) {
       };
 
     case ADD_TO_SFL:
+      console.log(action.payload);
+
       return {
         ...state,
-        saved_for_later: [action.payload, ...state.saved_for_later]
+        saved_for_later: [
+          action.payload,
+          ...state.saved_for_later.filter(single_product =>
+            action.payload.sfl_product.id === single_product.sfl_product.id &&
+            action.payload.size === single_product.size
+              ? false
+              : true
+          )
+        ]
       };
 
     default:

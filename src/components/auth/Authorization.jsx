@@ -328,8 +328,8 @@ export class Authorization extends Component {
         form_inps = (
           <Fragment>
             <p>
-              Enter the OTP sent to{" "}
-              <span style={{ fontWeight: "bold" }}>{this.state.email}</span> .
+              {/* Enter the OTP sent to{" "}
+              <span style={{ fontWeight: "bold" }}>{this.state.email}</span> . */}
               <span
                 style={{
                   color: "#115EA4",
@@ -359,6 +359,22 @@ export class Authorization extends Component {
       } else {
         form_inps = (
           <Fragment>
+            <p>
+              {/* Enter the OTP sent to{" "}
+              <span style={{ fontWeight: "bold" }}>{this.state.email}</span> . */}
+              <span
+                style={{
+                  color: "#115EA4",
+                  display: "block",
+                  marginTop: "5px"
+                }}
+                onClick={() => {
+                  this.setState({ first_page: true });
+                }}
+              >
+                Go back
+              </span>
+            </p>
             {this.getOtpInp()}
             {this.getMainBtn()}
           </Fragment>

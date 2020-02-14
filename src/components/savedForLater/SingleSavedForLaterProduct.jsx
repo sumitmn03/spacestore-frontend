@@ -5,14 +5,13 @@ import { Link } from "react-router-dom";
 export class SingleSavedForLaterProduct extends Component {
   render() {
     let {
-      createMessage,
       product,
       deleteFromSfl,
       sfl_id,
       addToCart,
-      cart
+      sfl_size,
+      sfl_quantity
     } = this.props;
-    // console.log(product, cart);
     return (
       <div className="ms-cart-single-order">
         <Link to={`/product/${product.id}`}>
@@ -29,26 +28,14 @@ export class SingleSavedForLaterProduct extends Component {
           <Link to={`/product/${product.id}`} className="ms-single-order-link">
             <div className="ms-single-order-name">{product.name}</div>
           </Link>
-          <div className="ms-single-order-name">Size: XS</div>
-          <div className="ms-single-order-name">Quantity: 1</div>
+          <div className="ms-single-order-name">Size: {sfl_size}</div>
+          <div className="ms-single-order-name">Quantity: {sfl_quantity}</div>
           <div className="ms-cart-remove-btn-container">
             <button
               className="ms-cart-sfl-btn"
               onClick={() => {
-                let item_in_cart = false;
-                cart.forEach(cart_product => {
-                  if (cart_product.product === product.id) {
-                    item_in_cart = true;
-                  }
-                });
-
-                if (item_in_cart) {
-                  createMessage({ success: "Item already added to cart" });
-                  deleteFromSfl(sfl_id);
-                } else {
-                  deleteFromSfl(sfl_id);
-                  addToCart(product.id);
-                }
+                deleteFromSfl(sfl_id);
+                addToCart(product.id, sfl_size, sfl_quantity);
               }}
             >
               Add To Cart

@@ -67,7 +67,7 @@ export class Homepage extends Component {
     return (
       <div className="ms-home-page">
         <div className="ms-home-design">
-          <div className="ms-home-design-sidebar">
+          <div className="ms-home-design-sidebar ms-not-small">
             <div className="ms-home-design-content-wrapper first">
               <div className="ms-home-design-content">
                 {" "}
@@ -97,8 +97,13 @@ export class Homepage extends Component {
                 </div>
               ))}
             </div>
+            <div className="ms-home-start-desig-btn-cont ms-small">
+              <Link to="/design">
+                <button>Start designing</button>
+              </Link>
+            </div>
           </div>
-          <div className="ms-home-design-sidebar">
+          <div className="ms-home-design-sidebar ms-not-small">
             <div className="ms-home-design-content-wrapper">
               <div className="ms-home-design-content">
                 {" "}
@@ -114,9 +119,9 @@ export class Homepage extends Component {
             </div>
           </div>
         </div>
-        <h3 className="ms-home-predesigned-header">
+        {/* <h3 className="ms-home-predesigned-header">
           Cash on delivery & 10 days return policy on predesigned products
-        </h3>
+        </h3> */}
         <InfiniteScroll
           pageStart={0}
           loadMore={this.loadMoreProducts}
@@ -127,6 +132,7 @@ export class Homepage extends Component {
             <div key={index} className="ms-home-category-body">
               <h3 className="ms-home-category-header">
                 {category[0].category}
+                <button className="ms-home-category-more">More</button>
               </h3>
               <div className="ms-home-category-product-container">
                 {category.map((product, index) => (

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getOrders } from "../../actions/orders";
@@ -20,6 +20,11 @@ export class OrdersPage extends Component {
     return (
       <div className="ms-list-of-orders-page-wrapper">
         <div className="ms-orders-page-header">My Orders</div>
+        {orders.length < 1 ? (
+          <div className="ms-cart-no-product">Your order list is empty !</div>
+        ) : (
+          <Fragment />
+        )}
         {orders.map((order, index) => (
           <SingleOrderInTheOrderPage key={index} order={order} />
         ))}
