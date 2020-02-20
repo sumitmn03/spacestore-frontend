@@ -6,8 +6,8 @@ export class MainQna extends Component {
 
     return (
       <div className="ms-qna-main">
-        <div className="ms-qna-main-header">Questions & answers</div>
-        <div>
+        <div className="ms-qna-main-header">QUESTIONS & ANSWERS</div>
+        <div className="ms-qna-main-body">
           {q_n_as.map(qna => (
             <div key={qna.id} className="ms-qna-main-qna-container">
               <div>

@@ -77,43 +77,48 @@ export class QnaSidebar extends Component {
       <div className="ms-qna-sidebar">
         <Link to={`/product/${id}`} className="ms-qna-sidebar-product-link">
           <div className="ms-qna-sidebar-product-container">
-            <div>
-              <img width="350px" height="350px" src={image} alt="product" />
+            <div className="ms-qna-sidebar-product-image">
+              <img width="130px" height="130px" src={image} alt="product" />
             </div>
-            <div className="ms-qna-sidebar-product-name">{name}</div>
-            {rating ? (
-              <div className="ms-qna-sidebar-product-rating">{rating}</div>
-            ) : (
-              <Fragment />
-            )}
-            <div className="ms-qna-sidebar-product-price-wrapper">
-              <span className="ms-qna-sidebar-product-current-price">
-                ₹{original_price - seller_discount}
-              </span>{" "}
-              <span className="ms-qna-sidebar-product-original-price">
-                ₹{original_price}
-              </span>
+            <div className="ms-qna-sidebar-product-description">
+              <div className="ms-qna-sidebar-product-name">{name}</div>
+              {rating ? (
+                <div className="ms-qna-sidebar-product-rating">{rating}</div>
+              ) : (
+                <Fragment />
+              )}
+              <div className="ms-qna-sidebar-product-price-wrapper">
+                <span className="ms-qna-sidebar-product-current-price">
+                  ₹{original_price - seller_discount}
+                </span>{" "}
+                <span className="ms-qna-sidebar-product-original-price">
+                  ₹{original_price}
+                </span>
+              </div>
             </div>
           </div>
         </Link>
         {isAuthenticated ? (
-          <div className="ms-qna-sidebar-form-container">
-            <form
-              className="ms-qna-sidebar-form"
-              onSubmit={this.handleOnSubmit}
-            >
-              <div className="ms-qna-sidebar-form-component">
-                <label>Question</label>
-                <textarea
-                  rows="4"
-                  name="question"
-                  value={question}
-                  onChange={this.handleOnChange}
-                ></textarea>
-              </div>
-              {status_message}
-              <button className="ms-qna-sidebar-form-submit">Submit</button>
-            </form>
+          <div className="ms-qna-sidebar-form-wrapper">
+            <div className="ms-qna-sidebar-form-header">POST A QUESTION</div>
+            <div className="ms-qna-sidebar-form-container">
+              <form
+                className="ms-qna-sidebar-form"
+                onSubmit={this.handleOnSubmit}
+              >
+                <div className="ms-qna-sidebar-form-component">
+                  <label>Question</label>
+                  <textarea
+                    rows="4"
+                    name="question"
+                    value={question}
+                    onChange={this.handleOnChange}
+                  ></textarea>
+                </div>
+                {status_message}
+                <button className="ms-qna-sidebar-form-submit">Submit</button>
+              </form>
+            </div>
           </div>
         ) : (
           <Fragment />

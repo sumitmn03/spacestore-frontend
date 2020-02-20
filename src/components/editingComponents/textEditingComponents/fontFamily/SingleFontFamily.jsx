@@ -6,7 +6,7 @@ export class SingleFontFamily extends Component {
 
     return (
       <div
-        className="ms-text-editing-component"
+        className="ms-font-family-component"
         onClick={() => {
           let key = "fontFamily";
           let value = font_family;

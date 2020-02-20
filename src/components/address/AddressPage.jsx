@@ -55,7 +55,8 @@ export class AddressPage extends Component {
     return (
       <div className="ms-address-page">
         <div className="ms-address-header">
-          <span className="ms-address-header-main">My addresses</span>
+          {/* <span className="ms-address-header-main">MY ADDRESSES</span> */}
+            MY ADDRESSES
         </div>
 
         <div className="ms-address-body">

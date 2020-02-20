@@ -9,16 +9,23 @@ export class MainProductColor extends Component {
 
     return (
       <div className="ms-product-editing-components-wrapper">
-        <div className="ms-product-editing-component">
-          <button
+        <button
+          className="ms-product-editing-component"
+          style={{ color: "#047feb" }}
+          onClick={() => {
+            this.props.changeComponentToBeRendered(1);
+          }}
+        >
+          {/* <button
             onClick={() => {
               this.props.changeComponentToBeRendered(1);
             }}
           >
             {"<"}
           </button>{" "}
-          <b>Colors</b>
-        </div>
+          <b>Colors</b> */}
+          Close
+        </button>
         {product_colors.map((product_color, index) => {
           return (
             <SingleProductColor

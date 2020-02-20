@@ -13,7 +13,7 @@ export class SingleProductColor extends Component {
     } = this.props;
 
     return (
-      <div
+      <button
         className="ms-product-editing-component"
         onClick={() => {
           let editable_product = editable_products.find(
@@ -26,7 +26,7 @@ export class SingleProductColor extends Component {
         }}
       >
         {product_color}
-      </div>
+      </button>
     );
   }
 }

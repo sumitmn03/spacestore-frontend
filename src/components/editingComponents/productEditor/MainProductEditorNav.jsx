@@ -18,22 +18,22 @@ export class MainProductEditorNav extends Component {
     let normal = (
       <div className="ms-product-editing-components-wrapper">
         {/* all these divs are the button in text editor sidebar  */}
-        <div
+        <button
           className="ms-product-editing-component"
           onClick={() => {
             this.changeComponentToBeRendered(2);
           }}
         >
           Type
-        </div>
-        <div
+        </button>
+        <button
           className="ms-product-editing-component"
           onClick={() => {
             this.changeComponentToBeRendered(3);
           }}
         >
           Color
-        </div>
+        </button>
       </div>
     );
 

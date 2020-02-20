@@ -19,9 +19,9 @@ export class OrderSummary extends Component {
     let shipping_charges = 50;
 
     return (
-      <div className="ms-checkout-order-sum-page">
+      <div>
         <div className="ms-checkout-order-sum-main">
-          <div className="ms-checkout-order-sum-main-header">Order summary</div>
+          <div className="ms-checkout-order-sum-main-header">ORDER SUMMARY</div>
           <div className="ms-checkout-order-sum-main-body">
             {checkout.checkout_datas ? (
               checkout.checkout_datas.map(single_cart_data => {
@@ -60,31 +60,31 @@ export class OrderSummary extends Component {
           </div>
         </div>
         <div className="ms-checkout-order-summary-sidebar">
-          <div>
-            <span className="ms-checkout-order-summary-sidebar-payment">
+          <div className="ms-checkout-order-sum-main-header">PRICE DETAILS</div>
+          <div className="ms-checkout-order-summary-sidebar-body">
+            <div className="ms-checkout-order-summary-sidebar-payment">
               Products Price :
               <span className="ms-checkout-order-summary-sidebar-payment-amount">
-                {checkout_total_amt}
+                ₹{checkout_total_amt}
               </span>
-            </span>
-          </div>
-          <div>
-            <span className="ms-checkout-order-summary-sidebar-payment">
+            </div>
+
+            <div className="ms-checkout-order-summary-sidebar-payment">
               Shipping charges :
               <span className="ms-checkout-order-summary-sidebar-payment-amount">
                 ₹{shipping_charges}
               </span>
-            </span>
+            </div>
+            <div className="ms-checkout-order-summary-sidebar-total-amt-label">
+              Total :{" "}
+              <span className="ms-checkout-order-summary-sidebar-total-amt">
+                ₹{checkout_total_amt + shipping_charges}
+              </span>
+            </div>
           </div>
-          <div className="ms-checkout-order-summary-sidebar-total-amt-label">
-            Total :{" "}
-            <span className="ms-checkout-order-summary-sidebar-total-amt">
-              ₹{checkout_total_amt + shipping_charges}/-
-            </span>
-          </div>
-          <div className="ms-checkout-order-summary-sidebar-total-amt-label">
+          <div className="ms-checkout-order-summary-sidebar-btn-container">
             <button
-              className="ms-checkout-order-summary-sidebar-btn"
+              className="ms-checkout-footer-nav-btn"
               onClick={() => handlePrevNextBtn(1, "next")}
             >
               Continue

@@ -12,7 +12,7 @@ export class MorePage extends Component {
 
     return (
       <div className="ms-more-page">
-        <div className="ms-more-header">More</div>
+        <div className="ms-more-header">MORE</div>
         <div className="ms-more-body">
           {options.map((option, index) => (
             <Link key={index} to={`/${option.link}`} style={{ color: "white" }}>

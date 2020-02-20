@@ -99,7 +99,7 @@ export class AddNewAddress extends Component {
               value={address}
               onChange={this.handleOnChange}
             ></textarea>
-            <br />
+            {/* <br /> */}
             <input
               className="ms-add-address-form-input first"
               name="locality"

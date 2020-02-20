@@ -18,20 +18,22 @@ export class Navbar extends Component {
 
   hideShowTopNavbarOnScroll = () => {
     /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-      let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementsByClassName(
-          "ms-top-navbar-container"
-        )[0].style.top = "0";
-      } else {
-        document.getElementsByClassName(
-          "ms-top-navbar-container"
-        )[0].style.top = "-90px";
-      }
-      prevScrollpos = currentScrollPos;
-    };
+    if (window.innerWidth < 992) {
+      let prevScrollpos = window.pageYOffset;
+      window.onscroll = function() {
+        let currentScrollPos = window.pageYOffset;
+        if (window.pageYOffset > 90 && prevScrollpos < currentScrollPos) {
+          document.getElementsByClassName(
+            "ms-top-navbar-container"
+          )[0].style.top = "-90px";
+        } else {
+          document.getElementsByClassName(
+            "ms-top-navbar-container"
+          )[0].style.top = "0";
+        }
+        prevScrollpos = currentScrollPos;
+      };
+    }
   };
 
   render() {
@@ -46,28 +48,33 @@ export class Navbar extends Component {
 
     return (
       <div className="ms-top-navbar-container">
-        <div className="ms-top-navbar first">
-          <div
-            className="ms-top-navbar-menu-logo-container"
-            onClick={() => {
-              let sidebar_page = document.getElementsByClassName(
-                  "ms-sidebar-page"
-                )[0],
-                sidebar_dummy = document.getElementsByClassName(
-                  "ms-sidebar-dummy"
-                )[0];
-              sidebar_page.style.left = "0";
-              sidebar_dummy.style.opacity = "1";
-            }}
-          >
-            <img src={menuLogo} alt="Home" />
-          </div>
-          <div className="ms-top-navbar-name">SpaceStore</div>
+        {window.innerWidth < "992" ? (
+          <div className="ms-top-navbar first">
+            <div
+              className="ms-top-navbar-menu-logo-container"
+              onClick={() => {
+                let sidebar_page = document.getElementsByClassName(
+                    "ms-sidebar-page"
+                  )[0],
+                  sidebar_dummy = document.getElementsByClassName(
+                    "ms-sidebar-dummy"
+                  )[0];
+                sidebar_page.style.left = "0";
+                sidebar_dummy.style.opacity = "1";
+              }}
+            >
+              <img src={menuLogo} alt="Home" />
+            </div>
+            <div className="ms-top-navbar-name">SpaceStore</div>
 
-          <Link to="/cart" className="ms-top-navbar-cart-logo-container">
-            <img src={cartLogo} alt="Home" className="ms-cart-logo" />
-          </Link>
-        </div>
+            <Link to="/cart" className="ms-top-navbar-cart-logo-container">
+              <img src={cartLogo} alt="Home" className="ms-cart-logo" />
+            </Link>
+          </div>
+        ) : (
+          <Fragment />
+        )}
+
         <div className="ms-top-navbar ms-first">
           <div className="ms-top-navbar-name ms-not-small">SpaceStore</div>
           <SearchInput />

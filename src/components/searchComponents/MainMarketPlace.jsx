@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -122,63 +122,72 @@ export class MainMarketPlace extends Component {
 
     return (
       <div className="ms-main-marketplace">
-        {show_filter ? (
-          <div
-            className="ms-main-marketplace-header-filter-back small"
-            onClick={() => this.setState({ show_filter: false })}
-          >
-            Go Back
-          </div>
-        ) : (
-          <div className="ms-main-marketplace-header-small small">
+        {window.innerWidth < "992" ? (
+          show_filter ? (
             <div
-              className="ms-main-marketplace-header-small-comp first"
-              onClick={() => this.setState({ show_filter: true })}
+              className="ms-main-marketplace-header-filter-back small"
+              onClick={() => this.setState({ show_filter: false })}
             >
-              Filter
+              Go Back
             </div>
+          ) : (
+            <div className="ms-main-marketplace-header-small small">
+              <div
+                className="ms-main-marketplace-header-small-comp first"
+                onClick={() => this.setState({ show_filter: true })}
+              >
+                Filter
+              </div>
 
-            <div
-              className="ms-main-marketplace-header-small-comp"
-              onClick={() => this.setState({ show_order_by: true })}
-            >
-              Sort by
-            </div>
+              <div
+                className="ms-main-marketplace-header-small-comp"
+                onClick={() => this.setState({ show_order_by: true })}
+              >
+                Sort by
+              </div>
 
-            {/* this is an absolute positioned element (Sort by component) which appears when user clicks on sory by button */}
+              {/* this is an absolute positioned element (Sort by component) which appears when user clicks on sory by button */}
 
-            <div
-              className="ms-main-marketplace-sortby-comp-page"
-              style={{ display: show_order_by ? "block" : "none" }}
-              onClick={() => this.setState({ show_order_by: false })}
-            >
-              <div className="ms-main-marketplace-sortby-comp-cont">
-                {order_by.map((single_order_by, index) => (
-                  <div
-                    key={index}
-                    className="ms-main-marketplace-sortby-comp"
-                    style={{
-                      backgroundColor:
-                        order_by_value === single_order_by
-                          ? "#51b9ed"
-                          : "white",
-                      color:
-                        order_by_value === single_order_by ? "white" : "black"
-                    }}
-                    value={single_order_by}
-                    onClick={e => this.handleSortBy(single_order_by)}
-                  >
-                    {single_order_by}
-                  </div>
-                ))}
+              <div
+                className="ms-main-marketplace-sortby-comp-page"
+                style={{
+                  display: show_order_by ? "block" : "none"
+                }}
+                onClick={() => this.setState({ show_order_by: false })}
+              >
+                <div className="ms-main-marketplace-sortby-comp-cont">
+                  {order_by.map((single_order_by, index) => (
+                    <div
+                      key={index}
+                      className="ms-main-marketplace-sortby-comp"
+                      style={{
+                        backgroundColor:
+                          order_by_value === single_order_by
+                            ? "#51b9ed"
+                            : "white",
+                        color:
+                          order_by_value === single_order_by ? "white" : "black"
+                      }}
+                      value={single_order_by}
+                      onClick={e => this.handleSortBy(single_order_by)}
+                    >
+                      {single_order_by}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          )
+        ) : (
+          <Fragment />
         )}
 
         <div
           className="ms-main-marketplace-filter-container"
-          style={{ display: show_filter ? "block" : "none" }}
+          style={{
+            display:
+              show_filter || window.innerWidth >= "992" ? "block" : "none"
+          }}
         >
           <MainFilter match={match} history={history} />
         </div>

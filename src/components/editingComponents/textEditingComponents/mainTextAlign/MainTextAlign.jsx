@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class MainTextAlign extends Component {
   render() {
     return (
-      <div className="ms-font-weightnstyle-btn-wrapper">
+      <div className="ms-font-align-btn-wrapper">
         <button
           className="ms-font-align-btn"
           onClick={() => {
@@ -13,7 +13,7 @@ export class MainTextAlign extends Component {
           Left
         </button>
         <button
-          className="ms-font-align-btn"
+          className="ms-font-align-btn center"
           onClick={() => {
             this.props.handleTextAlign("center");
           }}

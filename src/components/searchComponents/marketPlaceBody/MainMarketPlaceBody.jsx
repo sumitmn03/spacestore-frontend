@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import SingleProductViewInMarketPlace from "./singleProductViewInMarketPlace/SingleProductViewInMarketPlace";
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -151,38 +151,47 @@ export class MainMarketPlaceBody extends Component {
     return (
       <div>
         <div className="ms-main-marketplace-body">
-          <div className="ms-main-marketplace-header ms-not-small">
-            Sort By{" "}
-            <span>
-              <select
-                onChange={this.handleSortBy}
-                className="ms-main-marketplace-sort-by-value"
-                value={this.state.order_by}
-              >
-                {order_by.map((x, index) => (
-                  <option key={index} value={x}>
-                    {x}
-                  </option>
-                ))}
-              </select>
-            </span>
+          {window.innerWidth >= "992" ? (
+            <div className="ms-main-marketplace-header">
+              Sort By{" "}
+              <span>
+                <select
+                  onChange={this.handleSortBy}
+                  className="ms-main-marketplace-sort-by-value"
+                  value={this.state.order_by}
+                >
+                  {order_by.map((x, index) => (
+                    <option key={index} value={x}>
+                      {x}
+                    </option>
+                  ))}
+                </select>
+              </span>
+            </div>
+          ) : (
+            <Fragment />
+          )}
+          <div className="ms-main-marketplace-product-container">
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={this.loadMoreProducts}
+              hasMore={next !== null}
+              loader={<div key={0}>Loading ...</div>}
+            >
+              {products.length > 0 ? (
+                products.map((product, index) => (
+                  <SingleProductViewInMarketPlace
+                    key={index}
+                    product={product}
+                  />
+                ))
+              ) : (
+                <div className="ms-main-marketplace-noproducts">
+                  Oops ! No products found...
+                </div>
+              )}
+            </InfiniteScroll>
           </div>
-          <InfiniteScroll
-            pageStart={0}
-            loadMore={this.loadMoreProducts}
-            hasMore={next !== null}
-            loader={<div key={0}>Loading ...</div>}
-          >
-            {products.length > 0 ? (
-              products.map((product, index) => (
-                <SingleProductViewInMarketPlace key={index} product={product} />
-              ))
-            ) : (
-              <div className="ms-main-marketplace-noproducts">
-                Oops ! No products found...
-              </div>
-            )}
-          </InfiniteScroll>
         </div>
       </div>
     );

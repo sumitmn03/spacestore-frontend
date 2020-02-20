@@ -5,7 +5,7 @@ export class CheckoutSuccess extends Component {
   render() {
     return (
       <div className="ms-checkout-success-page">
-        <div className="ms-checkout-success-page-thank-you">Thank you !</div>
+        <div className="ms-checkout-success-page-thank-you">Thank You !</div>
         <div className="ms-checkout-success-page-body">
           Your order 123 has been placed. We have also sent you an email
           confirmation. You can check your order status any time from your order
@@ -18,7 +18,9 @@ export class CheckoutSuccess extends Component {
             </button>
           </Link>
           <Link to="/">
-            <button className="ms-checkout-success-page-button">Home</button>
+            <button className="ms-checkout-success-page-button second">
+              Home
+            </button>
           </Link>
         </div>
       </div>

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class SingleProductType extends Component {
   render() {
     return (
-      <div
+      <button
         className="ms-product-editing-component"
         onClick={() => {
           console.log(this.props.product_type + " clicked");
@@ -11,7 +11,7 @@ export class SingleProductType extends Component {
         }}
       >
         {this.props.product_type}
-      </div>
+      </button>
     );
   }
 }

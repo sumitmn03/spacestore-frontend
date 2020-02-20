@@ -156,19 +156,19 @@ export class CheckoutPage extends Component {
             className="ms-checkout-sidebar-component"
             onClick={() => this.handleComponentToRender("delivery_address")}
           >
-            DELIVERY ADDRESS
+            Address
           </div>
           <div
             className="ms-checkout-sidebar-component"
             onClick={() => this.handleComponentToRender("order_summary")}
           >
-            ORDER SUMMARY
+            Summary
           </div>
           <div
             className="ms-checkout-sidebar-component"
             onClick={() => this.handleComponentToRender("payment_options")}
           >
-            PAYMENT OPTIONS
+            Payment
           </div>
         </div>
         <div className="ms-checkout-main">{this.findComponentToRender()}</div>

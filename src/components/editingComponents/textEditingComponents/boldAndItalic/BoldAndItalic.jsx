@@ -2,7 +2,12 @@ import React, { Component, Fragment } from "react";
 
 export class BoldAndItalic extends Component {
   render() {
-    const { handleTextFeatureChange, fontWeight, fontStyle } = this.props;
+    const {
+      changeComponentToBeRendered,
+      handleTextFeatureChange,
+      fontWeight,
+      fontStyle
+    } = this.props;
 
     return (
       <Fragment>
@@ -13,20 +18,22 @@ export class BoldAndItalic extends Component {
               let key = "fontWeight";
               let value = fontWeight === "bold" ? "normal" : "bold";
               handleTextFeatureChange({ [key]: value });
+              changeComponentToBeRendered("");
             }}
           >
             <b>Bold</b>
-          </button>{" "}
+          </button>
           <button
-            className="ms-font-weightnstyle-btn"
+            className="ms-font-weightnstyle-btn italic"
             onClick={() => {
               let key = "fontStyle";
               let value = fontStyle === "italic" ? "normal" : "italic";
               handleTextFeatureChange({ [key]: value });
+              changeComponentToBeRendered("");
             }}
           >
             <i>Italic</i>
-          </button>{" "}
+          </button>
         </div>
       </Fragment>
     );

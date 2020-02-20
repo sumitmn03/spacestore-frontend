@@ -15,21 +15,34 @@ export class SingleCartProductDetails extends Component {
     return (
       <div className="ms-cart-single-order">
         <Link to={`/product/${product.id}`}>
-          <div className="ms-single-order-image">
+          <div className="ms-cart-single-order-image">
             <img
-              width="150px"
-              height="150px"
+              // width="150px"
+              // height="150px"
+              width="130px"
+              height="130px"
               src={"http://localhost:8000" + product.image}
               alt="product"
             />
           </div>
         </Link>
-        <div className="ms-single-order-description1 ms-mt-10 ms-wd-450 ms-cart-single-order">
+        {/* <div className="ms-single-order-description1 ms-mt-10 ms-wd-450 ms-cart-single-order"> */}
+        <div>
           <Link to={`/product/${product.id}`} className="ms-single-order-link">
-            <div className="ms-single-order-name">{product.name}</div>
+            <div className="ms-cart-single-order-name">{product.name}</div>
           </Link>
-          <div className="ms-single-order-name">Size: {cart_size}</div>
-          <div className="ms-single-order-name">Quantity: {cart_quantity}</div>
+          <div className="ms-cart-single-order-name">Size: {cart_size}</div>
+          <div className="ms-cart-single-order-name">
+            Quantity: {cart_quantity}
+          </div>
+          <div className="ms-cart-single-order-price-container ms-cart-single-order-name">
+            <div className="ms-cart-single-order-current-price">
+              ₹{product.original_price - product.seller_discount}
+            </div>
+            <div className="ms-cart-single-order-original-price">
+              ₹{product.original_price}
+            </div>
+          </div>
           <div className="ms-cart-remove-btn-container">
             <button
               className="ms-cart-sfl-btn"
@@ -49,9 +62,6 @@ export class SingleCartProductDetails extends Component {
               Remove
             </button>
           </div>
-        </div>
-        <div className="ms-cart-single-order-price">
-          ₹{product.original_price - product.seller_discount}
         </div>
       </div>
     );

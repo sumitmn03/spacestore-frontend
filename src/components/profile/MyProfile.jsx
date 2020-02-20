@@ -118,7 +118,7 @@ export class MyProfile extends Component {
 
     return (
       <div className="ms-profile-page">
-        <div className="ms-profile-header">My profile</div>
+        <div className="ms-profile-header">MY PROFILE</div>
         <div className="ms-profile-body">
           <div className="ms-profile-form">
             <form onSubmit={this.submitPersonalInfo}>
@@ -139,7 +139,7 @@ export class MyProfile extends Component {
                   onChange={this.handleOnChange}
                 />
               </div>
-              <br /> <br /> <br /> <br />
+              <br /> <br /> <br />
               <div className="ms-profile-name-container">
                 <label
                   className="ms-profile-form-name-label"
@@ -157,7 +157,7 @@ export class MyProfile extends Component {
                   onChange={this.handleOnChange}
                 />
               </div>
-              <br /> <br /> <br /> <br />
+              <br /> <br /> <br />
               <div>
                 <label
                   className="ms-profile-form-name-label"
@@ -191,10 +191,10 @@ export class MyProfile extends Component {
                   onClick={this.handleOnChange}
                 />
               </div>
-              <br /> <br /> <br /> <br />
+              <br /> <br />
               <button type="submit">Update personal info</button>
             </form>
-            <br /> <br /> <br /> <br />
+            <br /> <br /> <br />
             <form
               onSubmit={e => {
                 e.preventDefault();
@@ -218,7 +218,7 @@ export class MyProfile extends Component {
                   disabled={otp_sent ? true : false}
                 />
               </div>
-              <br /> <br /> <br /> <br />
+              <br /> <br />
               <div>
                 <label
                   className="ms-profile-form-name-label"
@@ -237,7 +237,7 @@ export class MyProfile extends Component {
                   disabled={otp_sent ? true : false}
                 />
               </div>
-              <br /> <br /> <br /> <br />
+              <br /> <br />
               <div style={{ display: otp_sent ? "block" : "none" }}>
                 <label className="ms-profile-form-name-label" htmlFor="otp">
                   <span style={{ color: "black", fontWeight: "normal" }}>
@@ -281,7 +281,7 @@ export class MyProfile extends Component {
                 >
                   Server error ! Please try again later
                 </p>
-                <br /> <br /> <br /> <br />
+                <br /> <br />
               </div>
               <button type="submit">{this.constact_submit_value()}</button>
             </form>

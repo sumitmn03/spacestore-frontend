@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -209,9 +209,20 @@ export class MainEditingComponent extends Component {
     }
   }
 
-  render() {
-    return (
-      <div className="ms-design-page">
+  componentToRenderBasedOnViewport = () =>
+    window.innerWidth < 768 ? (
+      <Fragment>
+        <ProductView />
+        {/* <div className="ms-main-editing-component"> */}
+        <div className="ms-image-and-img-side-changing-button-wrapper">
+          {/* <canvas id="bounded" width="500" height="500" /> */}
+          <canvas id="bounded" width="260" height="370" />
+        </div>
+        {/* </div> */}
+        {/* till here */}
+
+        {this.findWhatToEdit(this.state.what_to_edit)}
+
         <SelectEditingComponent
           addNewTextbox={this.handleAddNewTextbox}
           changeWhatToEdit={this.changeWhatToEdit}
@@ -220,21 +231,35 @@ export class MainEditingComponent extends Component {
           }
           handle_save={this.handle_save}
         />
-        {/* This is the main editing canvas */}
-        <div className="ms-main-editing-component">
-          <div className="ms-image-and-img-side-changing-button-wrapper">
-            <canvas id="bounded" width="500" height="500" />
-          </div>
+      </Fragment>
+    ) : (
+      <Fragment>
+        <SelectEditingComponent
+          addNewTextbox={this.handleAddNewTextbox}
+          changeWhatToEdit={this.changeWhatToEdit}
+          handle_adding_new_image_in_canvas={
+            this.handle_adding_new_image_in_canvas
+          }
+          handle_save={this.handle_save}
+        />
+        {/* <div className="ms-main-editing-component"> */}
+        <div className="ms-image-and-img-side-changing-button-wrapper">
+          {/* <canvas id="bounded" width="500" height="500" /> */}
+          <canvas id="bounded" width="260" height="370" />
         </div>
+        {/* </div> */}
         {/* till here */}
-
-        {/* different viewing angle button  */}
 
         <ProductView />
 
-        {/* till here */}
-
         {this.findWhatToEdit(this.state.what_to_edit)}
+      </Fragment>
+    );
+
+  render() {
+    return (
+      <div className="ms-design-page">
+        {this.componentToRenderBasedOnViewport()}
       </div>
     );
   }

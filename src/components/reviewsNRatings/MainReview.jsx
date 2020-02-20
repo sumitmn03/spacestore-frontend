@@ -6,8 +6,8 @@ export class MainReview extends Component {
 
     return (
       <div className="ms-review-main">
-        <div className="ms-review-main-header">Reviews & ratings</div>
-        <div>
+        <div className="ms-review-main-header">REVIEWS & RATINGS</div>
+        <div className="ms-review-main-review-container">
           {reviews.map(review => (
             <div key={review.id} className="ms-review-main-review">
               <div>

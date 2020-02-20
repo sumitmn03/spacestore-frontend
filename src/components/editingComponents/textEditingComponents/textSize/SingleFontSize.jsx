@@ -6,7 +6,7 @@ export class SingleFontSize extends Component {
 
     return (
       <div
-        className="ms-text-editing-component"
+        className="ms-font-size-component"
         onClick={() => {
           let key = "fontSize";
           let value = font_size;

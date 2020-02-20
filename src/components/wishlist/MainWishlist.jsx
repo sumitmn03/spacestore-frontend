@@ -20,7 +20,7 @@ export class MainWishlist extends Component {
 
     return (
       <div className="ms-wishlist-page">
-        <h2 className="ms-wishlist-header">Wishlist</h2>
+        <h2 className="ms-wishlist-header"> WISHLIST</h2>
         {wishlist.length < 1 ? (
           <div className="ms-cart-no-product">Your Wishlist is empty !</div>
         ) : (

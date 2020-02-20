@@ -2,33 +2,42 @@ import React, { Component } from "react";
 import SingleFontFamily from "./SingleFontFamily";
 
 export class FontFamilyList extends Component {
-  state = {};
-
   render() {
+    const { changeComponentToBeRendered } = this.props;
+
     let font_families = ["Inconsolata", "Pacifico", "Quicksand", "VT323"];
 
     return (
-      <div className="ms-text-editing-components-wrapper">
-        {/* // <div id="ms-fontfamily-list"> */}
-        <div className="ms-text-editing-component">
-          <button
-            onClick={() => {
-              this.props.changeComponentToBeRendered(1);
-            }}
-          >
-            {"<"}
-          </button>{" "}
-          <b>Font Family List</b>
+      <div
+        className="ms-font-family-components-page"
+        onClick={e =>
+          e.target ===
+          document.getElementsByClassName("ms-font-family-components-page")[0]
+            ? changeComponentToBeRendered(1)
+            : ""
+        }
+      >
+        <div className="ms-font-family-components-wrapper">
+          <div className="ms-font-family-component ms-not-small">
+            <button
+              onClick={() => {
+                this.props.changeComponentToBeRendered(1);
+              }}
+            >
+              {"<"}
+            </button>{" "}
+            <b>Font Family List</b>
+          </div>
+          {font_families.map((font_family, index) => {
+            return (
+              <SingleFontFamily
+                key={index}
+                font_family={font_family}
+                handleTextFeatureChange={this.props.handleTextFeatureChange}
+              />
+            );
+          })}
         </div>
-        {font_families.map((font_family, index) => {
-          return (
-            <SingleFontFamily
-              key={index}
-              font_family={font_family}
-              handleTextFeatureChange={this.props.handleTextFeatureChange}
-            />
-          );
-        })}
       </div>
     );
   }

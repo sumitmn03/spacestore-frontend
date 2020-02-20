@@ -19,6 +19,7 @@ export class SelectEditingComponent extends Component {
         <button
           className="ms-select-editing-component"
           onClick={() => {
+            window.scrollTo(0, 100);
             addNewTextbox();
             changeWhatToEdit(2);
           }}

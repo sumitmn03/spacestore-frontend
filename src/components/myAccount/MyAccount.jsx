@@ -21,23 +21,29 @@ export class MyAccount extends Component {
 
     return (
       <div className="ms-myaccount-page">
-        <div className="ms-myaccount-header">My account</div>
+        <div className="ms-myaccount-header">MY ACCOUNT</div>
         <div className="ms-myaccount-body">
-          {options.map((option, index) => (
-            <Link key={index} to={`/${option.link}`} style={{ color: "white" }}>
-              <div className="ms-myaccount-body-option">{option.name}</div>
+          <div className="ms-myaccount-body-option-container">
+            {options.map((option, index) => (
+              <Link
+                key={index}
+                to={`/${option.link}`}
+                style={{ color: "white" }}
+              >
+                <div className="ms-myaccount-body-option">{option.name}</div>
+              </Link>
+            ))}
+            <Link to="" style={{ color: "white" }}>
+              <div
+                className="ms-myaccount-body-option"
+                onClick={() => {
+                  this.props.logout();
+                }}
+              >
+                Logout
+              </div>
             </Link>
-          ))}
-          <Link to="" style={{ color: "white" }}>
-            <div
-              className="ms-myaccount-body-option"
-              onClick={() => {
-                this.props.logout();
-              }}
-            >
-              Logout
-            </div>
-          </Link>
+          </div>
         </div>
       </div>
     );

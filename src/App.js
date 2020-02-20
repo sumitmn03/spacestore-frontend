@@ -90,6 +90,7 @@ export class App extends Component {
                   />
                   <PrivateRoute
                     path="/orders/:order_id/:child_id"
+                    exact
                     component={PastOrderDetail}
                   />
                   <PrivateRoute path="/cart" component={MainCartPage} />

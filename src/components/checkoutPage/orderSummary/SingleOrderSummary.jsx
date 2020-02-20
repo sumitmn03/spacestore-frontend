@@ -17,8 +17,10 @@ export class SingleOrderSummary extends Component {
       <div className="ms-checkout-order-sum-single-product">
         <div className="ms-checkout-order-sum-single-product-image">
           <img
-            width="150px"
-            height="150px"
+            // width="150px"
+            // height="150px"
+            width="130px"
+            height="130px"
             src={"http://localhost:8000" + product_data.image}
             alt="product"
           />
@@ -39,7 +41,7 @@ export class SingleOrderSummary extends Component {
           <div className="ms-checkout-order-sum-single-product-desc">
             <span className="ms-checkout-order-sum-single-product-cprice">
               ₹{product_data.original_price - product_data.seller_discount}
-            </span>{" "}
+            </span>
             <span className="ms-checkout-order-sum-single-product-desc-oprice">
               {product_data.original_price}
             </span>
@@ -50,23 +52,23 @@ export class SingleOrderSummary extends Component {
               ? checkout.quantity
               : single_cart_data.quantity}
           </div>
-          <div className="ms-checkout-order-sum-single-product-desc">
-            <div
-              className="ms-checkout-order-sum-single-product-remove-btn"
-              onClick={() => {
-                if (checkout.cart_or_single === "single") {
-                  removeSingleCheckoutItem(checkout.id, {
-                    user: user.id,
-                    product: null
-                  });
-                } else {
-                  removeItemFromCheckout(single_cart_data.id);
-                }
-              }}
-            >
-              Remove this item
-            </div>
+          {/* <div className="ms-checkout-order-sum-single-product-desc"> */}
+          <div
+            className="ms-checkout-order-sum-single-product-desc ms-checkout-order-sum-single-product-remove-btn"
+            onClick={() => {
+              if (checkout.cart_or_single === "single") {
+                removeSingleCheckoutItem(checkout.id, {
+                  user: user.id,
+                  product: null
+                });
+              } else {
+                removeItemFromCheckout(single_cart_data.id);
+              }
+            }}
+          >
+            Remove this item
           </div>
+          {/* </div> */}
         </div>
       </div>
     );

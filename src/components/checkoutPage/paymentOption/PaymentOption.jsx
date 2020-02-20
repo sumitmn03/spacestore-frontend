@@ -22,9 +22,7 @@ export class PaymentOption extends Component {
 
     return (
       <div className="ms-checkout-payment-option-page">
-        <div className="ms-checkout-payment-option-header">
-          payment option header
-        </div>
+        <div className="ms-checkout-payment-option-header">PAYMENT OPTIONS</div>
         <div className="ms-checkout-payment-option-body">
           {payment_options.map((payment_option, index) => (
             <div

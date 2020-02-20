@@ -7,16 +7,23 @@ export class ProductTypes extends Component {
 
     return (
       <div className="ms-product-editing-components-wrapper">
-        <div className="ms-product-editing-component">
-          <button
+        <button
+          className="ms-product-editing-component"
+          onClick={() => {
+            this.props.changeComponentToBeRendered(1);
+          }}
+          style={{ color: "#047feb", position: "sticky" }}
+        >
+          {/* <button
             onClick={() => {
               this.props.changeComponentToBeRendered(1);
             }}
           >
             {"<"}
-          </button>{" "}
-          <b>Type</b>
-        </div>
+          </button>{" "} */}
+          {/* <b>Type</b> */}
+          Back
+        </button>
         {product_types.map((product_type, index) => {
           return (
             <SingleProductType

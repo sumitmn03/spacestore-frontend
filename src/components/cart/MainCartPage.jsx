@@ -52,7 +52,7 @@ export class MainCartPage extends Component {
       <div className="ms-cart-page">
         <div className="ms-cart-container">
           <div className="ms-cart-product-container">
-            <div className="ms-cart-header">My Shopping Bag</div>
+            <div className="ms-cart-header">MY SHOPPING BAG</div>
             {cart.length < 1 ? (
               <div className="ms-cart-no-product">
                 Your shopping bag is empty !
@@ -81,12 +81,13 @@ export class MainCartPage extends Component {
             </div>
           </div>
           <div className="ms-cart-amount-container">
+            <div className="ms-cart-amount-container-header">PRICE DETAILS</div>
             <div className="ms-cart-order-payment-container">
               <div>
                 <span className="ms-cart-order-payment">
                   Products Price :
                   <span className="ms-cart-order-payment-amount">
-                    {cart_total_amt}
+                    ₹{cart_total_amt}
                   </span>
                 </span>
               </div>
@@ -102,30 +103,32 @@ export class MainCartPage extends Component {
             <div className="ms-cart-order-total-amt-label">
               Total :{" "}
               <span className="ms-cart-order-total-amt">
-                ₹{cart_total_amt + shipping_charges}/-
+                ₹{cart_total_amt + shipping_charges}
               </span>
             </div>
-            <button
-              className="ms-cart-order-btn"
-              onClick={e => {
-                if (cart.length < 1) {
-                  createMessage({ error: "your cart is empty" });
-                } else {
-                  updateCheckout(user.checkout_id, {
-                    user: user.id,
-                    cart_or_single: "cart"
-                  });
-                  this.props.history.push("/checkout");
-                }
-              }}
-            >
-              Place Order
-            </button>
+            <div className="ms-cart-order-btn-container">
+              <button
+                className="ms-cart-order-btn"
+                onClick={e => {
+                  if (cart.length < 1) {
+                    createMessage({ error: "your cart is empty" });
+                  } else {
+                    updateCheckout(user.checkout_id, {
+                      user: user.id,
+                      cart_or_single: "cart"
+                    });
+                    this.props.history.push("/checkout");
+                  }
+                }}
+              >
+                Place Order
+              </button>
+            </div>
           </div>
         </div>
         <div className="ms-cart-container">
           <div className="ms-cart-product-container">
-            <div className="ms-cart-header">Saved For Later</div>
+            <div className="ms-cart-header">SAVED FOR LATER</div>
             {saved_for_later.length < 1 ? (
               <div className="ms-cart-no-product">
                 Your Saved for later list is empty !

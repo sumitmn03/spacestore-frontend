@@ -10,8 +10,8 @@ export class SingleWishlistProduct extends Component {
         <Link to={`/product/${product.id}`}>
           <div className="ms-wishlist-single-order-image">
             <img
-              width="150px"
-              height="150px"
+              width="130px"
+              height="130px"
               src={"http://localhost:8000" + product.image}
               alt="product"
             />

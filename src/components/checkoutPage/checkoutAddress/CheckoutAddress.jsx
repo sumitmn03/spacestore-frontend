@@ -43,12 +43,13 @@ export class CheckoutAddress extends Component {
           current_address={checkout.address_data}
           handlePrevNextBtn={handlePrevNextBtn}
         />
-        <div className="ms-address-page">
-          <div className="ms-address-header">
-            <span className="ms-address-header-main">My addresses</span>
+        <div className="ms-checkout-address-page">
+          <div className="ms-checkout-address-header">
+            {/* <span className="ms-checkout-address-header-main">My addresses</span> */}
+            MY ADDRESSES
           </div>
 
-          <div className="ms-address-body">
+          <div className="ms-checkout-address-body">
             {show_add_address_comp ? (
               <AddNewAddress
                 toggleAddAddress={this.toggleAddAddress}
@@ -57,7 +58,7 @@ export class CheckoutAddress extends Component {
                 address_status={address_status}
               />
             ) : (
-              <div className="ms-address-add-button">
+              <div className="ms-checkout-address-add-button">
                 <span onClick={() => this.toggleAddAddress(true)}>
                   Add a new address
                 </span>
@@ -77,7 +78,7 @@ export class CheckoutAddress extends Component {
               ) : (
                 <div
                   key={address.id}
-                  className="ms-address-single-address-container checkout-page"
+                  className="ms-checkout-address-single-address-container checkout-page"
                   onClick={() => {
                     updateCheckout(user.checkout_id, {
                       user: user.id,
@@ -86,7 +87,7 @@ export class CheckoutAddress extends Component {
                     window.scrollTo(0, 0);
                   }}
                 >
-                  <div className="ms-address-single-address">
+                  <div className="ms-checkout-address-single-address">
                     <div>{address.name}</div>
                     <div>{address.address}</div>
                     <div>{address.locality}</div>
@@ -97,9 +98,9 @@ export class CheckoutAddress extends Component {
                     <div>{address.pin_code}</div>
                     <div>Alternate phone no.- {address.alt_phone}</div>
                   </div>
-                  <div className="ms-address-single-address-btn-container">
+                  <div className="ms-checkout-address-single-address-btn-container">
                     <button
-                      className="ms-address-single-address-btn edit"
+                      className="ms-checkout-address-single-address-btn edit ms-not-small"
                       onClick={() => {
                         updateCheckout(user.checkout_id, {
                           user: user.id,
@@ -111,7 +112,7 @@ export class CheckoutAddress extends Component {
                       Select
                     </button>
                     <button
-                      className="ms-address-single-address-btn edit"
+                      className="ms-checkout-address-single-address-btn edit"
                       onClick={e => {
                         e.stopPropagation();
                         this.handleCompToEdit(index);
@@ -120,7 +121,7 @@ export class CheckoutAddress extends Component {
                       Edit
                     </button>
                     <button
-                      className="ms-address-single-address-btn delete"
+                      className="ms-checkout-address-single-address-btn delete"
                       onClick={e => {
                         e.stopPropagation();
                         deleteAddress(address.id);

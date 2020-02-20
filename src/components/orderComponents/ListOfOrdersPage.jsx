@@ -19,7 +19,7 @@ export class OrdersPage extends Component {
 
     return (
       <div className="ms-list-of-orders-page-wrapper">
-        <div className="ms-orders-page-header">My Orders</div>
+        <div className="ms-orders-page-header">MY ORDERS</div>
         {orders.length < 1 ? (
           <div className="ms-cart-no-product">Your order list is empty !</div>
         ) : (

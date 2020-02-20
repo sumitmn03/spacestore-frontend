@@ -7,7 +7,7 @@ export class SelectedAddress extends Component {
     return (
       <div className="ms-checkout-selected-address-container">
         <div className="ms-checkout-selected-address-header">
-          Delivery address
+          DELIVERY ADDRESS
         </div>
         <div className="ms-checkout-selected-address-body">
           {current_address && current_address.name ? (

@@ -140,10 +140,12 @@ export const textAlignFunction = (canvas, boundingBox, where_to_align) => {
 // creatig a moving box
 export const addNewTextbox = canvas => {
   let movingBox = new fabric.Textbox("Type Here...", {
-    left: (500 - 250) / 2,
-    top: 110,
-    fontSize: 30,
-    width: 150,
+    // left: (500 - 250) / 2,
+    // top: 110,
+    left: (260 - 100) / 2,
+    top: 120,
+    fontSize: 19,
+    width: 100,
     textAlign: "center",
     hasRotatingPoint: false,
     lockScalingY: true,
@@ -157,9 +159,14 @@ export const addNewTextbox = canvas => {
 export const createBoundingBoxAndAddToCanvas = canvas => {
   let boundingBox = new fabric.Rect({
     fill: "rgba(0,0,0,0)",
-    width: 250,
-    height: 355,
-    left: (500 - 250) / 2,
+    width: 120,
+    height: 170,
+    textAlign: "end",
+    // left: (500 - 250) / 2,
+    // top: 110,
+    // width: 250,
+    // height: 355,
+    left: (260 - 120) / 2,
     top: 110,
     stroke: "black",
     evented: false,
@@ -174,7 +181,10 @@ export const setImageSource = (image, img_scr, canvas) => {
   image.setSrc(img_scr, img => {
     img.set({
       evented: false,
-      selectable: false
+      selectable: false,
+      top: 35,
+      scaleX: 260 / img.width,
+      scaleY: 300 / img.height
     });
     img.setCoords();
     canvas.renderAll();
@@ -185,7 +195,6 @@ export const setHeightAndWidthAfterScaling = canvas => {
   canvas.on("object:scaled", () => {
     let active_object = canvas.getActiveObject();
     if (active_object.type === "textbox") {
-      console.log(active_object.width * active_object.scaleX);
       active_object.set("width", active_object.width * active_object.scaleX);
     }
   });

@@ -18,51 +18,74 @@ export class SingleOrderInTheOrderPage extends Component {
         <div className="ms-same-order">
           <div className="ms-same-order-image">
             <img
-              width="150px"
-              height="150px"
+              // width="150px"
+              // height="150px"
+              width="70px"
+              height="70px"
               src={product.image}
               alt="product"
             />
           </div>
-          <div className="ms-same-order-description1">
-            <div className="ms-same-order-name">{product.name}</div>{" "}
+          <div className="ms-same-order-description2">
+            <div className="ms-same-order-name order-name">{product.name}</div>
             <div className="ms-same-order-name">
-              ₹
-              {order.original_price -
-                order.seller_discount +
-                order.shipping_charges}
+              Ordered on {order.order_date}
             </div>
-            <div className="ms-same-order-name">Size: {order.size}</div>
-            <div className="ms-same-order-name">Quantity: {order.quantity}</div>
-          </div>
-          <div className="ms-same-order-option-buttons-wrapper">
-            <button
-              onClick={e => {
-                e.preventDefault();
-              }}
-              className="ms-same-order-option-buttons"
-            >
-              Track this order
-            </button>
-            <button
-              onClick={e => {
-                e.preventDefault();
-              }}
-              className="ms-same-order-option-buttons"
-            >
-              Return this item
-            </button>
-            <button
-              onClick={e => {
-                e.preventDefault();
-              }}
-              className="ms-same-order-option-buttons"
-            >
-              Rate & review product
-            </button>
           </div>
         </div>
       </Link>
+      // <Link
+      //   to={`/orders/${order.parent_order}/${order.order_id}`}
+      //   style={{ textDecoration: "none" }}
+      // >
+      //   <div className="ms-same-order">
+      //     <div className="ms-same-order-image">
+      //       <img
+      //         width="150px"
+      //         height="150px"
+      //         src={product.image}
+      //         alt="product"
+      //       />
+      //     </div>
+      //     <div className="ms-same-order-description1">
+      //       <div className="ms-same-order-name">{product.name}</div>{" "}
+      //       <div className="ms-same-order-name">
+      //         ₹
+      //         {order.original_price -
+      //           order.seller_discount +
+      //           order.shipping_charges}
+      //       </div>
+      //       <div className="ms-same-order-name">Size: {order.size}</div>
+      //       <div className="ms-same-order-name">Quantity: {order.quantity}</div>
+      //     </div>
+      //     <div className="ms-same-order-option-buttons-wrapper">
+      //       <button
+      //         onClick={e => {
+      //           e.preventDefault();
+      //         }}
+      //         className="ms-same-order-option-buttons"
+      //       >
+      //         Track this order
+      //       </button>
+      //       <button
+      //         onClick={e => {
+      //           e.preventDefault();
+      //         }}
+      //         className="ms-same-order-option-buttons"
+      //       >
+      //         Return this item
+      //       </button>
+      //       <button
+      //         onClick={e => {
+      //           e.preventDefault();
+      //         }}
+      //         className="ms-same-order-option-buttons"
+      //       >
+      //         Rate & review product
+      //       </button>
+      //     </div>
+      //   </div>
+      // </Link>
     );
   }
 }

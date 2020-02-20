@@ -132,7 +132,16 @@ export class Homepage extends Component {
             <div key={index} className="ms-home-category-body">
               <h3 className="ms-home-category-header">
                 {category[0].category}
-                <button className="ms-home-category-more">More</button>
+                <button
+                  className="ms-home-category-more"
+                  onClick={() => {
+                    this.props.history.push(
+                      `/search/-rating/ / / /${category[0].category}/ `
+                    );
+                  }}
+                >
+                  View more
+                </button>
               </h3>
               <div className="ms-home-category-product-container">
                 {category.map((product, index) => (

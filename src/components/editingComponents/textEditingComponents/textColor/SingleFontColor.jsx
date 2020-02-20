@@ -5,7 +5,7 @@ export class SingleTextColor extends Component {
     let { handleTextFeatureChange, font_color } = this.props;
 
     return (
-      <div
+      <button
         className="ms-text-editing-component"
         onClick={() => {
           let key = "fill";
@@ -14,7 +14,7 @@ export class SingleTextColor extends Component {
         }}
       >
         {font_color}
-      </div>
+      </button>
     );
   }
 }
