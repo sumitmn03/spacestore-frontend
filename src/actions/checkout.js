@@ -4,7 +4,8 @@ import {
   SET_CHECKOUT,
   REMOVE_ITEM_FROM_CHECKOUT,
   REMOVE_SINGLE_CHECKOUT_ITEM,
-  PLACE_ORDER
+  PLACE_ORDER,
+  RESET_CHECKOUT
 } from "./types";
 import { tokenConfig } from "./auth";
 import { deleteFromCart } from "./cart";
@@ -75,6 +76,8 @@ export const removeSingleCheckoutItem = (checkout_id, data) => (
 };
 
 export const placeOrder = checkout => (dispatch, getState) => {
+  console.log(checkout);
+
   let body = [];
   checkout.checkout_datas.map(
     single_data =>
@@ -92,7 +95,7 @@ export const placeOrder = checkout => (dispatch, getState) => {
               ? checkout.quantity
               : single_data.quantity,
           address: checkout.address,
-          original_price: single_data.cart_product.original_price,
+          current_price: single_data.cart_product.current_price,
           seller_discount: single_data.cart_product.seller_discount,
           shipping_charges: 40
         }
@@ -144,4 +147,9 @@ export const deleteAllCartItems = user_id => (dispatch, getState) => {
       dispatch(createMessage({ error: "Server error" }));
       dispatch(createMessage({ error: "please try again" }));
     });
+};
+
+// resets the checkout reducer
+export const resetCheckout = () => dispatch => {
+  dispatch({ type: RESET_CHECKOUT });
 };

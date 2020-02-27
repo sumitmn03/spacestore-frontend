@@ -331,11 +331,7 @@ export class Authorization extends Component {
               {/* Enter the OTP sent to{" "}
               <span style={{ fontWeight: "bold" }}>{this.state.email}</span> . */}
               <span
-                style={{
-                  color: "#115EA4",
-                  display: "block",
-                  marginTop: "5px"
-                }}
+                className="ms-auth-go-back"
                 onClick={() => {
                   this.setState({ first_page: true });
                 }}
@@ -363,11 +359,7 @@ export class Authorization extends Component {
               {/* Enter the OTP sent to{" "}
               <span style={{ fontWeight: "bold" }}>{this.state.email}</span> . */}
               <span
-                style={{
-                  color: "#115EA4",
-                  display: "block",
-                  marginTop: "5px"
-                }}
+                className="ms-auth-go-back"
                 onClick={() => {
                   this.setState({ first_page: true });
                 }}
@@ -395,7 +387,7 @@ export class Authorization extends Component {
           className="ms-auth-page"
         >
           <div className="ms-auth-page-container">
-            <div className="ms-auth-page-sidebar">
+            <div className="ms-auth-page-sidebar ms-not-small">
               <div className="ms-auth-page-sidebar-content">
                 Now Customizing things are much easier than you think. This is
                 from the auth page

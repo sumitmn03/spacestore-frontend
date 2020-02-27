@@ -139,56 +139,101 @@ export const textAlignFunction = (canvas, boundingBox, where_to_align) => {
 
 // creatig a moving box
 export const addNewTextbox = canvas => {
-  let movingBox = new fabric.Textbox("Type Here...", {
-    // left: (500 - 250) / 2,
-    // top: 110,
-    left: (260 - 100) / 2,
-    top: 120,
-    fontSize: 19,
-    width: 100,
-    textAlign: "center",
-    hasRotatingPoint: false,
-    lockScalingY: true,
-    _controlsVisibility: { ml: true, mr: true }
-  });
+  let movingBox;
+  if (window.innerWidth < 992) {
+    movingBox = new fabric.Textbox("Type Here...", {
+      // left: (500 - 250) / 2,
+      // top: 110,
+      width: 100,
+      left: (260 - 100) / 2,
+      top: 120,
+      fontSize: 19,
+      textAlign: "center",
+      hasRotatingPoint: false,
+      lockScalingY: true,
+      _controlsVisibility: { ml: true, mr: true }
+    });
+  } else {
+    movingBox = new fabric.Textbox("Type Here...", {
+      // left: (500 - 250) / 2,
+      // top: 110,
+      width: 100,
+      left: (350 - 100) / 2,
+      top: 190,
+      fontSize: 19,
+      textAlign: "center",
+      hasRotatingPoint: false,
+      lockScalingY: true,
+      _controlsVisibility: { ml: true, mr: true }
+    });
+  }
 
   canvas.add(movingBox).setActiveObject(movingBox);
 };
 
 // Creating a bounding box
 export const createBoundingBoxAndAddToCanvas = canvas => {
-  let boundingBox = new fabric.Rect({
-    fill: "rgba(0,0,0,0)",
-    width: 120,
-    height: 170,
-    textAlign: "end",
-    // left: (500 - 250) / 2,
-    // top: 110,
-    // width: 250,
-    // height: 355,
-    left: (260 - 120) / 2,
-    top: 110,
-    stroke: "black",
-    evented: false,
-    selectable: false
-  });
+  let boundingBox;
+  if (window.innerWidth < 992) {
+    boundingBox = new fabric.Rect({
+      fill: "rgba(0,0,0,0)",
+      width: 120,
+      height: 170,
+      textAlign: "end",
+      left: (260 - 120) / 2,
+      top: 115,
+      stroke: "black",
+      evented: false,
+      selectable: false
+    });
+  } else {
+    boundingBox = new fabric.Rect({
+      fill: "rgba(0,0,0,0)",
+      width: 160,
+      height: 230,
+      textAlign: "end",
+      left: (350 - 160) / 2,
+      top: 180,
+      stroke: "black",
+      evented: false,
+      selectable: false
+    });
+  }
 
   canvas.add(boundingBox);
   return boundingBox;
 };
 
 export const setImageSource = (image, img_scr, canvas) => {
-  image.setSrc(img_scr, img => {
-    img.set({
-      evented: false,
-      selectable: false,
-      top: 35,
-      scaleX: 260 / img.width,
-      scaleY: 300 / img.height
+  if (window.innerWidth < 992) {
+    image.setSrc(img_scr, img => {
+      img.set({
+        evented: false,
+        selectable: false,
+        top: 55,
+        scaleX: 260 / img.width,
+        scaleY: 260 / img.height
+      });
+      img.setCoords();
+      canvas.renderAll();
     });
-    img.setCoords();
-    canvas.renderAll();
-  });
+  } else {
+    image.setSrc(img_scr, img => {
+      img.set({
+        evented: false,
+        selectable: false,
+        top: 100,
+        // top: 35,
+        // top: 35,
+        // scaleX: 260 / img.width,
+        // scaleY: 300 / img.height
+        scaleX: 350 / img.width,
+        scaleY: 350 / img.height
+      });
+      img.setCoords();
+      canvas.renderAll();
+    });
+  }
 };
 
 export const setHeightAndWidthAfterScaling = canvas => {

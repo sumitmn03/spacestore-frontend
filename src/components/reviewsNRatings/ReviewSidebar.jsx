@@ -78,7 +78,7 @@ export class ReviewSidebar extends Component {
       image,
       name,
       rating,
-      original_price,
+      current_price,
       seller_discount
     } = this.props.product;
 
@@ -105,10 +105,7 @@ export class ReviewSidebar extends Component {
               )}
               <div className="ms-review-sidebar-product-price-wrapper">
                 <span className="ms-review-sidebar-product-current-price">
-                  ₹{original_price - seller_discount}
-                </span>
-                <span className="ms-review-sidebar-product-original-price">
-                  ₹{original_price}
+                  ₹{current_price - seller_discount}
                 </span>
               </div>
             </div>

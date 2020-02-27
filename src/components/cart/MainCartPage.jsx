@@ -62,8 +62,7 @@ export class MainCartPage extends Component {
             )}
             {cart.map((cart_item, index) => {
               let product = cart_item.cart_product;
-              cart_total_amt +=
-                product.original_price - product.seller_discount;
+              cart_total_amt += product.current_price;
               return (
                 <SingleCartProductDetails
                   key={index}
@@ -106,27 +105,25 @@ export class MainCartPage extends Component {
                 ₹{cart_total_amt + shipping_charges}
               </span>
             </div>
-            <div className="ms-cart-order-btn-container">
-              <button
-                className="ms-cart-order-btn"
-                onClick={e => {
-                  if (cart.length < 1) {
-                    createMessage({ error: "your cart is empty" });
-                  } else {
-                    updateCheckout(user.checkout_id, {
-                      user: user.id,
-                      cart_or_single: "cart"
-                    });
-                    this.props.history.push("/checkout");
-                  }
-                }}
-              >
-                Place Order
-              </button>
-            </div>
+            <button
+              className="ms-cart-order-btn"
+              onClick={e => {
+                if (cart.length < 1) {
+                  createMessage({ error: "your cart is empty" });
+                } else {
+                  updateCheckout(user.checkout_id, {
+                    user: user.id,
+                    cart_or_single: "cart"
+                  });
+                  this.props.history.push("/checkout");
+                }
+              }}
+            >
+              Place Order
+            </button>
           </div>
         </div>
-        <div className="ms-cart-container">
+        <div className="ms-cart-container ms-sfl-container">
           <div className="ms-cart-product-container">
             <div className="ms-cart-header">SAVED FOR LATER</div>
             {saved_for_later.length < 1 ? (

@@ -121,7 +121,10 @@ export class MyProfile extends Component {
         <div className="ms-profile-header">MY PROFILE</div>
         <div className="ms-profile-body">
           <div className="ms-profile-form">
-            <form onSubmit={this.submitPersonalInfo}>
+            <form
+              className="ms-profile-single-form first"
+              onSubmit={this.submitPersonalInfo}
+            >
               <div className="ms-profile-name-container first">
                 <label
                   className="ms-profile-form-name-label"
@@ -194,8 +197,9 @@ export class MyProfile extends Component {
               <br /> <br />
               <button type="submit">Update personal info</button>
             </form>
-            <br /> <br /> <br />
+            {/* <br /> <br /> <br /> */}
             <form
+              className="ms-profile-single-form second"
               onSubmit={e => {
                 e.preventDefault();
                 otp_sent

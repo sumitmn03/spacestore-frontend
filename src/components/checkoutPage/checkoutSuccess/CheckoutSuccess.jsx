@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { resetCheckout } from "../../../actions/checkout";
 
 export class CheckoutSuccess extends Component {
+  static propTypes = {
+    resetCheckout: PropTypes.func.isRequired
+  };
+
+  componentDidMount() {
+    this.props.resetCheckout();
+  }
+
   render() {
     return (
       <div className="ms-checkout-success-page">
@@ -28,4 +39,4 @@ export class CheckoutSuccess extends Component {
   }
 }
 
-export default CheckoutSuccess;
+export default connect(null, { resetCheckout })(CheckoutSuccess);

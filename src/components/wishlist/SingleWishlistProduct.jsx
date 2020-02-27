@@ -33,10 +33,10 @@ export class SingleWishlistProduct extends Component {
           )}
           <div className="ms-wishlist-order-price-wrapper">
             <span className="ms-wishlist-order-current-price">
-              ₹{product.original_price - product.seller_discount}
+              ₹{product.current_price}
             </span>{" "}
             <span className="ms-wishlist-order-original-price">
-              ₹{product.original_price}
+              ₹{product.current_price + product.seller_discount}
             </span>
           </div>
         </div>

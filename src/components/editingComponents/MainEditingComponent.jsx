@@ -82,6 +82,29 @@ export class MainEditingComponent extends Component {
     resize_current_image(this.canvas, 250, 355);
   };
 
+  handle_save_n_proceed = () => {
+    this.canvas.discardActiveObject();
+    this.boundingBox.set("opacity", 0);
+    this.canvas.renderAll();
+    /****/
+    let product_image = document.getElementById("bounded").toDataURL();
+    // console.log(document.getElementById("bounded").toDataURL());
+    this.tshirtImage.set("opacity", 0);
+    this.canvas.renderAll();
+    /****/
+    this.boundingBox.set("opacity", 110);
+    this.tshirtImage.set("opacity", 10);
+    this.canvas.renderAll();
+
+    console.log({
+      // name: "editable00700",
+      // product_type: "tshirt",
+      // product_color: "",
+      product_design_type: "selfmade__00700",
+      image: product_image
+    });
+  };
+
   handle_save = () => {
     let link = document.createElement("a");
     link.download = "filename.png";
@@ -199,8 +222,8 @@ export class MainEditingComponent extends Component {
       if (editable_product) {
         setImageSource(
           this.tshirtImage,
-          // this.images("./darkgreentshirt.png"),
-          editable_product.image,
+          this.images("./darkgreentshirt.png"),
+          // editable_product.image,
           this.canvas
         );
       }
@@ -210,7 +233,7 @@ export class MainEditingComponent extends Component {
   }
 
   componentToRenderBasedOnViewport = () =>
-    window.innerWidth < 768 ? (
+    window.innerWidth < 992 ? (
       <Fragment>
         <ProductView />
         {/* <div className="ms-main-editing-component"> */}
@@ -229,7 +252,7 @@ export class MainEditingComponent extends Component {
           handle_adding_new_image_in_canvas={
             this.handle_adding_new_image_in_canvas
           }
-          handle_save={this.handle_save}
+          handle_save_n_proceed={this.handle_save_n_proceed}
         />
       </Fragment>
     ) : (
@@ -244,8 +267,8 @@ export class MainEditingComponent extends Component {
         />
         {/* <div className="ms-main-editing-component"> */}
         <div className="ms-image-and-img-side-changing-button-wrapper">
-          {/* <canvas id="bounded" width="500" height="500" /> */}
-          <canvas id="bounded" width="260" height="370" />
+          <canvas id="bounded" width="350" height="500" />
+          {/* <canvas id="bounded" width="260" height="370" /> */}
         </div>
         {/* </div> */}
         {/* till here */}

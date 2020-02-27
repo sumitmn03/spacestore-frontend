@@ -99,16 +99,20 @@ export class TextEditingComponent extends Component {
             fontStyle={this.props.fontStyle}
             fontWeight={this.props.fontWeight}
           />
-          <button
-            className="ms-text-editing-component"
-            onClick={() => this.changeComponentToBeRendered(5)}
-          >
-            Align
-          </button>
-          {/* <MainTextAlign
-            handleTextFeatureChange={this.props.handleTextFeatureChange}
-            handleTextAlign={this.props.handleTextAlign}
-          /> */}
+          {window.innerWidth < 992 ? (
+            <button
+              className="ms-text-editing-component"
+              onClick={() => this.changeComponentToBeRendered(5)}
+            >
+              Align
+            </button>
+          ) : (
+            <MainTextAlign
+              handleTextFeatureChange={this.props.handleTextFeatureChange}
+              handleTextAlign={this.props.handleTextAlign}
+            />
+          )}
+
           <button
             className="ms-text-editing-component ms-text-editing-component-remove"
             onClick={() => {

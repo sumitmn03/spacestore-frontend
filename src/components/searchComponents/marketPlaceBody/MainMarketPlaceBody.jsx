@@ -72,11 +72,11 @@ export class MainMarketPlaceBody extends Component {
         order_by_value = "recommended";
         break;
 
-      case "original_price":
+      case "current_price":
         order_by_value = "low to high";
         break;
 
-      case "-original_price":
+      case "-current_price":
         order_by_value = "high to low";
         break;
 
@@ -111,11 +111,11 @@ export class MainMarketPlaceBody extends Component {
           break;
 
         case "low to high":
-          order_by_value = "original_price";
+          order_by_value = "current_price";
           break;
 
         case "high to low":
-          order_by_value = "-original_price";
+          order_by_value = "-current_price";
           break;
 
         case "high discount":

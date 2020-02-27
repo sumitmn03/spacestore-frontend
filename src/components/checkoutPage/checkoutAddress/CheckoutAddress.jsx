@@ -58,7 +58,7 @@ export class CheckoutAddress extends Component {
                 address_status={address_status}
               />
             ) : (
-              <div className="ms-checkout-address-add-button">
+              <div className="ms-address-add-button">
                 <span onClick={() => this.toggleAddAddress(true)}>
                   Add a new address
                 </span>
@@ -78,7 +78,7 @@ export class CheckoutAddress extends Component {
               ) : (
                 <div
                   key={address.id}
-                  className="ms-checkout-address-single-address-container checkout-page"
+                  className="ms-address-single-address-container checkout-page"
                   onClick={() => {
                     updateCheckout(user.checkout_id, {
                       user: user.id,
@@ -87,7 +87,7 @@ export class CheckoutAddress extends Component {
                     window.scrollTo(0, 0);
                   }}
                 >
-                  <div className="ms-checkout-address-single-address">
+                  <div className="ms-address-single-address">
                     <div>{address.name}</div>
                     <div>{address.address}</div>
                     <div>{address.locality}</div>
@@ -98,9 +98,9 @@ export class CheckoutAddress extends Component {
                     <div>{address.pin_code}</div>
                     <div>Alternate phone no.- {address.alt_phone}</div>
                   </div>
-                  <div className="ms-checkout-address-single-address-btn-container">
+                  <div className="ms-address-single-address-btn-container">
                     <button
-                      className="ms-checkout-address-single-address-btn edit ms-not-small"
+                      className="ms-address-single-address-btn edit ms-not-small"
                       onClick={() => {
                         updateCheckout(user.checkout_id, {
                           user: user.id,
@@ -112,7 +112,7 @@ export class CheckoutAddress extends Component {
                       Select
                     </button>
                     <button
-                      className="ms-checkout-address-single-address-btn edit"
+                      className="ms-address-single-address-btn edit"
                       onClick={e => {
                         e.stopPropagation();
                         this.handleCompToEdit(index);
@@ -121,7 +121,7 @@ export class CheckoutAddress extends Component {
                       Edit
                     </button>
                     <button
-                      className="ms-checkout-address-single-address-btn delete"
+                      className="ms-address-single-address-btn delete"
                       onClick={e => {
                         e.stopPropagation();
                         deleteAddress(address.id);

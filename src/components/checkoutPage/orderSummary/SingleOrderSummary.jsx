@@ -40,7 +40,7 @@ export class SingleOrderSummary extends Component {
           </div>
           <div className="ms-checkout-order-sum-single-product-desc">
             <span className="ms-checkout-order-sum-single-product-cprice">
-              ₹{product_data.original_price - product_data.seller_discount}
+              ₹{product_data.current_price}
             </span>
             <span className="ms-checkout-order-sum-single-product-desc-oprice">
               {product_data.original_price}

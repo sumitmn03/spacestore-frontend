@@ -20,8 +20,8 @@ export class SingleOrderInTheOrderPage extends Component {
             <img
               // width="150px"
               // height="150px"
-              width="70px"
-              height="70px"
+              // width="70px"
+              // height="70px"
               src={product.image}
               alt="product"
             />
@@ -32,10 +32,7 @@ export class SingleOrderInTheOrderPage extends Component {
               <div className="ms-single-order-description1">
                 <div className="ms-single-order-name">{product.name}</div>
                 <div className="ms-single-order-name">
-                  ₹
-                  {order.original_price -
-                    order.seller_discount +
-                    order.shipping_charges}
+                  ₹{order.current_price + order.shipping_charges}
                 </div>
                 <div className="ms-single-order-name">Size: {order.size}</div>
                 <div className="ms-single-order-name">
@@ -56,7 +53,7 @@ export class SingleOrderInTheOrderPage extends Component {
                 </div>
               </div>
 
-              <div className="ms-past-order-option-buttons-wrapper ms-fl ms-mt-30 ms-ml-40">
+              {/* <div className="ms-single-order-option-buttons-wrapper">
                 <button
                   onClick={e => {
                     e.preventDefault();
@@ -81,7 +78,7 @@ export class SingleOrderInTheOrderPage extends Component {
                 >
                   Rate & review product
                 </button>
-              </div>
+              </div> */}
             </Fragment>
           ) : (
             <div className="ms-single-order-description2">

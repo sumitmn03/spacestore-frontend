@@ -19,6 +19,8 @@ export default function(state = initialState, action) {
       };
 
     case ADD_TO_CART:
+      console.log(state.cart);
+
       return {
         ...state,
         cart: [

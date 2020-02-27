@@ -40,7 +40,7 @@ export class MainContents extends Component {
       image,
       name,
       rating,
-      original_price,
+      current_price,
       seller_discount,
       size_n_quantity,
       product_details,
@@ -170,10 +170,10 @@ export class MainContents extends Component {
               )}
               <div className="ms-product-page-price-wrapper">
                 <span className="ms-product-page-current-price">
-                  ₹{original_price - seller_discount}
+                  ₹{current_price}
                 </span>
                 <span className="ms-product-page-original-price">
-                  ₹{original_price}
+                  ₹{current_price + seller_discount}
                 </span>
               </div>
               <div className="ms-product-page-sizes">
@@ -282,10 +282,10 @@ export class MainContents extends Component {
               )}
               <div className="ms-product-page-price-wrapper">
                 <span className="ms-product-page-current-price">
-                  ₹{original_price - seller_discount}
+                  ₹{current_price}
                 </span>
                 <span className="ms-product-page-original-price">
-                  ₹{original_price}
+                  ₹{current_price + seller_discount}
                 </span>
               </div>
               <div className="ms-product-page-sizes">
@@ -351,7 +351,6 @@ export class MainContents extends Component {
           <div className="ms-product-page-description">
             <h2 className="ms-product-page-detail-header-main">Description</h2>
             <div className="ms-product-page-description-body">
-              {" "}
               {description}
             </div>
           </div>
@@ -470,189 +469,6 @@ export class MainContents extends Component {
             </div>
           </div>
         </div>
-
-        {/* 
-          <h2 className="ms-product-page-main-second-name">{name}</h2>
-          {rating ? (
-            <div className="ms-product-page-rating">{rating}</div>
-          ) : (
-            <Fragment />
-          )}
-          <div className="ms-product-page-price-wrapper">
-            <span className="ms-product-page-current-price">
-              ₹{original_price - seller_discount}
-            </span>{" "}
-            <span className="ms-product-page-original-price">
-              ₹{original_price}
-            </span>
-          </div>
-          <div className="ms-product-page-sizes">
-            <span className="ms-product-page-sizes-header">
-              Available sizes:
-            </span>
-            {temp_size_elems_arr}
-          </div>
-          <div className="ms-product-page-services">
-            {services.map((service, index) => (
-              <li key={index}>{service}</li>
-            ))}
-          </div>
-          
-          <button
-            className="ms-product-page-wishlist-btn"
-            onMouseOver={e => {
-              e.target.style.backgroundColor = item_in_wishlist
-                ? "rgb(245, 26, 26)"
-                : "#51b9ed";
-              e.target.style.color = "white";
-            }}
-            onMouseOut={e => {
-              e.target.style.backgroundColor = "white";
-              e.target.style.color = "black";
-            }}
-            onClick={() => {
-              if (item_in_wishlist) {
-                deleteFromWl(item_in_wishlist.id);
-                createMessage({ success: "Item removed from wishlist" });
-              } else {
-                addToWishlist(id);
-                createMessage({ success: "Item added to wishlist" });
-              }
-              this.getCurrentProduct();
-            }}
-          >
-            {item_in_wishlist ? "Remove from wishlist" : " Add to wishlist"}
-          </button>
-          <div className="ms-product-page-detail-container">
-            <h2 className="ms-product-page-header">Details</h2>
-            {product_details.map((detail, i) => (
-              <div key={i} className="ms-product-page-detail">
-                <span className="ms-product-page-detail-header">
-                  {detail.header}
-                </span>{" "}
-                <span className="ms-product-page-detail-value">
-                  {detail.value}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="ms-product-page-description">
-            <h2 className="ms-product-page-header">Description</h2>
-            <div> {description}</div>
-          </div>
-
-          <div className="ms-product-page-review-container">
-            <h2 className="ms-product-page-header">Reviews</h2>
-            <div>
-              {reviews.map(review => (
-                <div key={review.id} className="ms-product-page-review">
-                  <div>
-                    <span className="ms-product-page-review-username">
-                      {review.user_name}
-                    </span>{" "}
-                    <span className="ms-product-page-review-rating">
-                      {review.rating} / 5
-                    </span>
-                  </div>
-                  <div className="ms-product-page-review-review">
-                    {review.review}
-                  </div>
-                </div>
-              ))}
-              {reviews.length <= 0 ? (
-                <div className="ms-product-page-noreviews">
-                  No reviews found for this product.
-                </div>
-              ) : (
-                <Fragment />
-              )}
-            </div>
-            <div className="ms-product-page-footer">
-              {reviews.length > 0 ? (
-                <span>
-                  <Link
-                    to={`/product/reviews_n_ratings/${product.id}`}
-                    className="ms-product-page-footer-link"
-                  >
-                    See all reviews
-                  </Link>
-                </span>
-              ) : (
-                <Fragment />
-              )}
-              {isAuthenticated ? (
-                <span>
-                  <Link
-                    to={`/product/reviews_n_ratings/${product.id}`}
-                    className="ms-product-page-footer-link"
-                  >
-                    Write a review
-                  </Link>
-                </span>
-              ) : (
-                <Fragment />
-              )}
-            </div>
-          </div>
-
-          <div className="ms-product-page-qna">
-            <h2 className="ms-product-page-header">Qustions and answers</h2>
-            <div>
-              {q_n_as.map(qna => (
-                <div key={qna.id}>
-                  <div className="ms-product-page-qna-q">
-                    <span className="ms-product-page-qna-q-f"> Question: </span>
-                    <span className="ms-product-page-qna-q-s">
-                      {" "}
-                      {qna.question}{" "}
-                    </span>
-                  </div>
-                  <div className="ms-product-page-qna-a">
-                    <span className="ms-product-page-qna-a-f">Answer: </span>
-                    <span className="ms-product-page-qna-a-s">
-                      {" "}
-                      {qna.answer}{" "}
-                    </span>
-                  </div>
-                </div>
-              ))}
-              {q_n_as.length <= 0 ? (
-                <div className="ms-product-page-noreviews">
-                  No Questions and answers found for this product.
-                </div>
-              ) : (
-                <Fragment />
-              )}
-            </div>
-            <div className="ms-product-page-footer">
-              {q_n_as.length > 0 ? (
-                <span>
-                  <Link
-                    to={`/product/qna/${product.id}`}
-                    className="ms-product-page-footer-link"
-                  >
-                    See all questions and answers
-                  </Link>
-                </span>
-              ) : (
-                <Fragment />
-              )}
-
-              {isAuthenticated ? (
-                <span>
-                  <Link
-                    to={`/product/qna/${product.id}`}
-                    className="ms-product-page-footer-link"
-                  >
-                    Post a question
-                  </Link>
-                </span>
-              ) : (
-                <Fragment />
-              )}
-            </div>
-        </div> */}
       </div>
     );
   }

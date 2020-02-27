@@ -34,6 +34,7 @@ import AddressPage from "./components/address/AddressPage";
 import AddNewAddress from "./components/address/AddNewAddress";
 import CheckoutPage from "./components/checkoutPage/CheckoutPage";
 import CheckoutSuccess from "./components/checkoutPage/checkoutSuccess/CheckoutSuccess";
+import ReturnPage from "./components/orderComponents/return/ReturnPage";
 
 // Alert Options
 const alertOptions = {
@@ -102,6 +103,11 @@ export class App extends Component {
                   <PrivateRoute
                     path="/checkout_success"
                     component={CheckoutSuccess}
+                  />
+                  <PrivateRoute
+                    path="/return/:order_id"
+                    exact
+                    component={ReturnPage}
                   />
                 </Switch>
               </div>

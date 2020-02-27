@@ -65,7 +65,7 @@ export class SelectEditingComponent extends Component {
         <button
           className="ms-select-editing-component ms-select-editing-component-save"
           onClick={() => {
-            this.props.handle_save();
+            this.props.handle_save_n_proceed();
           }}
         >
           Save

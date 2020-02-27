@@ -127,7 +127,6 @@ export class UpdateOldAddress extends Component {
               value={address}
               onChange={this.handleOnChange}
             ></textarea>
-            <br />
             <input
               className="ms-add-address-form-input first"
               name="locality"

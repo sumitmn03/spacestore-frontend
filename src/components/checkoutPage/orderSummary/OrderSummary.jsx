@@ -26,8 +26,7 @@ export class OrderSummary extends Component {
             {checkout.checkout_datas ? (
               checkout.checkout_datas.map(single_cart_data => {
                 checkout_total_amt +=
-                  single_cart_data.cart_product.original_price -
-                  single_cart_data.cart_product.seller_discount;
+                  single_cart_data.cart_product.current_price;
 
                 return (
                   <SingleOrderSummary
@@ -75,7 +74,7 @@ export class OrderSummary extends Component {
                 ₹{shipping_charges}
               </span>
             </div>
-            <div className="ms-checkout-order-summary-sidebar-total-amt-label">
+            <div className="ms-checkout-order-summary-sidebar-total-amt-label ms-checkout-order-summary-sidebar-payment">
               Total :{" "}
               <span className="ms-checkout-order-summary-sidebar-total-amt">
                 ₹{checkout_total_amt + shipping_charges}

@@ -10,14 +10,7 @@ export class SingleProductView extends Component {
 
   render() {
     let { product } = this.props;
-    let {
-      image,
-      // name,
-      // rating,
-      original_price,
-      seller_discount
-      // size_n_quantity
-    } = product;
+    let { image, current_price, seller_discount } = product;
 
     return (
       <div className="ms-home-category-product" onClick={this.handleOnClick}>
@@ -32,10 +25,10 @@ export class SingleProductView extends Component {
         <div className="ms-home-category-product-rating">5.8</div> */}
         <div className="ms-home-category-product-price-wrapper">
           <span className="ms-home-category-product-current-price">
-            ₹{original_price - seller_discount}
+            ₹{current_price}
           </span>{" "}
           <span className="ms-home-category-product-original-price">
-            ₹{original_price}
+            ₹{current_price + seller_discount}
           </span>
         </div>
       </div>

@@ -18,15 +18,13 @@ export class FontFamilyList extends Component {
         }
       >
         <div className="ms-font-family-components-wrapper">
-          <div className="ms-font-family-component ms-not-small">
-            <button
-              onClick={() => {
-                this.props.changeComponentToBeRendered(1);
-              }}
-            >
-              {"<"}
-            </button>{" "}
-            <b>Font Family List</b>
+          <div
+            className="ms-font-family-component close"
+            onClick={() => {
+              this.props.changeComponentToBeRendered(1);
+            }}
+          >
+            Close
           </div>
           {font_families.map((font_family, index) => {
             return (

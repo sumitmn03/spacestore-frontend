@@ -2,7 +2,8 @@ import {
   GET_ORDERS,
   GET_ORDER_DETAIL,
   ORDER_LOADING,
-  GET_PARENT_ORDER
+  GET_PARENT_ORDER,
+  RETURN_ORDER
 } from "../actions/types";
 
 const initialState = {
@@ -46,6 +47,15 @@ export default function(state = initialState, action) {
         selected_order: temp_order,
         parent_order: action.payload.api_res,
         order_loading: false
+      };
+
+    case RETURN_ORDER:
+      return {
+        ...state,
+        selected_order: {
+          ...state.selected_order,
+          delivery_status: "Return requested"
+        }
       };
 
     default:

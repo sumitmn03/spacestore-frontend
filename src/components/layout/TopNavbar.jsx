@@ -41,8 +41,8 @@ export class Navbar extends Component {
     const user = auth.user;
 
     const log_n_reg = (
-      <span className="ms-top-navbar-children ms-auth-open-btn">
-        <li>Login / Register</li>
+      <span className="ms-top-navbar-children ms-login-btn ms-auth-open-btn">
+        <li>Login</li>
       </span>
     );
 
@@ -67,9 +67,15 @@ export class Navbar extends Component {
             </div>
             <div className="ms-top-navbar-name">SpaceStore</div>
 
-            <Link to="/cart" className="ms-top-navbar-cart-logo-container">
-              <img src={cartLogo} alt="Home" className="ms-cart-logo" />
-            </Link>
+            {auth.isAuthenticated ? (
+              <Link to="/cart" className="ms-top-navbar-cart-logo-container">
+                <img src={cartLogo} alt="Home" className="ms-cart-logo" />
+              </Link>
+            ) : (
+              <div className="ms-top-navbar-login-register-container">
+                {log_n_reg}
+              </div>
+            )}
           </div>
         ) : (
           <Fragment />

@@ -42,8 +42,7 @@ export class MainTextSize extends Component {
       >
         <div className="ms-font-size-components-wrapper">
           <div
-            className="ms-font-size-component ms-not-small"
-            style={{ color: "#047feb" }}
+            className="ms-font-size-component close"
             onClick={() => {
               this.props.changeComponentToBeRendered(1);
             }}

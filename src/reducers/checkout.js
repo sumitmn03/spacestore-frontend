@@ -3,7 +3,8 @@ import {
   REMOVE_ITEM_FROM_CHECKOUT,
   REMOVE_SINGLE_CHECKOUT_ITEM,
   DELETE_ADDRESS,
-  PLACE_ORDER
+  PLACE_ORDER,
+  RESET_CHECKOUT
 } from "../actions/types";
 
 const initialState = {
@@ -74,6 +75,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         checkout_success: true
+      };
+
+    case RESET_CHECKOUT:
+      return {
+        checkout: { checkout_datas: null },
+        checkout_success: false
       };
 
     default:
